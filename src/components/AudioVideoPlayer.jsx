@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Maximize2, RotateCcw } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 
 export default function AudioVideoPlayer({ 
   src, 
@@ -12,9 +12,12 @@ export default function AudioVideoPlayer({
 }) {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
+  const playerId = useRef(src || Math.random().toString()).current;
+
   const [isInView, setIsInView] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isManualPlay, setIsManualPlay] = useState(false); // true when clicked to play with audio
+  const [isMuted, setIsMuted] = useState(true); // muted by default for silent hover preview
   const [volume, setVolume] = useState(0.85);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState("0:00");
@@ -28,7 +31,27 @@ export default function AudioVideoPlayer({
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
-  // Preload video frame when near viewport
+  // Listen for global event to pause when another video plays
+  useEffect(() => {
+    const handleStopOther = (e) => {
+      if (e.detail?.id !== playerId) {
+        const video = videoRef.current;
+        if (video && !video.paused) {
+          video.pause();
+        }
+        setIsPlaying(false);
+        setIsManualPlay(false);
+        setIsMuted(true);
+      }
+    };
+
+    window.addEventListener('app:stopOtherVideos', handleStopOther);
+    return () => {
+      window.removeEventListener('app:stopOtherVideos', handleStopOther);
+    };
+  }, [playerId]);
+
+  // Lazy load video only when approaching viewport to maximize loading performance
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -36,13 +59,14 @@ export default function AudioVideoPlayer({
         const video = videoRef.current;
         if (!video) return;
 
-        // If scrolled away while playing, pause immediately
+        // If scrolled completely out of view, pause immediately
         if (!entry.isIntersecting) {
           video.pause();
           setIsPlaying(false);
+          setIsManualPlay(false);
         }
       },
-      { rootMargin: '300px 0px', threshold: 0.05 }
+      { rootMargin: '150px 0px', threshold: 0.05 }
     );
 
     if (containerRef.current) {
@@ -54,6 +78,7 @@ export default function AudioVideoPlayer({
     };
   }, []);
 
+  // Synchronize video element event listeners and properties
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !isInView) return;
@@ -86,61 +111,77 @@ export default function AudioVideoPlayer({
       video.removeEventListener('play', handlePlay);
       video.removeEventListener('pause', handlePause);
     };
-  }, [src, isInView]);
+  }, [src, isInView, isMuted, volume]);
 
-  // Hover IN: Start playing with audio immediately
+  // Hover IN: Silent video preview ONLY (No Sound)
   const handleMouseEnter = async () => {
+    if (isManualPlay) return; // Keep playing with sound if explicitly opened
     const video = videoRef.current;
     if (!video) return;
     setShowControls(true);
 
     try {
-      video.muted = false;
-      video.volume = volume > 0 ? volume : 0.85;
-      setIsMuted(false);
+      video.muted = true;
+      setIsMuted(true);
       await video.play();
       setIsPlaying(true);
     } catch (err) {
-      // If browser restricts unmuted autoplay before any user gesture, fall back to muted play
-      try {
-        video.muted = true;
-        setIsMuted(true);
-        await video.play();
-        setIsPlaying(true);
-      } catch (e) {
-        setIsPlaying(false);
-      }
+      // Silently handle any browser autoplay restrictions
     }
   };
 
-  // Hover OUT: Immediately pause video and stop audio
+  // Hover OUT: Stop preview immediately if not explicitly clicked
   const handleMouseLeave = () => {
+    setShowControls(false);
+    if (isManualPlay) return; // Retain active playback if user clicked to open
     const video = videoRef.current;
     if (!video) return;
-    setShowControls(false);
     video.pause();
     setIsPlaying(false);
   };
 
-  // Click/Tap toggle (especially for mobile touch)
-  const togglePlay = async () => {
+  // Click/Open: Play with sound and pause any other playing videos
+  const togglePlayWithAudio = async () => {
     const video = videoRef.current;
     if (!video) return;
-    if (video.paused) {
+
+    if (isPlaying && isManualPlay && !isMuted) {
+      // Currently playing with sound -> pause it
+      video.pause();
+      setIsPlaying(false);
+      setIsManualPlay(false);
+    } else {
+      // Stop all other playing videos across the site
+      window.dispatchEvent(new CustomEvent('app:stopOtherVideos', { detail: { id: playerId } }));
+
       try {
         video.muted = false;
         video.volume = volume > 0 ? volume : 0.85;
         setIsMuted(false);
+        setIsManualPlay(true);
         await video.play();
         setIsPlaying(true);
+        setShowControls(true);
       } catch (err) {
-        video.play();
-        setIsPlaying(true);
+        // Fallback to muted if browser requires gesture confirmation
+        try {
+          video.muted = true;
+          setIsMuted(true);
+          await video.play();
+          setIsPlaying(true);
+        } catch (e) {
+          setIsPlaying(false);
+        }
       }
-    } else {
-      video.pause();
-      setIsPlaying(false);
     }
+  };
+
+  const handleContainerClick = (e) => {
+    // If click originated from control buttons/sliders, don't trigger container toggle
+    if (e.target.closest('button') || e.target.closest('input')) {
+      return;
+    }
+    togglePlayWithAudio();
   };
 
   const toggleMute = (e) => {
@@ -148,9 +189,11 @@ export default function AudioVideoPlayer({
     const video = videoRef.current;
     if (!video) return;
     if (isMuted) {
+      window.dispatchEvent(new CustomEvent('app:stopOtherVideos', { detail: { id: playerId } }));
       video.muted = false;
-      video.volume = volume > 0 ? volume : 0.8;
+      video.volume = volume > 0 ? volume : 0.85;
       setIsMuted(false);
+      setIsManualPlay(true);
     } else {
       video.muted = true;
       setIsMuted(true);
@@ -166,6 +209,7 @@ export default function AudioVideoPlayer({
       if (newVol > 0 && isMuted) {
         videoRef.current.muted = false;
         setIsMuted(false);
+        setIsManualPlay(true);
       } else if (newVol === 0 && !isMuted) {
         videoRef.current.muted = true;
         setIsMuted(true);
@@ -205,16 +249,17 @@ export default function AudioVideoPlayer({
       className={`relative group rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/25 transition-all duration-500 cursor-pointer ${className}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={togglePlay}
+      onClick={handleContainerClick}
       style={{ aspectRatio }}
     >
-      {/* Video Element (Loaded lazily when scrolled into view, plays with audio on hover) */}
+      {/* Video Element (Preload none for fast site load; silent on hover, sound on click) */}
       <video
         ref={videoRef}
         src={isInView ? src : undefined}
         loop={loop}
+        muted={isMuted}
         playsInline
-        preload="metadata"
+        preload="none"
         controlsList="nodownload nofullscreen noremoteplayback"
         disablePictureInPicture
         draggable="false"
@@ -222,7 +267,7 @@ export default function AudioVideoPlayer({
         className="w-full h-full object-cover object-center select-none"
       />
 
-      {/* Top Floating Badge: Category & Audio Notice */}
+      {/* Top Floating Badge: Category & Sound Status (Clean, no 'hover for sound' text) */}
       <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-20">
         {category && (
           <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] sm:text-xs font-mono uppercase tracking-widest text-neutral-300">
@@ -230,25 +275,19 @@ export default function AudioVideoPlayer({
           </span>
         )}
 
-        {isPlaying && !isMuted ? (
+        {isPlaying && !isMuted && (
           <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-[10px] font-mono uppercase tracking-widest text-emerald-400 shadow-lg">
             <Volume2 className="w-3 h-3 text-emerald-400 animate-pulse" />
-            <span>Audio Live</span>
-          </span>
-        ) : (
-          <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-widest text-neutral-400">
-            <Volume2 className="w-3 h-3 text-neutral-400" />
-            <span>Hover for Sound</span>
+            <span>Sound On</span>
           </span>
         )}
       </div>
 
-      {/* Center Subtle Hover Indicator (when paused) */}
+      {/* Center Clean Play Icon (Visible only when completely paused, smoothly fades out on hover/play) */}
       {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 bg-black/25">
-          <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white text-xs font-mono uppercase tracking-wider shadow-2xl group-hover:scale-105 transition-transform">
-            <Play className="w-3.5 h-3.5 fill-white" />
-            <span>Hover to Play ✦ Audio</span>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 bg-black/20">
+          <div className="w-14 h-14 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-2xl group-hover:scale-110 group-hover:bg-white group-hover:text-black group-hover:border-white transition-all duration-300">
+            <Play className="w-5 h-5 fill-current ml-0.5" />
           </div>
         </div>
       )}
@@ -273,14 +312,21 @@ export default function AudioVideoPlayer({
         </div>
 
         <div className="flex items-center justify-between gap-3 text-white">
-          {/* Left Controls: Play/Pause, Time & Sound */}
+          {/* Left Controls: Play/Pause, Sound Toggle & Volume Slider */}
           <div className="flex items-center gap-3">
             <button
-              onClick={togglePlay}
+              onClick={(e) => {
+                e.stopPropagation();
+                togglePlayWithAudio();
+              }}
               className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-              title={isPlaying ? "Pause" : "Play"}
+              title={isPlaying && !isMuted ? "Pause Audio" : "Play with Audio"}
             >
-              {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white pl-0.5" />}
+              {isPlaying && !isMuted ? (
+                <Pause className="w-4 h-4 fill-white" />
+              ) : (
+                <Play className="w-4 h-4 fill-white pl-0.5" />
+              )}
             </button>
 
             {/* Audio Toggle & Volume Slider */}
@@ -291,7 +337,7 @@ export default function AudioVideoPlayer({
                 title={isMuted ? "Unmute Sound" : "Mute Sound"}
               >
                 {isMuted ? (
-                  <VolumeX className="w-4 h-4 text-red-400" />
+                  <VolumeX className="w-4 h-4 text-neutral-400" />
                 ) : (
                   <Volume2 className="w-4 h-4 text-emerald-400" />
                 )}

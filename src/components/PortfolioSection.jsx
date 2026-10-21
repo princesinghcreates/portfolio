@@ -407,9 +407,9 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                 Motion Graphics
               </h3>
             </div>
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-mono text-white">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
               <Volume2 className="w-4 h-4 text-emerald-400" />
-              <span>Hover Video to Play with Audio</span>
+              <span>Click Video for Sound</span>
             </div>
           </div>
 
