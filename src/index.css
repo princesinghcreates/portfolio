@@ -1,0 +1,63 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #080808;
+    color: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Clash Display', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080808;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #252525;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3e3e3e;
+  }
+
+  /* Anti-Download Media Protection */
+  img, video {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    user-drag: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-touch-callout: none !important;
+  }
+}
+
+/* Watermark & Protected Media Shield */
+.protected-media {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.font-mono-tag {
+  font-family: 'Fragment Mono', monospace;
+}
+
+/* Vertical grid lines overlay */
+.site-grid-lines {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 25% 100%;
+}
