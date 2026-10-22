@@ -53,8 +53,8 @@ export const brandLogos = [
   },
   { 
     id: '08', 
-    name: 'Geometric Crest', 
-    category: 'Autonomous Systems & Robotics', 
+    name: 'PixImpact Solutions', 
+    category: 'Marketing & Designing Agency', 
     src: '/assets/logos/crest.png', 
     year: '2025' 
   }
