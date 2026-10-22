@@ -359,8 +359,6 @@ export const socialMediaPortfolio = {
     { id: 6, title: "Campaign Creative 06", image: "/assets/portfolio/social-media/campaigns/6.jpg", tag: "Campaign Post" },
     { id: 7, title: "Campaign Creative 07", image: "/assets/portfolio/social-media/campaigns/7.jpg", tag: "Product Visual" },
     { id: 8, title: "Campaign Creative 08", image: "/assets/portfolio/social-media/campaigns/8.jpg", tag: "Brand Creative" },
-    { id: 9, title: "Campaign Creative 09", image: "/assets/portfolio/social-media/campaigns/9.jpg", tag: "Feed Asset" },
-    { id: 10, title: "Campaign Creative 10", image: "/assets/portfolio/social-media/campaigns/10.jpg", tag: "Social Post" },
     { id: 11, title: "Campaign Creative 11", image: "/assets/portfolio/social-media/campaigns/11.jpg", tag: "Brand Campaign" },
     { id: 12, title: "Campaign Creative 12", image: "/assets/portfolio/social-media/campaigns/12.jpg", tag: "Editorial Design" },
     { id: 13, title: "Campaign Creative 13", image: "/assets/portfolio/social-media/campaigns/13.jpg", tag: "Key Visual" },

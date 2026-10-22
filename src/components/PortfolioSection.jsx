@@ -390,47 +390,127 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             High-conversion digital assets designed to command the feed. Strategic carousel sequences, launch campaigns, and grid aesthetics built for maximum dwell-time and audience retention.
           </p>
 
-          {/* Single Unified Social Media Showcase Stream (Original Artwork with Designed Typography) */}
-          <div className="space-y-10 sm:space-y-14 mb-16">
+          {/* Single Unified Social Media Showcase Stream */}
+          <div className="space-y-12 sm:space-y-16 mb-16">
             
             {/* Poster 1: Main Heading Poster (Facebook Isometric Performance Grid) */}
-            <div className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-900 border border-white/[0.08] shadow-2xl group">
+            <div 
+              onClick={() => setSelectedCreative({ image: "/assets/portfolio/social-media/social-media-banner-facebook.jpg", title: "Social Media Campaign Architecture" })}
+              className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-900 border border-white/[0.08] hover:border-white/20 transition-all duration-300 shadow-2xl group cursor-pointer relative"
+            >
               <img
                 src="/assets/portfolio/social-media/social-media-banner-facebook.jpg"
                 alt="Social Media Campaign Architecture"
                 className="w-full h-auto object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
                 loading="lazy"
               />
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                  <ZoomIn className="w-5 h-5" />
+                </div>
+              </div>
             </div>
 
-            {/* Poster 2: Strategic Social Media Creative & Ad Design */}
-            <div className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-900 border border-white/[0.08] shadow-2xl group">
-              <img
-                src="/assets/portfolio/social-media/social-media-strategic-ad.jpg"
-                alt="Strategic Social Media Creative & Ad Design"
-                className="w-full h-auto object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
+            {/* Showcase: Strategic Social Media Creative & Ad Design (Images 1 - 4) */}
+            <div>
+              <div className="flex items-center justify-between mb-5">
+                <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                  <span>Strategic Creative &amp; Ad Design Systems</span>
+                </div>
+                <span className="text-[11px] font-mono text-neutral-400">
+                  4 CONVERSION MOCKUPS
+                </span>
+              </div>
+
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                {[
+                  { id: 'sm-1', image: '/assets/portfolio/social-media/showcase/1.webp', title: 'A Brand From Meh to Magnetic' },
+                  { id: 'sm-2', image: '/assets/portfolio/social-media/showcase/2.webp', title: 'Our Manifesto — Building Brands' },
+                  { id: 'sm-3', image: '/assets/portfolio/social-media/showcase/3.webp', title: 'Connecting Brands with Audiences' },
+                  { id: 'sm-4', image: '/assets/portfolio/social-media/showcase/4.webp', title: 'Custom ERP Solution Ad' }
+                ].map((card) => (
+                  <div
+                    key={card.id}
+                    onClick={() => setSelectedCreative(card)}
+                    className="group relative rounded-2xl bg-[#0e0e0e] border border-white/[0.08] hover:border-white/30 p-3 sm:p-5 flex flex-col items-center justify-center cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-white/[0.03] overflow-hidden"
+                  >
+                    <div className="w-full aspect-[9/16] flex items-center justify-center overflow-hidden">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                        <ZoomIn className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Poster 3: Designing with Intent: A Minimalist Approach */}
-            <div className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-900 border border-white/[0.08] shadow-2xl group">
-              <img
-                src="/assets/portfolio/social-media/social-media-minimalist-carousel.jpg"
-                alt="Designing with Intent: A Minimalist Approach"
-                className="w-full h-auto object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
+            {/* Showcase: Luxury AI-Enhanced Visuals (Image 5) */}
+            <div>
+              <div className="flex items-center justify-between mb-5">
+                <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                  <span>Premium AI-Enhanced Visuals &amp; Haute Joaillerie Creatives</span>
+                </div>
+                <span className="text-[11px] font-mono text-neutral-400">
+                  EDITORIAL COMPOSITE MOCKUP
+                </span>
+              </div>
+
+              <div
+                onClick={() => setSelectedCreative({ image: "/assets/portfolio/social-media/showcase/5.webp", title: "Premium AI-Enhanced Visuals: Luxury Jewelry" })}
+                className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#0e0e0e] border border-white/[0.08] hover:border-white/30 transition-all duration-300 shadow-2xl group cursor-pointer relative p-4 sm:p-8 flex items-center justify-center"
+              >
+                <img
+                  src="/assets/portfolio/social-media/showcase/5.webp"
+                  alt="Premium AI-Enhanced Visuals: Luxury Jewelry"
+                  className="w-full h-auto max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-700 ease-out drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                    <ZoomIn className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Poster 4: Premium AI-Enhanced Visuals & Professional Static Creatives */}
-            <div className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-900 border border-white/[0.08] shadow-2xl group">
-              <img
-                src="/assets/portfolio/social-media/social-media-ai-visuals.jpg"
-                alt="Premium AI-Enhanced Visuals & Professional Static Creatives"
-                className="w-full h-auto object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
+            {/* Showcase: Health & Wellness 5-Slide Carousel System (Image 6) */}
+            <div>
+              <div className="flex items-center justify-between mb-5">
+                <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                  <span>Designing with Intent (5-Part Wellness Carousel System)</span>
+                </div>
+                <span className="text-[11px] font-mono text-neutral-400">
+                  MULTI-SLIDE CAROUSEL
+                </span>
+              </div>
+
+              <div
+                onClick={() => setSelectedCreative({ image: "/assets/portfolio/social-media/showcase/6.webp", title: "Designing with Intent: Wellness Carousel" })}
+                className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#0e0e0e] border border-white/[0.08] hover:border-white/30 transition-all duration-300 shadow-2xl group cursor-pointer relative p-4 sm:p-8 flex items-center justify-center"
+              >
+                <img
+                  src="/assets/portfolio/social-media/showcase/6.webp"
+                  alt="Designing with Intent: Wellness Carousel"
+                  className="w-full h-auto max-h-[600px] object-contain group-hover:scale-[1.01] transition-transform duration-700 ease-out drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                    <ZoomIn className="w-5 h-5" />
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
