@@ -376,6 +376,7 @@ export const packagingPortfolio = [
   {
     id: "infiya-tea",
     title: "Infiya Tea",
+    heroImage: "/assets/portfolio/packaging/infiya-tea/ffe7f8230784235.687d803eac2da.png",
     images: [
       "/assets/portfolio/packaging/infiya-tea/08545b230784235.687d803eaee9f.png",
       "/assets/portfolio/packaging/infiya-tea/389e9e230784235.687d803eb063d.png",
@@ -391,13 +392,13 @@ export const packagingPortfolio = [
       "/assets/portfolio/packaging/infiya-tea/c37e98230784235.687d803ead67e.png",
       "/assets/portfolio/packaging/infiya-tea/c996e9230784235.687d803eb0175.png",
       "/assets/portfolio/packaging/infiya-tea/d347a1230784235.687d803eacef3.png",
-      "/assets/portfolio/packaging/infiya-tea/f039e2230784235.687d803eb0d0c.png",
-      "/assets/portfolio/packaging/infiya-tea/ffe7f8230784235.687d803eac2da.png"
+      "/assets/portfolio/packaging/infiya-tea/f039e2230784235.687d803eb0d0c.png"
     ]
   },
   {
     id: "sauz",
     title: "Sauz",
+    heroImage: "/assets/portfolio/packaging/sauz/d9d3e8248142493.69ea78886c151.webp",
     images: [
       "/assets/portfolio/packaging/sauz/0b0765248142493.69ea77ad949a5.webp",
       "/assets/portfolio/packaging/sauz/4602ac248142493.69eb811a6babc.png",
@@ -410,20 +411,19 @@ export const packagingPortfolio = [
       "/assets/portfolio/packaging/sauz/b38d55248142493.69eb6202d2795.jpg",
       "/assets/portfolio/packaging/sauz/b67b93248142493.69eb8666dde02.jpg",
       "/assets/portfolio/packaging/sauz/d3fe16248142493.69ef6c7472269.jpg",
-      "/assets/portfolio/packaging/sauz/d971aa248142493.69eb8666de4cd.jpg",
-      "/assets/portfolio/packaging/sauz/d9d3e8248142493.69ea78886c151.webp"
+      "/assets/portfolio/packaging/sauz/d971aa248142493.69eb8666de4cd.jpg"
     ]
   },
   {
     id: "pasta-basta",
     title: "Pasta Basta",
+    heroImage: "/assets/portfolio/packaging/pasta-basta/3fae6b252353207.6a4d6312e151f.webp",
     images: [
       "/assets/portfolio/packaging/pasta-basta/043a1e252353207.6a4d631165ab1.webp",
       "/assets/portfolio/packaging/pasta-basta/067dfb252353207.6a4d6312e25b0.webp",
       "/assets/portfolio/packaging/pasta-basta/0f7337252353207.6a4d6312e0d38.webp",
       "/assets/portfolio/packaging/pasta-basta/126dbf252353207.6a4d631166025.webp",
       "/assets/portfolio/packaging/pasta-basta/3f7381252353207.6a4d63121bf26.webp",
-      "/assets/portfolio/packaging/pasta-basta/3fae6b252353207.6a4d6312e151f.webp",
       "/assets/portfolio/packaging/pasta-basta/7cac40252353207.6a4d631165523.webp",
       "/assets/portfolio/packaging/pasta-basta/8a30d7252353207.6a4d6312e20ad.webp",
       "/assets/portfolio/packaging/pasta-basta/916a77252353207.6a4d63121c3ae.webp",
@@ -433,9 +433,9 @@ export const packagingPortfolio = [
   {
     id: "theory-of-tea",
     title: "Theory of tea",
+    heroImage: "/assets/portfolio/packaging/theory-of-tea/272da5216540701.6781612207a4e.webp",
     images: [
       "/assets/portfolio/packaging/theory-of-tea/037c9d216540701.6781662e6a148.webp",
-      "/assets/portfolio/packaging/theory-of-tea/272da5216540701.6781612207a4e.webp",
       "/assets/portfolio/packaging/theory-of-tea/28e4e0216540701.678165d58420e.webp",
       "/assets/portfolio/packaging/theory-of-tea/298ba3216540701.678165d581caf.webp",
       "/assets/portfolio/packaging/theory-of-tea/354c24216540701.678165d581823.webp",
@@ -450,8 +450,7 @@ export const packagingPortfolio = [
       "/assets/portfolio/packaging/theory-of-tea/84029c216540701.678161b34a64d.webp",
       "/assets/portfolio/packaging/theory-of-tea/9907a4216540701.678691c5cb39e.webp",
       "/assets/portfolio/packaging/theory-of-tea/a84579216540701.678161b34b046.webp",
-      "/assets/portfolio/packaging/theory-of-tea/b58a12216540701.6781675a7d188.webp",
-      "/assets/portfolio/packaging/theory-of-tea/eaab23216540701.6781612207f08.webp"
+      "/assets/portfolio/packaging/theory-of-tea/b58a12216540701.6781675a7d188.webp"
     ]
   }
 ];

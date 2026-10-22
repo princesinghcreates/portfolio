@@ -301,38 +301,76 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
           </p>
 
           {/* 4 Packaging Projects: Infiya Tea, Sauz, Pasta Basta, Theory of tea */}
-          <div className="space-y-24">
+          <div className="space-y-28">
             {packagingPortfolio.map((project) => (
-              <div key={project.id} className="space-y-6">
+              <div key={project.id} className="space-y-8">
                 {/* Single heading of the folder / client name */}
-                <h4 className="text-2xl sm:text-4xl font-bold uppercase tracking-tight text-white font-display">
-                  {project.title}
-                </h4>
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                  <h4 className="text-2xl sm:text-4xl font-bold uppercase tracking-tight text-white font-display">
+                    {project.title}
+                  </h4>
+                  <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+                    Packaging Suite
+                  </span>
+                </div>
 
-                {/* All images of this project */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {project.images.map((imgSrc, imgIdx) => (
-                    <div
-                      key={imgIdx}
-                      onClick={() => setSelectedCreative({ image: imgSrc, title: project.title })}
-                      className="rounded-2xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/25 transition-all duration-300 group cursor-pointer relative"
-                    >
-                      <div className="aspect-[4/3] w-full overflow-hidden relative">
-                        <img
-                          src={imgSrc}
-                          alt={`${project.title} ${imgIdx + 1}`}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                            <ZoomIn className="w-4 h-4" />
-                          </div>
+                {/* Hero Showcase Image (Large, commanding prominence) */}
+                {project.heroImage && (
+                  <div
+                    onClick={() => setSelectedCreative({ image: project.heroImage, title: `${project.title} - Hero Showcase` })}
+                    className="w-full rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/30 transition-all duration-500 group cursor-pointer relative shadow-2xl"
+                  >
+                    <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden relative">
+                      <img
+                        src={project.heroImage}
+                        alt={`${project.title} Hero Showcase`}
+                        className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-widest text-neutral-300">
+                        Featured Hero
+                      </div>
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                          <ZoomIn className="w-5 h-5" />
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
+
+                {/* Rest of the images: smaller secondary gallery */}
+                {project.images && project.images.length > 0 && (
+                  <div className="space-y-3 pt-2">
+                    <div className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 flex items-center justify-between">
+                      <span>Detail &amp; Collateral Views</span>
+                      <span>{project.images.length} ASSETS</span>
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
+                      {project.images.map((imgSrc, imgIdx) => (
+                        <div
+                          key={imgIdx}
+                          onClick={() => setSelectedCreative({ image: imgSrc, title: `${project.title} - View ${imgIdx + 1}` })}
+                          className="rounded-xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/30 transition-all duration-300 group cursor-pointer relative"
+                        >
+                          <div className="aspect-[4/3] w-full overflow-hidden relative">
+                            <img
+                              src={imgSrc}
+                              alt={`${project.title} detail ${imgIdx + 1}`}
+                              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                              <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                                <ZoomIn className="w-3.5 h-3.5" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
