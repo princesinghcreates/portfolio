@@ -69,23 +69,13 @@ export default function BrandTicker({ onSelectLogo }) {
           <div
             key={logo.id}
             onClick={() => onSelectLogo && onSelectLogo(logo)}
-            className="group relative rounded-2xl md:rounded-3xl bg-neutral-950/80 border border-white/[0.08] hover:border-white/30 p-6 sm:p-8 flex flex-col justify-between items-center transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-white/[0.03] cursor-pointer min-h-[220px] sm:min-h-[250px] overflow-hidden"
+            className="group relative rounded-2xl md:rounded-3xl bg-neutral-950/80 border border-white/[0.08] hover:border-white/30 p-6 sm:p-8 flex flex-col justify-between items-center transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-white/[0.03] cursor-pointer min-h-[200px] sm:min-h-[230px] overflow-hidden"
           >
             {/* Ambient hover glow inside box */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/[0.04] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-            {/* Top Meta info */}
-            <div className="w-full flex items-center justify-between text-neutral-400 group-hover:text-neutral-300 transition-colors z-10">
-              <span className="font-mono text-[10px] tracking-widest text-neutral-400 group-hover:text-white transition-colors">
-                #{logo.id}
-              </span>
-              <span className="font-mono text-[10px] uppercase tracking-wider text-neutral-400 group-hover:text-emerald-400 transition-colors">
-                {logo.year}
-              </span>
-            </div>
-
             {/* Center Logo Showcase */}
-            <div className="my-auto py-5 flex items-center justify-center w-full z-10">
+            <div className="flex-1 py-4 flex items-center justify-center w-full z-10">
               <img
                 src={logo.src}
                 alt={logo.name}
