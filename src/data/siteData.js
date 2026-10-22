@@ -548,7 +548,7 @@ export const reelsPortfolio = {
       aspectRatio: "16:9",
       src: "/assets/portfolio/reels/reel-showcase-1.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-reel-showcase-1.jpg",
-      duration: "2:10",
+      duration: "2:06",
       metrics: "94% Retention Rate"
     },
     {
@@ -558,7 +558,7 @@ export const reelsPortfolio = {
       aspectRatio: "16:9",
       src: "/assets/portfolio/reels/reel-showcase-2.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-reel-showcase-2.jpg",
-      duration: "4:03",
+      duration: "3:59",
       metrics: "3.4x Virality Factor"
     },
     {

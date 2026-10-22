@@ -27,3 +27,4 @@ dist-ssr
 cloudflared.exe
 *.tmp
 *.opt.*
+*.backup.mp4
