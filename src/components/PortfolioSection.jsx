@@ -28,12 +28,12 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
 
   const tabs = [
     { id: 'all', label: 'All Disciplines' },
-    { id: 'sub-logofolio', label: 'Logofolio' },
-    { id: 'sub-social', label: 'Social Media' },
-    { id: 'sub-packaging', label: 'Packaging Design' },
-    { id: 'sub-branding', label: 'Brand Identity' },
     { id: 'sub-reels', label: 'Reels & Video Editing' },
-    { id: 'sub-motion', label: 'Motion Graphics' }
+    { id: 'sub-motion', label: 'Motion Graphics' },
+    { id: 'sub-logofolio', label: 'Logofolio' },
+    { id: 'sub-branding', label: 'Brand Identity' },
+    { id: 'sub-packaging', label: 'Packaging Design' },
+    { id: 'sub-social', label: 'Social Media' }
   ];
 
   return (
@@ -93,7 +93,121 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
         </div>
 
         {/* =========================================================================
-            SUB-SECTION 1: LOGOFOLIO
+            SUB-SECTION 1: REELS & VIDEO EDITING
+           ========================================================================= */}
+        <div id="sub-reels" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
+            Reels & Video Editing
+          </h3>
+          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
+            High-velocity short-form cuts and dynamic video motion. Vertical reels and motion sequences engineered to command algorithm priority, spike retention curves, and captivate viewers.
+          </p>
+
+          {/* 9:16 Vertical Mobile Reels */}
+          <div className="mb-14">
+            <div className="flex items-center justify-between mb-6">
+              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                <span>Vertical Short-Form Motion (9:16 Reels)</span>
+              </div>
+              <span className="text-[11px] font-mono text-neutral-400">
+                INSTAGRAM REELS / TIKTOK / SHORTS READY
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto gap-8">
+              {reelsPortfolio.verticalVideos.filter(v => v.aspectRatio === "9:16").map((video) => (
+                <div key={video.id} className="flex flex-col">
+                  <AudioVideoPlayer
+                    src={video.src}
+                    title={video.title}
+                    category={video.category}
+                    aspectRatio="9/16"
+                    className="w-full shadow-2xl"
+                  />
+                  <div className="pt-4 px-2">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-1">
+                      <span>9:16 VERTICAL REEL</span>
+                      <span className="text-emerald-400">{video.metrics}</span>
+                    </div>
+                    <h5 className="font-display font-bold text-base text-white uppercase tracking-wider">
+                      {video.title}
+                    </h5>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Multi-Reel Strategy & Motion Showcases (16:9) */}
+          <div className="mb-14">
+            <div className="flex items-center justify-between mb-6">
+              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                <span>Multi-Reel Strategy &amp; Motion Showcases (16:9)</span>
+              </div>
+              <span className="text-[11px] font-mono text-neutral-400">
+                PORTFOLIO SUITES
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {reelsPortfolio.verticalVideos.filter(v => v.aspectRatio !== "9:16").map((video) => (
+                <div key={video.id} className="flex flex-col">
+                  <AudioVideoPlayer
+                    src={video.src}
+                    title={video.title}
+                    category={video.category}
+                    aspectRatio="16/9"
+                    className="w-full shadow-xl"
+                  />
+                  <div className="pt-4 px-2">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-1">
+                      <span>16:9 SHOWCASE</span>
+                      <span className="text-emerald-400">{video.metrics}</span>
+                    </div>
+                    <h5 className="font-display font-bold text-base text-white uppercase tracking-wider">
+                      {video.title}
+                    </h5>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* =========================================================================
+            SUB-SECTION 2: MOTION GRAPHICS (SaaS Motion Videos with Audio Controls)
+           ========================================================================= */}
+        <div id="sub-motion" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+            <div>
+              <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-2">
+                Motion Graphics
+              </h3>
+            </div>
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
+              <Volume2 className="w-4 h-4 text-emerald-400" />
+              <span>Click Video for Sound</span>
+            </div>
+          </div>
+
+          {/* SaaS Motion Graphics Video Grid (Clean without text) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+            {motionGraphicsPortfolio.videos.map((vid) => (
+              <div key={vid.id} className="w-full">
+                <AudioVideoPlayer
+                  src={vid.src}
+                  aspectRatio="16/9"
+                  className="w-full shadow-2xl"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* =========================================================================
+            SUB-SECTION 3: LOGOFOLIO
            ========================================================================= */}
         <div id="sub-logofolio" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
           <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
@@ -107,9 +221,121 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
         </div>
 
         {/* =========================================================================
-            SUB-SECTION 2: SOCIAL MEDIA DESIGN (Single Unified Presentation)
+            SUB-SECTION 4: BRANDING / BRAND IDENTITY
            ========================================================================= */}
-        <div id="sub-social" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+        <div id="sub-branding" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
+            Branding & Brand Identity
+          </h3>
+          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
+            Comprehensive brand identity systems built for endurance. Explore the full case studies below with complete design strategy, typography systems, and real-world collateral.
+          </p>
+
+          {/* 4 Flagship Projects: House of Burger, ZENI, Matchino, Vastukey */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+            {brandIdentityPortfolio.map((brand) => {
+              const fullProject = projects.find(p => p.id === brand.id);
+              return (
+                <motion.div
+                  key={brand.id}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => onSelectProject(fullProject || brand)}
+                  className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/30 transition-all duration-500 cursor-pointer group flex flex-col"
+                >
+                  <div className="aspect-[16/10] w-full overflow-hidden bg-neutral-900 relative">
+                    <img
+                      src={brand.heroImage}
+                      alt={brand.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-widest text-neutral-300">
+                      {brand.year}
+                    </div>
+                  </div>
+
+                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
+                          {brand.category}
+                        </span>
+                      </div>
+                      <h4 className="text-2xl sm:text-3xl font-bold font-display uppercase tracking-wider text-white mb-2 group-hover:text-neutral-300 transition-colors">
+                        {brand.title}
+                      </h4>
+                      <p className="text-xs sm:text-sm text-neutral-400 font-light">
+                        {brand.tagline}
+                      </p>
+                    </div>
+
+                    <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center justify-between">
+                      <span className="text-xs font-mono uppercase tracking-wider text-white group-hover:translate-x-1 transition-transform">
+                        Explore Full Case Study
+                      </span>
+                      <div className="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* =========================================================================
+            SUB-SECTION 5: PACKAGING DESIGN
+           ========================================================================= */}
+        <div id="sub-packaging" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-16">
+            Packaging Design
+          </h3>
+
+          {/* 4 Packaging Projects: Infiya Tea, Sauz, Pasta Basta, Theory of tea */}
+          <div className="space-y-24">
+            {packagingPortfolio.map((project) => (
+              <div key={project.id} className="space-y-6">
+                {/* Single heading of the folder / client name */}
+                <h4 className="text-2xl sm:text-4xl font-bold uppercase tracking-tight text-white font-display">
+                  {project.title}
+                </h4>
+
+                {/* All images of this project */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {project.images.map((imgSrc, imgIdx) => (
+                    <div
+                      key={imgIdx}
+                      onClick={() => setSelectedCreative({ image: imgSrc, title: project.title })}
+                      className="rounded-2xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/25 transition-all duration-300 group cursor-pointer relative"
+                    >
+                      <div className="aspect-[4/3] w-full overflow-hidden relative">
+                        <img
+                          src={imgSrc}
+                          alt={`${project.title} ${imgIdx + 1}`}
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                            <ZoomIn className="w-4 h-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* =========================================================================
+            SUB-SECTION 6: SOCIAL MEDIA DESIGN (Single Unified Presentation)
+           ========================================================================= */}
+        <div id="sub-social" className="scroll-mt-36">
           <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
             Social Media Design
           </h3>
@@ -197,233 +423,6 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* =========================================================================
-            PACKAGING DESIGN
-           ========================================================================= */}
-        <div id="sub-packaging" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
-          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-16">
-            Packaging Design
-          </h3>
-
-          {/* 4 Packaging Projects: Infiya Tea, Sauz, Pasta Basta, Theory of tea */}
-          <div className="space-y-24">
-            {packagingPortfolio.map((project) => (
-              <div key={project.id} className="space-y-6">
-                {/* Single heading of the folder / client name */}
-                <h4 className="text-2xl sm:text-4xl font-bold uppercase tracking-tight text-white font-display">
-                  {project.title}
-                </h4>
-
-                {/* All images of this project */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {project.images.map((imgSrc, imgIdx) => (
-                    <div
-                      key={imgIdx}
-                      onClick={() => setSelectedCreative({ image: imgSrc, title: project.title })}
-                      className="rounded-2xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/25 transition-all duration-300 group cursor-pointer relative"
-                    >
-                      <div className="aspect-[4/3] w-full overflow-hidden relative">
-                        <img
-                          src={imgSrc}
-                          alt={`${project.title} ${imgIdx + 1}`}
-                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                            <ZoomIn className="w-4 h-4" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* =========================================================================
-            SUB-SECTION 4: BRANDING / BRAND IDENTITY
-           ========================================================================= */}
-        <div id="sub-branding" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
-          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
-            Branding & Brand Identity
-          </h3>
-          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            Comprehensive brand identity systems built for endurance. Explore the full case studies below with complete design strategy, typography systems, and real-world collateral.
-          </p>
-
-          {/* 4 Flagship Projects: House of Burger, ZENI, Matchino, Vastukey */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-            {brandIdentityPortfolio.map((brand) => {
-              const fullProject = projects.find(p => p.id === brand.id);
-              return (
-                <motion.div
-                  key={brand.id}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={() => onSelectProject(fullProject || brand)}
-                  className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/30 transition-all duration-500 cursor-pointer group flex flex-col"
-                >
-                  <div className="aspect-[16/10] w-full overflow-hidden bg-neutral-900 relative">
-                    <img
-                      src={brand.heroImage}
-                      alt={brand.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono uppercase tracking-widest text-neutral-300">
-                      {brand.year}
-                    </div>
-                  </div>
-
-                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                        <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
-                          {brand.category}
-                        </span>
-                      </div>
-                      <h4 className="text-2xl sm:text-3xl font-bold font-display uppercase tracking-wider text-white mb-2 group-hover:text-neutral-300 transition-colors">
-                        {brand.title}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-neutral-400 font-light">
-                        {brand.tagline}
-                      </p>
-                    </div>
-
-                    <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center justify-between">
-                      <span className="text-xs font-mono uppercase tracking-wider text-white group-hover:translate-x-1 transition-transform">
-                        Explore Full Case Study
-                      </span>
-                      <div className="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* =========================================================================
-            SUB-SECTION 5: REELS & VIDEO EDITING
-           ========================================================================= */}
-        <div id="sub-reels" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
-          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
-            Reels & Video Editing
-          </h3>
-          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            High-velocity short-form cuts and dynamic video motion. Vertical reels and motion sequences engineered to command algorithm priority, spike retention curves, and captivate viewers.
-          </p>
-
-          {/* 9:16 Vertical Mobile Reels */}
-          <div className="mb-14">
-            <div className="flex items-center justify-between mb-6">
-              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                <span>Vertical Short-Form Motion (9:16 Reels)</span>
-              </div>
-              <span className="text-[11px] font-mono text-neutral-400">
-                INSTAGRAM REELS / TIKTOK / SHORTS READY
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto gap-8">
-              {reelsPortfolio.verticalVideos.filter(v => v.aspectRatio === "9:16").map((video) => (
-                <div key={video.id} className="flex flex-col">
-                  <AudioVideoPlayer
-                    src={video.src}
-                    title={video.title}
-                    category={video.category}
-                    aspectRatio="9/16"
-                    className="w-full shadow-2xl"
-                  />
-                  <div className="pt-4 px-2">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-1">
-                      <span>9:16 VERTICAL REEL</span>
-                      <span className="text-emerald-400">{video.metrics}</span>
-                    </div>
-                    <h5 className="font-display font-bold text-base text-white uppercase tracking-wider">
-                      {video.title}
-                    </h5>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Multi-Reel Strategy & Motion Showcases (16:9) */}
-          <div className="mb-14">
-            <div className="flex items-center justify-between mb-6">
-              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                <span>Multi-Reel Strategy &amp; Motion Showcases (16:9)</span>
-              </div>
-              <span className="text-[11px] font-mono text-neutral-400">
-                PORTFOLIO SUITES
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {reelsPortfolio.verticalVideos.filter(v => v.aspectRatio !== "9:16").map((video) => (
-                <div key={video.id} className="flex flex-col">
-                  <AudioVideoPlayer
-                    src={video.src}
-                    title={video.title}
-                    category={video.category}
-                    aspectRatio="16/9"
-                    className="w-full shadow-xl"
-                  />
-                  <div className="pt-4 px-2">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400 mb-1">
-                      <span>16:9 SHOWCASE</span>
-                      <span className="text-emerald-400">{video.metrics}</span>
-                    </div>
-                    <h5 className="font-display font-bold text-base text-white uppercase tracking-wider">
-                      {video.title}
-                    </h5>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
-
-        {/* =========================================================================
-            SUB-SECTION 6: MOTION GRAPHICS (SaaS Motion Videos with Audio Controls)
-           ========================================================================= */}
-        <div id="sub-motion" className="scroll-mt-36">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
-            <div>
-              <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-2">
-                Motion Graphics
-              </h3>
-            </div>
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
-              <Volume2 className="w-4 h-4 text-emerald-400" />
-              <span>Click Video for Sound</span>
-            </div>
-          </div>
-
-          {/* SaaS Motion Graphics Video Grid (Clean without text) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-            {motionGraphicsPortfolio.videos.map((vid) => (
-              <div key={vid.id} className="w-full">
-                <AudioVideoPlayer
-                  src={vid.src}
-                  aspectRatio="16/9"
-                  className="w-full shadow-2xl"
-                />
-              </div>
-            ))}
           </div>
         </div>
 
