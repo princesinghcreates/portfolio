@@ -100,7 +100,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             Reels & Video Editing
           </h3>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            High-velocity short-form cuts and dynamic video motion. Vertical reels and motion sequences engineered to command algorithm priority, spike retention curves, and captivate viewers.
+            Scroll-stopping short-form edits engineered for maximum retention. Fast-paced cuts and narrative sequences built to captivate audiences and trigger organic growth.
           </p>
 
           {/* 9:16 Vertical Mobile Reels */}
@@ -180,7 +180,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             SUB-SECTION 2: MOTION GRAPHICS (SaaS Motion Videos with Audio Controls)
            ========================================================================= */}
         <div id="sub-motion" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-4">
             <div>
               <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-2">
                 Motion Graphics
@@ -191,6 +191,9 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
               <span>Click Video for Sound</span>
             </div>
           </div>
+          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
+            Fluid 2D/3D animation and UI explainer sequences that bring static concepts to life. Complex visual storytelling engineered for clarity, rhythm, and high-impact digital experiences.
+          </p>
 
           {/* SaaS Motion Graphics Video Grid (Clean without text) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
@@ -214,7 +217,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             Logofolio
           </h3>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            Curated identity marks, logomarks, monograms, and brand symbols engineered for modern startups, enterprises, and luxury labels.
+            Distinctive identity marks built to leave a lasting impression. Strategic logo design that distills complex brand narratives into sharp, instantly recognizable visual symbols.
           </p>
 
           <BrandTicker />
@@ -228,7 +231,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             Branding & Brand Identity
           </h3>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            Comprehensive brand identity systems built for endurance. Explore the full case studies below with complete design strategy, typography systems, and real-world collateral.
+            End-to-end visual identities engineered for modern brands. Dive into complete case studies detailing strategic positioning, custom visual systems, and real-world applications.
           </p>
 
           {/* 4 Flagship Projects: House of Burger, ZENI, Matchino, Vastukey */}
@@ -290,9 +293,12 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             SUB-SECTION 5: PACKAGING DESIGN
            ========================================================================= */}
         <div id="sub-packaging" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
-          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-16">
+          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
             Packaging Design
           </h3>
+          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-16 font-light leading-relaxed">
+            Physical touchpoints designed for maximum retail impact. Structural and visual packaging strategies that merge striking aesthetics with functional design to stand out in crowded markets.
+          </p>
 
           {/* 4 Packaging Projects: Infiya Tea, Sauz, Pasta Basta, Theory of tea */}
           <div className="space-y-24">
@@ -340,7 +346,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             Social Media Design
           </h3>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-14 font-light leading-relaxed">
-            Engineered for high dwell-time and feed dominance. Visual campaigns, product launch assets, and retention carousels built to stop the thumb.
+            High-conversion digital assets designed to command the feed. Strategic carousel sequences, launch campaigns, and grid aesthetics built for maximum dwell-time and audience retention.
           </p>
 
           {/* Single Unified Social Media Showcase Stream (Original Artwork with Designed Typography) */}
