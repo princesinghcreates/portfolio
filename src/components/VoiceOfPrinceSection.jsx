@@ -15,7 +15,7 @@ export default function VoiceOfPrinceSection() {
             //VOICE OF PRINCE
           </div>
           <div>
-            SINCE 1999
+            INDEPENDENT STUDIO
           </div>
         </div>
 

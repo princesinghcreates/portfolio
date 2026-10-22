@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, MessageSquare, Mail, MapPin } from 'lucide-react';
+import { X, Send, MessageSquare, Mail, MapPin, CheckCircle2 } from 'lucide-react';
 
 export default function ContactModal({ isOpen, onClose, defaultService }) {
   const [formData, setFormData] = useState({
@@ -62,7 +62,42 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {submitted ? (
+            <div className="py-12 flex flex-col items-center justify-center text-center space-y-5">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
+                Project Brief Prepared!
+              </h3>
+              <p className="text-sm text-neutral-300 max-w-md font-light leading-relaxed">
+                WhatsApp has been launched with your project details. Prince responds directly to all project inquiries within 24 hours.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+                <a
+                  href={`https://wa.me/918000828880?text=${encodeURIComponent(`Hello Prince,\n\nName: ${formData.name}\nEmail: ${formData.email}\nService: ${formData.service}\nMessage: ${formData.message}`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-lg shadow-emerald-500/20"
+                >
+                  Open WhatsApp ↗
+                </a>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all border border-white/10"
+                >
+                  Edit Message
+                </button>
+                <button
+                  onClick={onClose}
+                  className="px-6 py-3 rounded-full bg-white text-black font-mono text-xs uppercase tracking-wider font-bold transition-all"
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             
             {/* Form */}
             <form onSubmit={handleSubmit} className="md:col-span-7 space-y-4">
@@ -194,6 +229,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
             </div>
 
           </div>
+          )}
 
         </motion.div>
       </div>

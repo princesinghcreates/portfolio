@@ -87,54 +87,26 @@ export default function App() {
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('Brand Identity');
 
-  // Anti-Theft & Download Protection for Media
+  // Protect Media Assets from Direct Dragging and Image Context Menu
   useEffect(() => {
-    // Disable right-click globally
     const handleContextMenu = (e) => {
-      e.preventDefault();
-      return false;
+      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
+        e.preventDefault();
+      }
     };
 
-    // Disable dragging on images and videos
     const handleDragStart = (e) => {
       if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
         e.preventDefault();
-        return false;
-      }
-    };
-
-    // Disable Inspect / Save Keyboard Shortcuts
-    const handleKeyDown = (e) => {
-      // F12
-      if (e.key === 'F12') {
-        e.preventDefault();
-        return false;
-      }
-      // Ctrl+S / Cmd+S (Save)
-      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
-        e.preventDefault();
-        return false;
-      }
-      // Ctrl+U / Cmd+U (View Source)
-      if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
-        e.preventDefault();
-        return false;
-      }
-      // Ctrl+Shift+I / Cmd+Option+I / Ctrl+Shift+C / Ctrl+Shift+J (DevTools)
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) {
-        e.preventDefault();
-        return false;
       }
     };
 
     document.addEventListener('contextmenu', handleContextMenu);
     document.addEventListener('dragstart', handleDragStart);
-    document.addEventListener('keydown', handleKeyDown);
 
     return () => {
       document.removeEventListener('contextmenu', handleContextMenu);
       document.removeEventListener('dragstart', handleDragStart);
-      document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 

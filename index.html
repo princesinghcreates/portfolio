@@ -2,16 +2,84 @@
 <html lang="en" class="scroll-smooth bg-[#080808] text-white antialiased selection:bg-white selection:text-black">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/assets/my-sign.png" />
+    <link rel="icon" type="image/png" href="/assets/my-sign.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prince Singh | Video Editor & Graphic Designer</title>
-    <meta name="description" content="Prince Singh - Video Editor & Graphic Designer based in Udaipur, India. Specializing in brand identity, packaging design, reels, and motion content." />
+    
+    <title>Prince Singh — Senior Video Editor & Brand Identity Designer</title>
+    <meta name="description" content="Portfolio of Prince Singh (PixImpact Solutions). Specializing in high-retention video editing, motion graphics, retail packaging design, and full brand identities. Based in Udaipur, India — available worldwide." />
+    <meta name="author" content="Prince Singh" />
+    <meta name="keywords" content="Prince Singh, PixImpact Solutions, Video Editor, Graphic Designer, Motion Graphics, Brand Identity, Packaging Design, Instagram Reels, Udaipur, After Effects, Premiere Pro" />
+
+    <!-- Open Graph / WhatsApp / LinkedIn / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Prince Singh — Senior Video Editor & Brand Identity Designer" />
+    <meta property="og:description" content="Scroll-stopping short-form edits, fluid motion graphics, bespoke retail packaging, and end-to-end brand identities." />
+    <meta property="og:image" content="/assets/portfolio/social-media/showcase/5.webp" />
+    <meta property="og:site_name" content="Prince Singh Portfolio" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Prince Singh — Senior Video Editor & Brand Identity Designer" />
+    <meta name="twitter:description" content="High-retention video editing, motion graphics, retail packaging, and brand systems." />
+    <meta name="twitter:image" content="/assets/portfolio/social-media/showcase/5.webp" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://princesinghcreates.com/#person",
+          "name": "Prince Singh",
+          "jobTitle": "Senior Video Editor & Brand Identity Designer",
+          "url": "https://princesinghcreates.com",
+          "image": "/assets/Dynamic%20Phone%20Call%20Art.png",
+          "knowsAbout": [
+            "Video Editing",
+            "Motion Graphics",
+            "Short-Form Video (Reels / TikTok)",
+            "Brand Identity",
+            "Packaging Design",
+            "Adobe After Effects",
+            "Adobe Premiere Pro"
+          ],
+          "worksFor": {
+            "@id": "https://princesinghcreates.com/#agency"
+          },
+          "sameAs": [
+            "https://instagram.com/princesinghcreates",
+            "https://pinterest.com/princesinghcreates"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://princesinghcreates.com/#agency",
+          "name": "PixImpact Solutions",
+          "description": "Marketing and design agency specializing in brand identity, video editing, motion graphics, and retail packaging design.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "129, Chetak Circle",
+            "addressLocality": "Udaipur",
+            "addressRegion": "Rajasthan",
+            "postalCode": "313001",
+            "addressCountry": "IN"
+          },
+          "telephone": "+918000828880",
+          "email": "princesinghcreates@gmail.com",
+          "areaServed": "Worldwide"
+        }
+      ]
+    }
+    </script>
   </head>
-  <body class="bg-[#080808] text-[#f5f5f5] font-sans min-h-screen select-none" oncontextmenu="return false;" ondragstart="return false;">
+  <body class="bg-[#080808] text-[#f5f5f5] font-sans min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

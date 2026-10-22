@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Palette, Film, Share2, Sparkles, Video } from 'lucide-react';
+import { ArrowRight, Palette, Film, Share2, Sparkles, Video, Box } from 'lucide-react';
 
 export default function ServicesSection({ onOpenContact }) {
   const services = [
@@ -38,6 +38,13 @@ export default function ServicesSection({ onOpenContact }) {
       tagline: 'Complex ideas made simple & viral.',
       description: 'Compelling 2D/3D explainer stories, SaaS platform product walkthroughs, infographic animations, and high-converting visual narratives tailored for web and campaigns.',
       icon: Video
+    },
+    {
+      num: '06',
+      title: 'Packaging Design',
+      tagline: 'Shelf-commanding physical touchpoints.',
+      description: 'Structural and graphic packaging strategies, custom dielines, luxury finish specifications, and retail-ready label systems engineered to dominate crowded shelves.',
+      icon: Box
     }
   ];
 

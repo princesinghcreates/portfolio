@@ -31,7 +31,7 @@ export default function FaqSection({ onOpenContact }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-7">
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-none font-display">
-              ASKED QUESTION
+              FREQUENTLY ASKED QUESTIONS
             </h2>
           </div>
           <div className="lg:col-span-5">

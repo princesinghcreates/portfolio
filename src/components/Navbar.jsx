@@ -35,7 +35,18 @@ export default function Navbar({ onOpenContact }) {
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 flex items-center justify-between">
         
         {/* Brand / Logo */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a 
+          href="#" 
+          onClick={(e) => {
+            e.preventDefault();
+            if (window.lenis) {
+              window.lenis.scrollTo(0, { duration: 1.2 });
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+          className="flex items-center gap-3 group"
+        >
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center p-1.5 transition-transform group-hover:scale-105">
             <img 
               src="/assets/Logo@4x.png" 
@@ -99,7 +110,17 @@ export default function Navbar({ onOpenContact }) {
               <a
                 key={link.label}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                  setTimeout(() => {
+                    if (window.lenis) {
+                      window.lenis.scrollTo(link.href, { offset: -70, duration: 1.2 });
+                    } else {
+                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 50);
+                }}
                 className="text-sm font-mono uppercase tracking-wider text-neutral-300 hover:text-white py-1"
               >
                 {link.label}

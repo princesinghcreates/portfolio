@@ -1,12 +1,49 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+function AnimatedCounter({ target, suffix = '', decimals = 0 }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-40px' });
+
+  useEffect(() => {
+    if (!inView) return;
+
+    let startTime = null;
+    const duration = 1800; // ms
+
+    const step = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // easeOutExpo
+      const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(ease * target);
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+
+    const rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, [inView, target]);
+
+  return (
+    <span ref={ref}>
+      {decimals > 0 ? count.toFixed(decimals) : Math.round(count)}
+      {suffix}
+    </span>
+  );
+}
 
 export default function StatsSection() {
   const stats = [
-    { value: '150+', label: 'Global Clients', detail: 'Across US, Europe, Asia & India' },
-    { value: '8+', label: 'Years of Experience', detail: 'Agency & High-Growth Startups' },
-    { value: '3.4x', label: 'Watch-Time Lift', detail: 'Retention-Driven Motion Editing' },
-    { value: '94%', label: 'Client Retention', detail: 'Repeat Campaigns & Brand Retainers' }
+    { target: 150, suffix: '+', decimals: 0, label: 'Global Clients', detail: 'Across US, Europe, Asia & India' },
+    { target: 8, suffix: '+', decimals: 0, label: 'Years of Experience', detail: 'Agency & High-Growth Startups' },
+    { target: 3.4, suffix: 'x', decimals: 1, label: 'Watch-Time Lift', detail: 'Retention-Driven Motion Editing' },
+    { target: 94, suffix: '%', decimals: 0, label: 'Client Retention', detail: 'Repeat Campaigns & Brand Retainers' }
   ];
 
   return (
@@ -22,7 +59,7 @@ export default function StatsSection() {
             //STATS
           </div>
           <div>
-            FUN FACTS
+            PROVEN IMPACT
           </div>
         </div>
 
@@ -46,7 +83,7 @@ export default function StatsSection() {
             >
               <div>
                 <p className="font-display font-extrabold text-5xl sm:text-6xl text-white tracking-tight mb-4 group-hover:scale-105 transition-transform duration-300 origin-left">
-                  {stat.value}
+                  <AnimatedCounter target={stat.target} suffix={stat.suffix} decimals={stat.decimals} />
                 </p>
                 <h3 className="font-display font-bold text-lg text-white uppercase tracking-wider mb-2">
                   {stat.label}

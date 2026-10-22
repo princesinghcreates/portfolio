@@ -15,7 +15,7 @@ export default function WhoAmISection() {
             //ABOUT ME
           </div>
           <div>
-            SINCE 1999
+            CREATIVE ARCHITECT
           </div>
         </div>
 

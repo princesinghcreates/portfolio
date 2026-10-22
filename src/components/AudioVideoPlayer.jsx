@@ -116,6 +116,11 @@ export default function AudioVideoPlayer({
 
   // Hover IN: Start playing immediately with audio & music; stop all other videos
   const handleMouseEnter = async () => {
+    // Only trigger hover playback on devices supporting true hover (desktop mice/pointers)
+    if (typeof window !== 'undefined' && !window.matchMedia('(hover: hover)').matches) {
+      return;
+    }
+
     const video = videoRef.current;
     if (!video) return;
 
@@ -252,6 +257,13 @@ export default function AudioVideoPlayer({
     e.stopPropagation();
     const video = videoRef.current;
     if (!video) return;
+
+    // iOS Safari WebKit implementation for iPhone / iPad
+    if (video.webkitEnterFullscreen) {
+      video.webkitEnterFullscreen();
+      return;
+    }
+
     if (!document.fullscreenElement) {
       if (video.requestFullscreen) {
         video.requestFullscreen();
