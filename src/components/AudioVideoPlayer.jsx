@@ -3,6 +3,7 @@ import { Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 
 export default function AudioVideoPlayer({ 
   src, 
+  poster,
   title, 
   category, 
   aspectRatio = "16/9", 
@@ -273,10 +274,11 @@ export default function AudioVideoPlayer({
       onClick={handleContainerClick}
       style={{ aspectRatio }}
     >
-      {/* Video Element (Preload none for fast site load; silent on hover, sound on click) */}
+      {/* Video Element */}
       <video
         ref={videoRef}
         src={isInView ? src : undefined}
+        poster={poster}
         loop={loop}
         muted={isMuted}
         playsInline
@@ -287,6 +289,16 @@ export default function AudioVideoPlayer({
         onContextMenu={(e) => e.preventDefault()}
         className="w-full h-full object-cover object-center select-none"
       />
+
+      {/* Instant Eye-Catching Thumbnail Poster Overlay (Displayed prior to hover/play) */}
+      {poster && !isPlaying && (
+        <img
+          src={poster}
+          alt={title || "Video thumbnail"}
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-opacity duration-300 z-0"
+          loading="lazy"
+        />
+      )}
 
       {/* Top Floating Badge: Category & Sound Status (Clean, no 'hover for sound' text) */}
       <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none z-20">

@@ -529,6 +529,7 @@ export const reelsPortfolio = {
       category: "9:16 Vertical Reel",
       aspectRatio: "9:16",
       src: "/assets/portfolio/reels/creative-studio-reel.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-creative-studio-reel.jpg",
       duration: "0:30",
       metrics: "96% Retention Rate"
     },
@@ -538,6 +539,7 @@ export const reelsPortfolio = {
       category: "9:16 Reel Motion",
       aspectRatio: "9:16",
       src: "/assets/portfolio/reels/reel-motion-123.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-reel-motion-123.jpg",
       duration: "0:20",
       metrics: "94% Virality Score"
     },
@@ -547,6 +549,7 @@ export const reelsPortfolio = {
       category: "Reels Showcase",
       aspectRatio: "16:9",
       src: "/assets/portfolio/reels/reel-showcase-1.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-reel-showcase-1.jpg",
       duration: "2:10",
       metrics: "94% Retention Rate"
     },
@@ -556,6 +559,7 @@ export const reelsPortfolio = {
       category: "Reels Showcase",
       aspectRatio: "16:9",
       src: "/assets/portfolio/reels/reel-showcase-2.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-reel-showcase-2.jpg",
       duration: "4:03",
       metrics: "3.4x Virality Factor"
     },
@@ -565,6 +569,7 @@ export const reelsPortfolio = {
       category: "3D Motion",
       aspectRatio: "16:9",
       src: "/assets/portfolio/reels/3d-animation.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-3d-animation.jpg",
       duration: "0:10",
       metrics: "88% Completion"
     }
@@ -596,36 +601,43 @@ export const motionGraphicsPortfolio = {
     {
       id: "saas-1",
       src: "/assets/portfolio/motion/animentor-academy-saas.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-animentor-academy-saas.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-2",
       src: "/assets/portfolio/motion/stripe-saas.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-stripe-saas.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-3",
       src: "/assets/portfolio/motion/saas-animation.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-saas-animation.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-4",
       src: "/assets/portfolio/motion/saas-animation-5.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-saas-animation-5.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-5",
       src: "/assets/portfolio/motion/saas-video-2.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-saas-video-2.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-6",
       src: "/assets/portfolio/motion/saas-comp-1.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-saas-comp-1.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-7",
       src: "/assets/portfolio/motion/saas-comp-2.mp4",
+      poster: "/assets/portfolio/thumbnails/thumb-saas-comp-2.jpg",
       aspectRatio: "16/9"
     }
   ]

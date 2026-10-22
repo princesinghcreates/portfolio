@@ -120,6 +120,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                 <div key={video.id} className="flex flex-col">
                   <AudioVideoPlayer
                     src={video.src}
+                    poster={video.poster}
                     title={video.title}
                     category={video.category}
                     aspectRatio="9/16"
@@ -156,6 +157,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                 <div key={video.id} className="flex flex-col">
                   <AudioVideoPlayer
                     src={video.src}
+                    poster={video.poster}
                     title={video.title}
                     category={video.category}
                     aspectRatio="16/9"
@@ -201,6 +203,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
               <div key={vid.id} className="w-full">
                 <AudioVideoPlayer
                   src={vid.src}
+                  poster={vid.poster}
                   aspectRatio="16/9"
                   className="w-full shadow-2xl"
                 />
