@@ -220,7 +220,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             Distinctive identity marks built to leave a lasting impression. Strategic logo design that distills complex brand narratives into sharp, instantly recognizable visual symbols.
           </p>
 
-          <BrandTicker />
+          <BrandTicker onSelectLogo={(logo) => setSelectedCreative({ image: logo.src, title: `${logo.name} - Identity Mark` })} />
         </div>
 
         {/* =========================================================================
