@@ -16,8 +16,8 @@ export default function AudioVideoPlayer({
 
   const [isInView, setIsInView] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isManualPlay, setIsManualPlay] = useState(false); // true when clicked to play with audio
-  const [isMuted, setIsMuted] = useState(true); // muted by default for silent hover preview
+  const [isManualPlay, setIsManualPlay] = useState(false);
+  const [isMuted, setIsMuted] = useState(false); // unmuted so it plays with sound on hover
   const [volume, setVolume] = useState(0.85);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState("0:00");
@@ -31,7 +31,7 @@ export default function AudioVideoPlayer({
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
-  // Listen for global event to pause when another video plays
+  // Listen for global event to pause when another video plays (only 1 video at a time)
   useEffect(() => {
     const handleStopOther = (e) => {
       if (e.detail?.id !== playerId) {
@@ -41,7 +41,7 @@ export default function AudioVideoPlayer({
         }
         setIsPlaying(false);
         setIsManualPlay(false);
-        setIsMuted(true);
+        setShowControls(false);
       }
     };
 
@@ -113,45 +113,67 @@ export default function AudioVideoPlayer({
     };
   }, [src, isInView, isMuted, volume]);
 
-  // Hover IN: Silent video preview ONLY (No Sound)
+  // Hover IN: Start playing immediately with audio & music; stop all other videos
   const handleMouseEnter = async () => {
-    if (isManualPlay) return; // Keep playing with sound if explicitly opened
     const video = videoRef.current;
     if (!video) return;
+
+    // Immediately stop any other playing video across the site (only 1 video at a time)
+    window.dispatchEvent(new CustomEvent('app:stopOtherVideos', { detail: { id: playerId } }));
     setShowControls(true);
 
     try {
-      video.muted = true;
-      setIsMuted(true);
+      video.muted = false;
+      video.volume = volume > 0 ? volume : 0.85;
+      setIsMuted(false);
       await video.play();
       setIsPlaying(true);
     } catch (err) {
-      // Silently handle any browser autoplay restrictions
+      // If browser restricts unmuted autoplay before any user gesture, fall back to muted
+      // and attach one-time user gesture listener to immediately unmute
+      try {
+        video.muted = true;
+        setIsMuted(true);
+        await video.play();
+        setIsPlaying(true);
+
+        const enableAudioOnGesture = () => {
+          if (videoRef.current && !videoRef.current.paused) {
+            videoRef.current.muted = false;
+            videoRef.current.volume = volume > 0 ? volume : 0.85;
+            setIsMuted(false);
+          }
+          window.removeEventListener('click', enableAudioOnGesture);
+          window.removeEventListener('keydown', enableAudioOnGesture);
+        };
+        window.addEventListener('click', enableAudioOnGesture, { once: true });
+        window.addEventListener('keydown', enableAudioOnGesture, { once: true });
+      } catch (e) {
+        setIsPlaying(false);
+      }
     }
   };
 
-  // Hover OUT: Stop preview immediately if not explicitly clicked
+  // Hover OUT: Stop playing immediately the moment mouse leaves the container
   const handleMouseLeave = () => {
     setShowControls(false);
-    if (isManualPlay) return; // Retain active playback if user clicked to open
+    setIsManualPlay(false);
     const video = videoRef.current;
     if (!video) return;
     video.pause();
     setIsPlaying(false);
   };
 
-  // Click/Open: Play with sound and pause any other playing videos
+  // Click/Tap toggle: Play with sound and pause any other playing videos
   const togglePlayWithAudio = async () => {
     const video = videoRef.current;
     if (!video) return;
 
-    if (isPlaying && isManualPlay && !isMuted) {
-      // Currently playing with sound -> pause it
+    if (isPlaying && !video.paused) {
       video.pause();
       setIsPlaying(false);
       setIsManualPlay(false);
     } else {
-      // Stop all other playing videos across the site
       window.dispatchEvent(new CustomEvent('app:stopOtherVideos', { detail: { id: playerId } }));
 
       try {
@@ -163,7 +185,6 @@ export default function AudioVideoPlayer({
         setIsPlaying(true);
         setShowControls(true);
       } catch (err) {
-        // Fallback to muted if browser requires gesture confirmation
         try {
           video.muted = true;
           setIsMuted(true);

@@ -188,7 +188,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             </div>
             <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
               <Volume2 className="w-4 h-4 text-emerald-400" />
-              <span>Click Video for Sound</span>
+              <span>Hover Video for Sound</span>
             </div>
           </div>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
