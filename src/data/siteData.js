@@ -2,7 +2,6 @@ export const personalInfo = {
   name: "Prince Singh",
   title: "Video Editor + Graphic Designer",
   location: "Udaipur, INDIA",
-  coordinates: "24.58584° N, 73.71346° E",
   availability: "Available ALL AROUND worldwide",
   status: "Available for new projects",
   experienceYears: "8+",

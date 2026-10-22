@@ -62,8 +62,6 @@ export default function Footer() {
             <span>Designed & Crafted for Impact</span>
             <span>•</span>
             <span>Udaipur, India</span>
-            <span>•</span>
-            <span className="font-mono text-neutral-400">24.58584° N, 73.71346° E</span>
           </p>
         </div>
 

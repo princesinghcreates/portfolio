@@ -85,7 +85,6 @@ export default function Hero({ onOpenContact }) {
             <div className="font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-200 leading-snug">
               <p className="font-bold">BASED IN UDAIPUR,</p>
               <p className="font-medium text-neutral-400">INDIA</p>
-              <p className="text-[11px] font-mono text-neutral-400 font-normal tracking-tight normal-case mt-0.5">24.58584° N, 73.71346° E</p>
             </div>
           </div>
 

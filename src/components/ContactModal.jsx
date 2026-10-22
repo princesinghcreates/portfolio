@@ -211,8 +211,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
                   <div>
                     <p className="text-[11px] font-mono text-neutral-400 uppercase">Location</p>
                     <p className="text-xs text-neutral-300 font-light leading-relaxed">
-                      129, Chetak Circle, Udaipur, Rajasthan 313001, India.<br />
-                      <span className="font-mono text-[11px] text-neutral-400 mt-0.5 inline-block">24.58584° N, 73.71346° E</span>
+                      129, Chetak Circle, Udaipur, Rajasthan 313001, India.
                     </p>
                   </div>
                 </div>
