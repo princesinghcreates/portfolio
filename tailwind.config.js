@@ -7,14 +7,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#080808",
-        surface: "#101010",
-        "surface-hover": "#171717",
-        border: "#202020",
-        "border-light": "#2e2e2e",
+        background: "#050507",
+        surface: "#0A0B10",
+        "surface-card": "#0D0E14",
+        "surface-elevated": "#12141F",
+        border: "rgba(255, 255, 255, 0.08)",
+        "border-glow": "rgba(59, 130, 246, 0.3)",
         textPrimary: "#f5f5f5",
-        textSecondary: "#8f8f8f",
-        textMuted: "#595959",
+        textSecondary: "#8f94a6",
+        textMuted: "#5a5f73",
+        neonBlue: "#3B82F6",
+        neonCyan: "#00F0FF",
+        neonPurple: "#8B5CF6",
+        neonCrimson: "#FF2A54",
       },
       fontFamily: {
         sans: ["'Clash Display'", 'Inter', 'sans-serif'],
@@ -24,11 +29,16 @@ export default {
       animation: {
         'marquee': 'marquee 30s linear infinite',
         'marquee-reverse': 'marquee-reverse 30s linear infinite',
+        'glow-pulse': 'glow-pulse 4s ease-in-out infinite alternate',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        'glow-pulse': {
+          '0%': { opacity: 0.35 },
+          '100%': { opacity: 0.75 },
         }
       }
     },

@@ -1,23 +1,33 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Volume2, Sparkles, Layers, Box, Film, Play, Compass, CheckCircle2, X, ZoomIn } from 'lucide-react';
+import { ArrowRight, Volume2, Sparkles, Layers, Box, Film, Play, Compass, CheckCircle2, X, ZoomIn, Eye, ExternalLink, ArrowUpRight } from 'lucide-react';
 import { 
   projects, 
-  socialMediaPortfolio, 
   packagingPortfolio, 
   brandIdentityPortfolio, 
   reelsPortfolio, 
-  motionGraphicsPortfolio 
+  motionGraphicsPortfolio,
+  visualLabPosters
 } from '../data/siteData';
 import AudioVideoPlayer from './AudioVideoPlayer';
 import BrandTicker from './BrandTicker';
 
 export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
-  const [activeTab, setActiveTab] = useState('all');
+  const [activeTab, setActiveTab] = useState('curated');
   const [selectedCreative, setSelectedCreative] = useState(null);
 
   const scrollToSubSection = (id) => {
     setActiveTab(id);
+    if (id === 'curated') {
+      const element = document.getElementById('portfolio');
+      if (element) {
+        const yOffset = -70;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+      return;
+    }
+
     const element = document.getElementById(id);
     if (element) {
       const yOffset = -90;
@@ -27,29 +37,33 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
   };
 
   const tabs = [
-    { id: 'all', label: 'All Disciplines' },
-    { id: 'sub-reels', label: 'Reels & Video Editing' },
-    { id: 'sub-motion', label: 'Motion Graphics' },
-    { id: 'sub-logofolio', label: 'Logofolio' },
+    { id: 'curated', label: 'Selected Work (Curated)' },
+    { id: 'sub-motion', label: 'Motion & SaaS UI' },
+    { id: 'sub-reels', label: 'Video Editing & Reels' },
     { id: 'sub-branding', label: 'Brand Identity' },
-    { id: 'sub-packaging', label: 'Packaging Design' },
-    { id: 'sub-social', label: 'Social Media' }
+    { id: 'sub-packaging', label: 'Packaging' },
+    { id: 'sub-posters', label: 'Visual Lab & Posters' }
   ];
 
+  const featuredMotion = motionGraphicsPortfolio.videos.find(v => v.id === 'saas-1') || motionGraphicsPortfolio.videos[0];
+  const otherMotionVideos = motionGraphicsPortfolio.videos.filter(v => v.id !== featuredMotion.id);
+
   return (
-    <section id="portfolio" className="py-20 md:py-32 border-t border-white/[0.08] relative bg-[#080808]">
+    <section id="portfolio" className="py-20 md:py-32 border-t border-white/[0.08] relative bg-[#050507] text-white">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10">
         
         {/* Section Header Marker */}
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-14 text-xs font-mono uppercase tracking-widest text-neutral-400">
           <div className="flex items-center gap-2">
             <span className="text-white font-bold">02</span>
+            <span className="text-blue-400 font-bold">//</span>
+            <span className="text-neutral-300 font-semibold tracking-widest">SELECTED PORTFOLIO</span>
           </div>
-          <div className="text-neutral-400 font-semibold tracking-widest">
-            //LATEST PORTFOLIO
+          <div className="text-blue-400 font-mono text-[11px] hidden sm:block">
+            MOTION GRAPHICS • NARRATIVE EDITING • VISUAL SYSTEMS
           </div>
-          <div className="hidden sm:block">
-            MULTIDISCIPLINARY CREATIVE ARCHITECTURE
+          <div className="text-neutral-400">
+            2026 ARCHIVE
           </div>
         </div>
 
@@ -57,32 +71,26 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
           <div className="lg:col-span-7">
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[0.9] font-display">
-              LATEST<br />PORTFOLIO
+              SELECTED<br />WORKS
             </h2>
           </div>
           <div className="lg:col-span-5">
             <p className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed">
-              From viral short-form retention and sound-synced motion graphics to bespoke luxury packaging and complete brand identity systems.
+              Engineered for high-growth tech founders, digital products, and ambitious consumer brands. Prioritizing retention mechanics, kinetic rhythm, and human visual taste.
             </p>
           </div>
         </div>
 
         {/* Sticky Sub-Section Quick Filter / Jump Bar */}
-        <div className="sticky top-20 z-30 mb-20 -mx-2 px-2 py-3 bg-[#080808]/85 backdrop-blur-md border-y border-white/[0.08]">
+        <div className="sticky top-16 z-30 mb-16 -mx-2 px-2 py-3 bg-[#050507]/90 backdrop-blur-md border-y border-white/[0.08]">
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => {
-                  if (tab.id === 'all') {
-                    setActiveTab('all');
-                  } else {
-                    scrollToSubSection(tab.id);
-                  }
-                }}
+                onClick={() => scrollToSubSection(tab.id)}
                 className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 ${
                   activeTab === tab.id
-                    ? 'bg-white text-black font-bold shadow-lg shadow-white/10'
+                    ? 'bg-blue-500 text-white font-bold shadow-lg shadow-blue-500/20 border border-blue-400'
                     : 'bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.05]'
                 }`}
               >
@@ -93,14 +101,319 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
         </div>
 
         {/* =========================================================================
-            SUB-SECTION 1: REELS & VIDEO EDITING
+            CURATED BENTO GRID (Visible on Curated tab or initial view)
+           ========================================================================= */}
+        {activeTab === 'curated' && (
+          <div className="mb-28 space-y-12 animate-fadeIn">
+            <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
+                <span>CURATED FLAGSHIP SHOWCASE // HIGHEST CONVERSION IMPACT</span>
+              </div>
+              <span className="text-[11px] font-mono text-blue-400">
+                4 PILLARS OF WORK
+              </span>
+            </div>
+
+            {/* Curated Bento Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              
+              {/* Pillar 1: Large Hero Card — SaaS UI Motion (7 Cols) */}
+              <div className="lg:col-span-7 rounded-2xl md:rounded-3xl bg-[#0A0B10] border border-white/10 hover:border-blue-500/50 p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 group shadow-2xl relative overflow-hidden">
+                <div className="space-y-5">
+                  <div className="flex items-center justify-between">
+                    <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-[10px] font-mono uppercase tracking-widest text-blue-300">
+                      FLAGSHIP MOTION GRAPHICS
+                    </span>
+                    <span className="text-xs font-mono text-emerald-400 font-semibold">
+                      3.2x Engagement Lift
+                    </span>
+                  </div>
+
+                  <AudioVideoPlayer
+                    src={featuredMotion.src}
+                    poster={featuredMotion.poster}
+                    title={featuredMotion.title}
+                    category="SaaS UI Component Motion"
+                    aspectRatio="16/9"
+                    className="w-full shadow-2xl"
+                  />
+
+                  <div>
+                    <h4 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wide group-hover:text-blue-300 transition-colors">
+                      {featuredMotion.title}
+                    </h4>
+                    <p className="mt-2 text-sm text-neutral-400 font-light leading-relaxed">
+                      {featuredMotion.hook}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-6 mt-6 border-t border-white/[0.08] flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {featuredMotion.tags.map((t, idx) => (
+                      <span key={idx} className="px-2.5 py-1 rounded-full bg-white/[0.04] text-[10px] font-mono text-neutral-300">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => scrollToSubSection('sub-motion')}
+                    className="text-xs font-mono uppercase tracking-wider text-blue-400 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer"
+                  >
+                    <span>View All 7 Rigs</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Right Stack: Short-Form Reel + Brand Identity (5 Cols) */}
+              <div className="lg:col-span-5 flex flex-col gap-8">
+                
+                {/* Pillar 2: 9:16 Vertical Short-Form Retention */}
+                <div className="rounded-2xl md:rounded-3xl bg-[#0A0B10] border border-white/10 hover:border-purple-500/50 p-6 flex flex-col justify-between transition-all duration-500 group shadow-2xl">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-[10px] font-mono uppercase tracking-widest text-purple-300">
+                      SHORT-FORM RETENTION
+                    </span>
+                    <span className="text-xs font-mono text-emerald-400 font-semibold">
+                      96% Retention
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
+                    <div className="sm:col-span-5 aspect-[9/16] rounded-xl overflow-hidden bg-black shadow-xl">
+                      <AudioVideoPlayer
+                        src="/assets/portfolio/reels/creative-studio-reel.mp4"
+                        poster="/assets/portfolio/thumbnails/thumb-creative-studio-reel.jpg"
+                        title="Creative Studio Reel"
+                        category="Vertical 9:16"
+                        aspectRatio="9/16"
+                        className="w-full h-full"
+                      />
+                    </div>
+                    <div className="sm:col-span-7 space-y-3">
+                      <h4 className="font-display font-bold text-xl text-white uppercase tracking-wide">
+                        High-Retention Talking Head &amp; B-Roll Sync
+                      </h4>
+                      <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                        Fast-paced kinetic jump cuts, dynamic graphic overlays, and micro-animations engineered to capture and lock in mobile viewer attention.
+                      </p>
+                      <button
+                        onClick={() => scrollToSubSection('sub-reels')}
+                        className="text-xs font-mono uppercase tracking-wider text-purple-400 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer pt-2"
+                      >
+                        <span>Explore Reels Suite</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pillar 3: Flagship Brand Identity Case Study */}
+                <div 
+                  onClick={() => {
+                    const hob = projects.find(p => p.id === 'house-of-burger') || brandIdentityPortfolio[0];
+                    onSelectProject(hob);
+                  }}
+                  className="rounded-2xl md:rounded-3xl bg-[#0A0B10] border border-white/10 hover:border-white/30 p-6 flex flex-col justify-between transition-all duration-500 group shadow-2xl cursor-pointer"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-[10px] font-mono uppercase tracking-widest text-neutral-300">
+                      BRAND ARCHITECTURE
+                    </span>
+                    <span className="text-xs font-mono text-neutral-400">
+                      Full Case Study ↗
+                    </span>
+                  </div>
+
+                  <div className="aspect-[16/9] w-full rounded-xl overflow-hidden bg-neutral-900 mb-4 relative">
+                    <img
+                      src="/assets/projects/house-of-burger/11655283.jpg"
+                      alt="House of Burger"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute bottom-3 left-4">
+                      <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide">
+                        House of Burger
+                      </h4>
+                      <p className="text-xs text-neutral-300 font-light">
+                        Bold Brutalist Fast-Casual Identity System
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Jump Bar to Dive into Full Deep Dives */}
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-wrap items-center justify-between gap-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
+                EXPLORE BY CATEGORY ARCHIVE:
+              </span>
+              <div className="flex flex-wrap gap-2.5">
+                <button
+                  onClick={() => scrollToSubSection('sub-motion')}
+                  className="px-4 py-1.5 rounded-full bg-white/[0.05] hover:bg-white hover:text-black text-xs font-mono uppercase tracking-wider transition-all cursor-pointer"
+                >
+                  Motion Graphics (7)
+                </button>
+                <button
+                  onClick={() => scrollToSubSection('sub-reels')}
+                  className="px-4 py-1.5 rounded-full bg-white/[0.05] hover:bg-white hover:text-black text-xs font-mono uppercase tracking-wider transition-all cursor-pointer"
+                >
+                  Video Editing &amp; Reels
+                </button>
+                <button
+                  onClick={() => scrollToSubSection('sub-branding')}
+                  className="px-4 py-1.5 rounded-full bg-white/[0.05] hover:bg-white hover:text-black text-xs font-mono uppercase tracking-wider transition-all cursor-pointer"
+                >
+                  Brand Identity (4)
+                </button>
+                <button
+                  onClick={() => scrollToSubSection('sub-packaging')}
+                  className="px-4 py-1.5 rounded-full bg-white/[0.05] hover:bg-white hover:text-black text-xs font-mono uppercase tracking-wider transition-all cursor-pointer"
+                >
+                  Packaging (4)
+                </button>
+                <button
+                  onClick={() => scrollToSubSection('sub-posters')}
+                  className="px-4 py-1.5 rounded-full bg-white/[0.05] hover:bg-white hover:text-black text-xs font-mono uppercase tracking-wider transition-all cursor-pointer"
+                >
+                  Visual Lab &amp; Posters (8)
+                </button>
+              </div>
+            </div>
+
+          </div>
+        )}
+
+        {/* =========================================================================
+            SUB-SECTION 1: MOTION & SAAS UI (Revenue Priority #1)
+           ========================================================================= */}
+        <div id="sub-motion" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-4">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-widest text-blue-400 mb-2 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <span>01 // MOTION GRAPHICS &amp; SAAS UI</span>
+              </div>
+              <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display">
+                SaaS UI Motion &amp; Explainers
+              </h3>
+            </div>
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-xs font-mono text-blue-300">
+              <Volume2 className="w-4 h-4 text-[#00F0FF] animate-pulse" />
+              <span>Hover Video For Synced Audio</span>
+            </div>
+          </div>
+          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-14 font-light leading-relaxed">
+            Fluid 60fps component interactions, dashboard transitions, and product explainer sequences designed to clarify complex B2B workflows and maximize user conversion.
+          </p>
+
+          {/* Featured Hero Rig: LeadsFinder */}
+          <div className="mb-14 rounded-2xl md:rounded-3xl bg-[#0A0B10] border border-white/10 hover:border-blue-500/50 p-6 sm:p-10 transition-all duration-500 group shadow-2xl relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7">
+                <AudioVideoPlayer
+                  src={featuredMotion.src}
+                  poster={featuredMotion.poster}
+                  title={featuredMotion.title}
+                  category="Featured Explainer Rig"
+                  aspectRatio="16/9"
+                  className="w-full shadow-2xl"
+                />
+              </div>
+              <div className="lg:col-span-5 space-y-5">
+                <div className="flex items-center gap-3">
+                  <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-[10px] font-mono uppercase tracking-widest text-blue-300">
+                    {featuredMotion.category}
+                  </span>
+                  <span className="text-xs font-mono text-emerald-400 font-semibold">
+                    {featuredMotion.metrics}
+                  </span>
+                </div>
+
+                <h4 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-wide group-hover:text-blue-300 transition-colors">
+                  {featuredMotion.title}
+                </h4>
+
+                <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
+                  {featuredMotion.hook}
+                </p>
+
+                <div className="pt-4 border-t border-white/[0.08] flex flex-wrap gap-2">
+                  {featuredMotion.tags.map((tag, i) => (
+                    <span key={i} className="px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono text-neutral-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Other 6 SaaS UI Motion Mini Case Studies */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {otherMotionVideos.map((vid) => (
+              <div 
+                key={vid.id} 
+                className="group rounded-2xl bg-[#0A0B10] border border-white/[0.08] hover:border-blue-500/40 p-5 flex flex-col justify-between transition-all duration-500 shadow-xl"
+              >
+                <div className="space-y-4">
+                  <AudioVideoPlayer
+                    src={vid.src}
+                    poster={vid.poster}
+                    title={vid.title}
+                    category={vid.category}
+                    aspectRatio="16/9"
+                    className="w-full shadow-lg"
+                  />
+
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-[11px] font-mono">
+                      <span className="text-neutral-400 uppercase">{vid.category}</span>
+                      {vid.metrics && <span className="text-emerald-400 font-semibold">{vid.metrics}</span>}
+                    </div>
+
+                    <h5 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-blue-300 transition-colors">
+                      {vid.title}
+                    </h5>
+
+                    <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                      {vid.hook}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-4 mt-4 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+                  {vid.tags.map((t, idx) => (
+                    <span key={idx} className="px-2 py-0.5 rounded-full bg-white/[0.03] text-[10px] font-mono text-neutral-400">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* =========================================================================
+            SUB-SECTION 2: REELS & VIDEO EDITING
            ========================================================================= */}
         <div id="sub-reels" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+            <span>02 // VIDEO EDITING &amp; SHORT-FORM RETENTION</span>
+          </div>
           <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
-            Reels & Video Editing
+            Reels &amp; Narrative Video Editing
           </h3>
-          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            Scroll-stopping short-form edits engineered for maximum retention. Fast-paced cuts and narrative sequences built to captivate audiences and trigger organic growth.
+          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-14 font-light leading-relaxed">
+            Scroll-stopping short-form edits engineered for maximum retention. Fast-paced cuts, sound-designed transitions, and narrative rhythm built to captivate audiences and trigger organic growth.
           </p>
 
           {/* 9:16 Vertical Mobile Reels */}
@@ -179,66 +492,22 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
         </div>
 
         {/* =========================================================================
-            SUB-SECTION 2: MOTION GRAPHICS (SaaS Motion Videos with Audio Controls)
-           ========================================================================= */}
-        <div id="sub-motion" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-4">
-            <div>
-              <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-2">
-                Motion Graphics
-              </h3>
-            </div>
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
-              <Volume2 className="w-4 h-4 text-emerald-400" />
-              <span>Hover Video for Sound</span>
-            </div>
-          </div>
-          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            Fluid 2D/3D animation and UI explainer sequences that bring static concepts to life. Complex visual storytelling engineered for clarity, rhythm, and high-impact digital experiences.
-          </p>
-
-          {/* SaaS Motion Graphics Video Grid (Clean without text) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
-            {motionGraphicsPortfolio.videos.map((vid) => (
-              <div key={vid.id} className="w-full">
-                <AudioVideoPlayer
-                  src={vid.src}
-                  poster={vid.poster}
-                  aspectRatio="16/9"
-                  className="w-full shadow-2xl"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* =========================================================================
-            SUB-SECTION 3: LOGOFOLIO
-           ========================================================================= */}
-        <div id="sub-logofolio" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
-          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
-            Logofolio
-          </h3>
-          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
-            Distinctive identity marks built to leave a lasting impression. Strategic logo design that distills complex brand narratives into sharp, instantly recognizable visual symbols.
-          </p>
-
-          <BrandTicker onSelectLogo={(logo) => setSelectedCreative({ image: logo.src, title: `${logo.name} - Identity Mark` })} />
-        </div>
-
-        {/* =========================================================================
-            SUB-SECTION 4: BRANDING / BRAND IDENTITY
+            SUB-SECTION 3: BRANDING & BRAND IDENTITY
            ========================================================================= */}
         <div id="sub-branding" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span>03 // VISUAL ARCHITECTURE &amp; BRAND SYSTEMS</span>
+          </div>
           <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
-            Branding & Brand Identity
+            Branding &amp; Brand Identity
           </h3>
-          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-12 font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-14 font-light leading-relaxed">
             End-to-end visual identities engineered for modern brands. Dive into complete case studies detailing strategic positioning, custom visual systems, and real-world applications.
           </p>
 
           {/* 4 Flagship Projects: House of Burger, ZENI, Matchino, Vastukey */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 mb-16">
             {brandIdentityPortfolio.map((brand) => {
               const fullProject = projects.find(p => p.id === brand.id);
               return (
@@ -247,7 +516,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.3 }}
                   onClick={() => onSelectProject(fullProject || brand)}
-                  className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/30 transition-all duration-500 cursor-pointer group flex flex-col"
+                  className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#0A0B10] border border-white/[0.08] hover:border-white/30 transition-all duration-500 cursor-pointer group flex flex-col shadow-2xl"
                 >
                   <div className="aspect-[16/10] w-full overflow-hidden bg-neutral-900 relative">
                     <img
@@ -269,7 +538,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                           {brand.category}
                         </span>
                       </div>
-                      <h4 className="text-2xl sm:text-3xl font-bold font-display uppercase tracking-wider text-white mb-2 group-hover:text-neutral-300 transition-colors">
+                      <h4 className="text-2xl sm:text-3xl font-bold font-display uppercase tracking-wider text-white mb-2 group-hover:text-blue-300 transition-colors">
                         {brand.title}
                       </h4>
                       <p className="text-xs sm:text-sm text-neutral-400 font-light">
@@ -290,24 +559,40 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
               );
             })}
           </div>
+
+          {/* Logofolio Brand Ticker */}
+          <div className="pt-8">
+            <div className="flex items-center justify-between mb-6">
+              <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+                LOGOFOLIO // STRATEGIC IDENTITY MARKS
+              </span>
+              <span className="text-[11px] font-mono text-neutral-400">
+                DISTILLED SYMBOLISM
+              </span>
+            </div>
+            <BrandTicker onSelectLogo={(logo) => setSelectedCreative({ image: logo.src, title: `${logo.name} - Identity Mark` })} />
+          </div>
         </div>
 
         {/* =========================================================================
-            SUB-SECTION 5: PACKAGING DESIGN
+            SUB-SECTION 4: PACKAGING DESIGN
            ========================================================================= */}
         <div id="sub-packaging" className="scroll-mt-36 mb-32 border-b border-white/[0.08] pb-24">
+          <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+            <span>04 // PHYSICAL TOUCHPOINTS &amp; RETAIL IMPACT</span>
+          </div>
           <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
             Packaging Design
           </h3>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-16 font-light leading-relaxed">
-            Physical touchpoints designed for maximum retail impact. Structural and visual packaging strategies that merge striking aesthetics with functional design to stand out in crowded markets.
+            Physical touchpoints designed for maximum retail impact. Structural and visual packaging strategies that merge striking aesthetics with functional design to stand out on crowded shelves.
           </p>
 
           {/* 4 Packaging Projects: Infiya Tea, Sauz, Pasta Basta, Theory of tea */}
           <div className="space-y-28">
             {packagingPortfolio.map((project) => (
               <div key={project.id} className="space-y-8">
-                {/* Single heading of the folder / client name */}
                 <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
                   <h4 className="text-2xl sm:text-4xl font-bold uppercase tracking-tight text-white font-display">
                     {project.title}
@@ -317,11 +602,10 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                   </span>
                 </div>
 
-                {/* Hero Showcase Image (Large, commanding prominence) */}
                 {project.heroImage && (
                   <div
                     onClick={() => setSelectedCreative({ image: project.heroImage, title: `${project.title} - Hero Showcase` })}
-                    className="w-full rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/30 transition-all duration-500 group cursor-pointer relative shadow-2xl"
+                    className="w-full rounded-2xl md:rounded-3xl overflow-hidden bg-[#0A0B10] border border-white/[0.08] hover:border-white/30 transition-all duration-500 group cursor-pointer relative shadow-2xl"
                   >
                     <div className="aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden relative">
                       <img
@@ -342,7 +626,6 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                   </div>
                 )}
 
-                {/* Rest of the images: smaller secondary gallery */}
                 {project.images && project.images.length > 0 && (
                   <div className="space-y-3 pt-2">
                     <div className="text-[11px] font-mono uppercase tracking-widest text-neutral-400 flex items-center justify-between">
@@ -354,7 +637,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
                         <div
                           key={imgIdx}
                           onClick={() => setSelectedCreative({ image: imgSrc, title: `${project.title} - View ${imgIdx + 1}` })}
-                          className="rounded-xl overflow-hidden bg-neutral-950 border border-white/[0.08] hover:border-white/30 transition-all duration-300 group cursor-pointer relative"
+                          className="rounded-xl overflow-hidden bg-[#0A0B10] border border-white/[0.08] hover:border-white/30 transition-all duration-300 group cursor-pointer relative"
                         >
                           <div className="aspect-[4/3] w-full overflow-hidden relative">
                             <img
@@ -380,182 +663,68 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
         </div>
 
         {/* =========================================================================
-            SUB-SECTION 6: SOCIAL MEDIA DESIGN (Single Unified Presentation)
+            SUB-SECTION 5: VISUAL LAB & EDITORIAL POSTERS (Purged of all food flyers)
            ========================================================================= */}
-        <div id="sub-social" className="scroll-mt-36">
-          <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display mb-4">
-            Social Media Design
-          </h3>
+        <div id="sub-posters" className="scroll-mt-36">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-4">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-2 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" />
+                <span>05 // VISUAL LAB &amp; EDITORIAL EXPERIMENTS</span>
+              </div>
+              <h3 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white font-display">
+                Visual Lab &amp; Posters
+              </h3>
+            </div>
+            <span className="text-[11px] font-mono text-neutral-400">
+              8 EXPERIMENTAL POSTER STUDIES
+            </span>
+          </div>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-14 font-light leading-relaxed">
-            High-conversion digital assets designed to command the feed. Strategic carousel sequences, launch campaigns, and grid aesthetics built for maximum dwell-time and audience retention.
+            Experimental typographic compositions, negative-space studies, and conceptual editorial posters exploring the intersection of brutalist grid discipline and expressive visual art.
           </p>
 
-          {/* Single Unified Social Media Showcase Stream */}
-          <div className="space-y-12 sm:space-y-16 mb-16">
-            
-            {/* Poster 1: Main Heading Poster (Facebook Isometric Performance Grid) */}
-            <div 
-              onClick={() => setSelectedCreative({ image: "/assets/portfolio/social-media/social-media-banner-facebook.jpg", title: "Social Media Campaign Architecture" })}
-              className="rounded-2xl md:rounded-3xl overflow-hidden bg-neutral-900 border border-white/[0.08] hover:border-white/20 transition-all duration-300 shadow-2xl group cursor-pointer relative"
-            >
-              <img
-                src="/assets/portfolio/social-media/social-media-banner-facebook.jpg"
-                alt="Social Media Campaign Architecture"
-                className="w-full h-auto object-cover object-center group-hover:scale-[1.01] transition-transform duration-700 ease-out"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                  <ZoomIn className="w-5 h-5" />
-                </div>
-              </div>
-            </div>
-
-            {/* Showcase: Strategic Social Media Creative & Ad Design (Images 1 - 4) */}
-            <div>
-              <div className="flex items-center justify-between mb-5">
-                <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span>Strategic Creative &amp; Ad Design Systems</span>
-                </div>
-                <span className="text-[11px] font-mono text-neutral-400">
-                  4 CONVERSION MOCKUPS
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                {[
-                  { id: 'sm-1', image: '/assets/portfolio/social-media/showcase/1.webp', title: 'A Brand From Meh to Magnetic' },
-                  { id: 'sm-2', image: '/assets/portfolio/social-media/showcase/2.webp', title: 'Our Manifesto — Building Brands' },
-                  { id: 'sm-3', image: '/assets/portfolio/social-media/showcase/3.webp', title: 'Connecting Brands with Audiences' },
-                  { id: 'sm-4', image: '/assets/portfolio/social-media/showcase/4.webp', title: 'Custom ERP Solution Ad' }
-                ].map((card) => (
-                  <div
-                    key={card.id}
-                    onClick={() => setSelectedCreative(card)}
-                    className="group relative rounded-2xl bg-[#0e0e0e] border border-white/[0.08] hover:border-white/30 p-3 sm:p-5 flex flex-col items-center justify-center cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-white/[0.03] overflow-hidden"
-                  >
-                    <div className="w-full aspect-[9/16] flex items-center justify-center overflow-hidden">
-                      <img
-                        src={card.image}
-                        alt={card.title}
-                        className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                        <ZoomIn className="w-4 h-4" />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Showcase: Luxury AI-Enhanced Visuals (Image 5) */}
-            <div>
-              <div className="flex items-center justify-between mb-5">
-                <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span>Premium AI-Enhanced Visuals &amp; Haute Joaillerie Creatives</span>
-                </div>
-                <span className="text-[11px] font-mono text-neutral-400">
-                  EDITORIAL COMPOSITE MOCKUP
-                </span>
-              </div>
-
+          {/* 8 High-Impact Editorial Posters Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {visualLabPosters.map((poster) => (
               <div
-                onClick={() => setSelectedCreative({ image: "/assets/portfolio/social-media/showcase/5.webp", title: "Premium AI-Enhanced Visuals: Luxury Jewelry" })}
-                className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#0e0e0e] border border-white/[0.08] hover:border-white/30 transition-all duration-300 shadow-2xl group cursor-pointer relative p-4 sm:p-8 flex items-center justify-center"
+                key={poster.id}
+                onClick={() => setSelectedCreative({ image: poster.image, title: poster.title, subtitle: poster.subtitle })}
+                className="group rounded-2xl bg-[#0A0B10] border border-white/[0.08] hover:border-[#00F0FF]/50 transition-all duration-500 overflow-hidden cursor-pointer shadow-xl flex flex-col justify-between"
               >
-                <img
-                  src="/assets/portfolio/social-media/showcase/5.webp"
-                  alt="Premium AI-Enhanced Visuals: Luxury Jewelry"
-                  className="w-full h-auto max-h-[700px] object-contain group-hover:scale-[1.01] transition-transform duration-700 ease-out drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                    <ZoomIn className="w-5 h-5" />
+                <div className="aspect-[3/4] w-full overflow-hidden bg-neutral-900 relative">
+                  <img
+                    src={poster.image}
+                    alt={poster.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[9px] font-mono uppercase tracking-widest text-neutral-300">
+                    {poster.tag}
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Showcase: Health & Wellness 5-Slide Carousel System (Image 6) */}
-            <div>
-              <div className="flex items-center justify-between mb-5">
-                <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span>Designing with Intent (5-Part Wellness Carousel System)</span>
-                </div>
-                <span className="text-[11px] font-mono text-neutral-400">
-                  MULTI-SLIDE CAROUSEL
-                </span>
-              </div>
-
-              <div
-                onClick={() => setSelectedCreative({ image: "/assets/portfolio/social-media/showcase/6.webp", title: "Designing with Intent: Wellness Carousel" })}
-                className="rounded-2xl md:rounded-3xl overflow-hidden bg-[#0e0e0e] border border-white/[0.08] hover:border-white/30 transition-all duration-300 shadow-2xl group cursor-pointer relative p-4 sm:p-8 flex items-center justify-center"
-              >
-                <img
-                  src="/assets/portfolio/social-media/showcase/6.webp"
-                  alt="Designing with Intent: Wellness Carousel"
-                  className="w-full h-auto max-h-[600px] object-contain group-hover:scale-[1.01] transition-transform duration-700 ease-out drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                    <ZoomIn className="w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Individual Campaign Creatives & Post Uploads (Gallery Grid) */}
-          <div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                <span>Individual Campaign Creatives &amp; Post Uploads</span>
-              </div>
-              <span className="text-[11px] font-mono text-neutral-400">
-                {socialMediaPortfolio.gallery.length} CREATIVES DISPLAYED
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
-              {socialMediaPortfolio.gallery.map((item) => (
-                <div 
-                  key={item.id}
-                  onClick={() => setSelectedCreative(item)}
-                  className="rounded-xl overflow-hidden bg-neutral-900 border border-white/[0.08] hover:border-white/30 transition-all duration-300 group cursor-pointer relative"
-                >
-                  <div className="aspect-[4/5] w-full overflow-hidden relative">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                        <ZoomIn className="w-4 h-4" />
-                      </div>
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                      <ZoomIn className="w-5 h-5" />
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                <div className="p-4 sm:p-5">
+                  <h5 className="font-display font-bold text-base text-white uppercase tracking-wide group-hover:text-[#00F0FF] transition-colors">
+                    {poster.title}
+                  </h5>
+                  <p className="text-xs text-neutral-400 font-light mt-1">
+                    {poster.subtitle}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
       </div>
 
-      {/* Lightbox Inspection Modal for Social Media Creatives */}
+      {/* Lightbox Modal for Posters & Creatives */}
       <AnimatePresence>
         {selectedCreative && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8">
@@ -582,8 +751,20 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
               <img
                 src={selectedCreative.image}
                 alt={selectedCreative.title}
-                className="max-h-[85vh] max-w-full w-auto rounded-2xl object-contain shadow-2xl border border-white/10"
+                className="max-h-[82vh] max-w-full w-auto rounded-2xl object-contain shadow-2xl border border-white/10"
               />
+              {selectedCreative.title && (
+                <div className="mt-3 text-center">
+                  <p className="font-display font-bold text-sm uppercase tracking-wider text-white">
+                    {selectedCreative.title}
+                  </p>
+                  {selectedCreative.subtitle && (
+                    <p className="text-xs text-neutral-400 font-light">
+                      {selectedCreative.subtitle}
+                    </p>
+                  )}
+                </div>
+              )}
             </motion.div>
           </div>
         )}

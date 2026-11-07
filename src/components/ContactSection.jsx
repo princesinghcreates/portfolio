@@ -10,7 +10,7 @@ export default function ContactSection({ onOpenContact }) {
     }
   };
 
-  const marqueeText = "BASED IN INDIA, I AM AN INNOVATIVE DESIGNER AND DIGITAL CREATOR. MY PASSION FOR MINIMALIST AESTHETICS, ELEGANT TYPOGRAPHY, AND INTUITIVE DESIGN IS EVIDENT IN MY WORK.";
+  const marqueeText = "SENIOR VIDEO EDITOR & MOTION DESIGNER // ARCHITECTING RETENTION, SAAS UI ANIMATION, AND VISUAL STORYTELLING FOR MODERN BRANDS.";
 
   return (
     <section id="contact" className="pt-24 pb-12 border-t border-white/[0.08] relative bg-[#080808] overflow-hidden select-none">
@@ -68,8 +68,8 @@ export default function ContactSection({ onOpenContact }) {
 
           {/* Right Metadata */}
           <div className="md:col-span-3 text-center md:text-left font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-400 space-y-1">
-            <p className="text-neutral-300 font-bold">VIDEO EDITOR +</p>
-            <p className="font-medium text-neutral-400">GRAPHIC DESIGNER</p>
+            <p className="text-neutral-300 font-bold">SENIOR VIDEO EDITOR +</p>
+            <p className="font-medium text-blue-400">MOTION DESIGNER</p>
           </div>
 
         </div>
@@ -79,14 +79,30 @@ export default function ContactSection({ onOpenContact }) {
           <div className="flex w-max animate-marquee space-x-12 select-none items-center">
             {[marqueeText, marqueeText, marqueeText].map((txt, i) => (
               <span key={i} className="font-display font-bold text-lg sm:text-2xl text-white uppercase tracking-wider shrink-0">
-                {txt} <span className="text-neutral-500 mx-6">✦</span>
+                {txt} <span className="text-blue-500 mx-6">✦</span>
               </span>
             ))}
           </div>
         </div>
 
-        {/* Social Links (matching frame 001 bottom) */}
-        <div className="flex items-center justify-center gap-8 sm:gap-16 py-8 text-xs font-mono uppercase tracking-widest text-neutral-400">
+        {/* Social Links */}
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 py-8 text-xs font-mono uppercase tracking-widest text-neutral-400">
+          <a
+            href="https://linkedin.com/in/princesinghcreates"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-blue-400 transition-colors cursor-pointer"
+          >
+            LINKEDIN ↗
+          </a>
+          <a
+            href="https://youtube.com/@PrinceSinghCreates"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-red-400 transition-colors cursor-pointer"
+          >
+            YOUTUBE ↗
+          </a>
           <a
             href="https://instagram.com/princesinghcreates"
             target="_blank"

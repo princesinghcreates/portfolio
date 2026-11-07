@@ -663,8 +663,8 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
 
             {/* Right Metadata */}
             <div className="md:col-span-3 text-center md:text-left font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-400 space-y-1">
-              <p className="text-neutral-300 font-bold">VIDEO EDITOR +</p>
-              <p className="font-medium text-neutral-400">GRAPHIC DESIGNER</p>
+              <p className="text-neutral-300 font-bold">SENIOR VIDEO EDITOR +</p>
+              <p className="font-medium text-blue-400">MOTION DESIGNER</p>
             </div>
           </div>
 

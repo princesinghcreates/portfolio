@@ -28,3 +28,4 @@ cloudflared.exe
 *.tmp
 *.opt.*
 *.backup.mp4
+*_original_backup.mp4

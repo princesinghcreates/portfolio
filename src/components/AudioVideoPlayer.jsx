@@ -166,7 +166,9 @@ export default function AudioVideoPlayer({
     setIsManualPlay(false);
     const video = videoRef.current;
     if (!video) return;
-    video.pause();
+    try {
+      video.pause();
+    } catch (e) {}
     setIsPlaying(false);
   };
 
@@ -294,7 +296,7 @@ export default function AudioVideoPlayer({
         loop={loop}
         muted={isMuted}
         playsInline
-        preload="none"
+        preload="metadata"
         controlsList="nodownload nofullscreen noremoteplayback"
         disablePictureInPicture
         draggable="false"
@@ -337,10 +339,10 @@ export default function AudioVideoPlayer({
         </div>
       )}
 
-      {/* Bottom Glassmorphism Control Bar */}
+      {/* Bottom Glassmorphism Control Bar (Hidden when idle, fades in smoothly on hover) */}
       <div 
-        className={`absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent z-20 transition-opacity duration-300 ${
-          showControls || !isPlaying ? 'opacity-100' : 'opacity-0 sm:opacity-0 group-hover:opacity-100'
+        className={`absolute bottom-0 inset-x-0 p-4 sm:p-5 bg-gradient-to-t from-black/90 via-black/60 to-transparent z-20 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto ${
+          showControls ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         }`}
       >
         {/* Scrubber Progress Bar */}

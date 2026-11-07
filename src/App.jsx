@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } fro
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PortfolioSection from './components/PortfolioSection';
+import CreatorVaultSection from './components/CreatorVaultSection';
 import WhoAmISection from './components/WhoAmISection';
 import ServicesSection from './components/ServicesSection';
 import VoiceOfPrinceSection from './components/VoiceOfPrinceSection';
@@ -39,7 +40,10 @@ function HomePage({ onOpenContact, onOpenPosters }) {
           onOpenPosters={onOpenPosters}
         />
 
-        {/* 03 //Services */}
+        {/* 03 //Creator Vault */}
+        <CreatorVaultSection onOpenContact={() => onOpenContact()} />
+
+        {/* 04 //Services */}
         <ServicesSection onOpenContact={(srv) => onOpenContact(srv)} />
 
         {/* 04 //Voice Of Prince */}

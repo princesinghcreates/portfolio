@@ -1,17 +1,19 @@
 export const personalInfo = {
   name: "Prince Singh",
-  title: "Video Editor + Graphic Designer",
-  location: "Udaipur, INDIA",
-  availability: "Available ALL AROUND worldwide",
+  title: "Senior Video Editor & Motion Designer",
+  location: "Udaipur, India — Operating Worldwide (UTC+5:30)",
+  availability: "AVAILABLE WORLDWIDE // REMOTE PARTNER",
   status: "Available for new projects",
   experienceYears: "8+",
   since: "2018",
-  bio: "Great visual communication requires both tactical precision and rapid execution. Over the past eight years, I have helped brands stand out through distinct visual identities, impactful packaging design, and high-performing video content. Backed by agency leadership roles and a portfolio of 80+ clients across diverse verticals, I pair deep fundamentals in typography, color theory, and video editing with modern AI-accelerated workflows to produce standout creative that scales.",
-  philosophy: "BASED IN INDIA, I AM AN INNOVATIVE DESIGNER AND DIGITAL CREATOR. MY PASSION FOR MINIMALIST AESTHETICS, ELEGANT TYPOGRAPHY, AND INTUITIVE DESIGN IS EVIDENT IN MY WORK.",
+  clientsCount: "150+",
+  bio: "With over 8 years of multidisciplinary design and post-production experience, I engineer high-performing video content, kinetic SaaS UI animations, and narrative-driven edits that captivate audiences and drive conversions. Operating as a solo creative partner, I combine rigorous technical precision in After Effects and Premiere Pro with high-end aesthetic taste to help ambitious brands and startups scale through visual storytelling. No fluff, no generic templates—just high-end motion and editing built to perform.",
+  philosophy: "INDEPENDENT CREATIVE PARTNER DELIVERING STRATEGY-LED MOTION GRAPHICS, NARRATIVE EDITING, AND VISUAL SYSTEMS THAT TURN AMBITIOUS PRODUCTS INTO INDUSTRY BENCHMARKS.",
   socials: [
-    { name: "Instagram", url: "https://www.instagram.com/princesingh.creates", handle: "@princesingh.creates" },
+    { name: "Instagram", url: "https://www.instagram.com/princesinghcreates", handle: "@princesinghcreates" },
+    { name: "YouTube", url: "https://www.youtube.com/@PrinceSinghCreates", handle: "@PrinceSinghCreates" },
     { name: "Pinterest", url: "https://in.pinterest.com/princesinghcreates", handle: "princesinghcreates" },
-    { name: "WhatsApp", url: "https://wa.me/919460293040", handle: "+91 94602 93040" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/princesinghcreates", handle: "princesinghcreates" },
     { name: "Email", url: "mailto:princesinghcreates@gmail.com", handle: "princesinghcreates@gmail.com" }
   ]
 };
@@ -287,6 +289,101 @@ export const projects = [
   }
 ];
 
+export const visualLabPosters = [
+  {
+    id: "poster-system-overthink",
+    title: "System Overthink",
+    subtitle: "Experimental Typographic & Cognitive Layout Study",
+    image: "/assets/projects/posters/poster-system-overthink.webp",
+    tag: "Editorial & Typography"
+  },
+  {
+    id: "poster-creative-workplace",
+    title: "Creative Workplace",
+    subtitle: "Architectural Workspace & Spatial Rhythm",
+    image: "/assets/projects/posters/poster-creative-workplace.webp",
+    tag: "Visual Architecture"
+  },
+  {
+    id: "poster-design-above-noise",
+    title: "Design Above Noise",
+    subtitle: "Negative Space & High-Contrast Communication",
+    image: "/assets/projects/posters/poster-design-above-noise.webp",
+    tag: "Manifesto Series"
+  },
+  {
+    id: "poster-skybound-solitude",
+    title: "Skybound Solitude",
+    subtitle: "Cinematic Mood & Chromatic Gradients",
+    image: "/assets/projects/posters/poster-skybound-solitude.webp",
+    tag: "Atmospheric Visual"
+  },
+  {
+    id: "poster-cosmic-concrete",
+    title: "Cosmic Concrete",
+    subtitle: "Brutalist Architectural Grid & Texture",
+    image: "/assets/projects/posters/poster-cosmic-concrete.webp",
+    tag: "Brutalist Study"
+  },
+  {
+    id: "poster-electric-reverie",
+    title: "Electric Reverie",
+    subtitle: "Analog Cathode-Ray Visual Culture",
+    image: "/assets/projects/posters/poster-electric-reverie.webp",
+    tag: "Retro Futurism"
+  },
+  {
+    id: "poster-quiet-upheaval",
+    title: "Quiet Upheaval",
+    subtitle: "Monochrome Editorial & Grain Metaphor",
+    image: "/assets/projects/posters/poster-quiet-upheaval.webp",
+    tag: "Monochrome"
+  },
+  {
+    id: "poster-fleeting-ideas",
+    title: "Fleeting Ideas In Full Form",
+    subtitle: "Concept Formulation & Visual Deconstruction",
+    image: "/assets/projects/posters/poster-fleeting-ideas.webp",
+    tag: "Design Theory"
+  }
+];
+
+export const creatorVaultAssets = [
+  {
+    id: "vault-1",
+    title: "SaaS Glassmorphic UI Component Rig",
+    subtitle: "Modular 60fps Dashboard & Cursor Animation Kit",
+    category: "AE PROJECT FILE (.AEP)",
+    compatibility: "After Effects 2024+ | No Plugins Required",
+    preview: "/assets/portfolio/motion/animentor-academy-saas.mp4",
+    poster: "/assets/portfolio/thumbnails/thumb-animentor-academy-saas.jpg",
+    price: "$29",
+    gumroadUrl: "https://princesinghcreates.gumroad.com"
+  },
+  {
+    id: "vault-2",
+    title: "Kinetic Data & Metric Flow Rig",
+    subtitle: "Real-Time Expression-Driven Counter & Chart System",
+    category: "EXPRESSION PRESET (.FFX)",
+    compatibility: "After Effects CC+ | 100% Native Expressions",
+    preview: "/assets/portfolio/motion/stripe-saas.mp4",
+    poster: "/assets/portfolio/thumbnails/thumb-stripe-saas.jpg",
+    price: "$24",
+    gumroadUrl: "https://princesinghcreates.gumroad.com"
+  },
+  {
+    id: "vault-3",
+    title: "SaaS Product Explainer Motion Kit",
+    subtitle: "Dark-Mode Futuristic Tech Transitions & UI Framing",
+    category: "AE EXTENDSCRIPT / RIG",
+    compatibility: "After Effects 2023+ | Universalized Expressions",
+    preview: "/assets/portfolio/motion/saas-animation.mp4",
+    poster: "/assets/portfolio/thumbnails/thumb-saas-animation.jpg",
+    price: "$39",
+    gumroadUrl: "https://princesinghcreates.gumroad.com"
+  }
+];
+
 export const postersGallery = [
   { id: 1, title: "Retro Head Futurist", image: "/assets/Retro TV Head Person.png", tag: "Creative Art" },
   { id: 2, title: "Urban Neon Signboard", image: "/assets/Urban Night Signboard.png", tag: "Outdoor & Mockup" },
@@ -331,12 +428,12 @@ export const socialMediaPortfolio = {
     {
       id: "sm-ai-visuals",
       number: "03",
-      title: "PREMIUM AI-ENHANCED VISUALS & PROFESSIONAL STATIC CREATIVES",
-      subtitle: "AI Prompt Engineering & Editorial Production",
+      title: "EDITORIAL PRODUCT VISUALS & LUXURY STATIC CREATIVES",
+      subtitle: "Bespoke Art Direction & Haute Joaillerie Production",
       image: "/assets/portfolio/social-media/ai-jewelry-clean.jpg",
-      description: "I specialize in engineering high-end, photo-centric social media graphics that blend sophisticated typography and color theory with cutting-edge AI-powered design optimization. My approach transforms standard brand imagery into editorial-grade visual assets designed specifically for high-reach engagement and conversion in the luxury and corporate sectors. By leveraging AI prompt engineering for asset creation and machine learning-based trend analysis, I ensure every graphic—from minimalist product showcases to complex brand identity systems—is mathematically aligned with visual hierarchy and consumer psychology.",
+      description: "I engineer high-end, photo-centric brand graphics blending sophisticated typography, lighting studies, and color theory. Every composition—from high-ticket luxury product showcases to multi-channel launch systems—is calibrated for visual authority and audience engagement.",
       layout: "split",
-      tags: ["AI-Enhanced Visuals", "Luxury Editorial", "Consumer Psychology"]
+      tags: ["Editorial Art Direction", "Luxury Visuals", "Brand Hierarchy"]
     },
     {
       id: "sm-isometric-grid",
@@ -547,7 +644,7 @@ export const reelsPortfolio = {
       aspectRatio: "16:9",
       src: "/assets/portfolio/reels/reel-showcase-1.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-reel-showcase-1.jpg",
-      duration: "2:06",
+      duration: "2:02",
       metrics: "94% Retention Rate"
     },
     {
@@ -557,7 +654,7 @@ export const reelsPortfolio = {
       aspectRatio: "16:9",
       src: "/assets/portfolio/reels/reel-showcase-2.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-reel-showcase-2.jpg",
-      duration: "3:59",
+      duration: "3:55",
       metrics: "3.4x Virality Factor"
     },
     {
@@ -597,42 +694,64 @@ export const motionGraphicsPortfolio = {
   videos: [
     {
       id: "saas-1",
+      title: "LeadsFinder — SaaS Product Launch Explainer",
+      tags: ["SaaS UI Motion", "After Effects", "Visual Storytelling"],
+      hook: "Engineered modular UI component animations and smooth cursor tracking to simplify complex workflow onboarding.",
       src: "/assets/portfolio/motion/animentor-academy-saas.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-animentor-academy-saas.jpg",
-      aspectRatio: "16/9"
+      aspectRatio: "16/9",
+      featured: true
     },
     {
       id: "saas-2",
+      title: "FinTech Dashboard — Analytics Flow Animation",
+      tags: ["UI Motion Design", "Expression Rigging", "FinTech"],
+      hook: "Custom After Effects expression-driven data counters and glassmorphic micro-interactions.",
       src: "/assets/portfolio/motion/stripe-saas.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-stripe-saas.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-3",
+      title: "Nexus AI — Conversational Agent Interface",
+      tags: ["Product Explainer", "Kinetic Typography", "AI SaaS"],
+      hook: "Dynamic text masking and multi-layered glow compositions to visualize real-time AI state changes.",
       src: "/assets/portfolio/motion/saas-animation.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-saas-animation.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-4",
+      title: "CloudSync — Collaborative Workspace Suite",
+      tags: ["UI Animation", "Isometric Motion", "SaaS"],
+      hook: "Fluid window scaling and multi-user cursor simulations to demonstrate real-time cloud synchronization.",
       src: "/assets/portfolio/motion/saas-animation-5.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-saas-animation-5.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-5",
+      title: "Apex Metrics — Conversion Funnel Breakdown",
+      tags: ["Motion Graphics", "Data Visualization", "SaaS UI"],
+      hook: "Translating complex analytical data into crisp, high-retention motion graphics and graphical loops.",
       src: "/assets/portfolio/motion/saas-video-2.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-saas-video-2.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-6",
+      title: "Veloce — High-Performance Cloud Infrastructure",
+      tags: ["Tech Explainer", "Cyber Aesthetic", "After Effects"],
+      hook: "Dark-mode futuristic UI motion designed to emphasize speed, security, and developer-first architecture.",
       src: "/assets/portfolio/motion/saas-comp-1.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-saas-comp-1.jpg",
       aspectRatio: "16/9"
     },
     {
       id: "saas-7",
+      title: "Horizon OS — Spatial Window Interactions",
+      tags: ["SaaS Product Motion", "UI Explainer", "Motion System"],
+      hook: "Precision easing curves and glassmorphic layer elevation designed to present enterprise workflow power.",
       src: "/assets/portfolio/motion/saas-comp-2.mp4",
       poster: "/assets/portfolio/thumbnails/thumb-saas-comp-2.jpg",
       aspectRatio: "16/9"
@@ -643,64 +762,64 @@ export const motionGraphicsPortfolio = {
 export const services = [
   {
     number: "01",
-    title: "Brand Identity",
-    tagline: "Elevate your visual DNA.",
-    description: "From concept and logo suites to complete design systems, typography rules, and collateral that build undeniable brand authority."
+    title: "SaaS UI & Explainer Motion",
+    tagline: "Product launch explainers & kinetic UI.",
+    description: "Product launch explainers, interactive UI component animations, cursor rigs, and kinetic SaaS onboarding visuals designed in After Effects."
   },
   {
     number: "02",
-    title: "Reels & Video Editing",
-    tagline: "Viral-ready motion.",
-    description: "High-retention reel edits, kinetic motion graphics, sound design, hook optimization, and creative pacing built to maximize watch-time and audience conversion."
+    title: "Narrative & Documentary Video Editing",
+    tagline: "High-tempo retention cuts & brand stories.",
+    description: "High-retention YouTube long-form, brand documentaries, high-tempo promotional cuts, and multi-cam editing in Premiere Pro."
   },
   {
     number: "03",
-    title: "Social Media",
-    tagline: "Designs that drive growth.",
-    description: "Cohesive carousel designs, campaign launches, banner design, multi-platform assets, and custom templates tailored for Instagram, LinkedIn, and YouTube."
+    title: "Short-Form Retention Edits (Reels & Shorts)",
+    tagline: "Algorithmic watch-time & scroll-stopping hooks.",
+    description: "Fast-paced, dynamically captioned vertical edits built for maximum watch-time, retention engineering, and algorithmic conversion."
   },
   {
     number: "04",
-    title: "Motion Graphics",
-    tagline: "Dynamic visual impact.",
-    description: "Bespoke 2D/3D kinetic typography, logo stingers, title animations, 3D product motion, and broadcast-grade visual effects that breathe life into static brands."
+    title: "Brand Identity & Visual Systems",
+    tagline: "Minimalist brand systems & design collateral.",
+    description: "Minimalist, high-end brand identity packages, typography systems, and high-contrast design collateral."
   },
   {
     number: "05",
-    title: "Explainer Animation Videos",
-    tagline: "Complex ideas made simple & viral.",
-    description: "Compelling 2D/3D explainer stories, SaaS platform product walkthroughs, infographic animations, and high-converting visual narratives tailored for web and campaigns."
+    title: "Packaging Design",
+    tagline: "Shelf-commanding physical touchpoints.",
+    description: "Structural and graphic packaging strategies, custom dielines, luxury finish specifications, and retail-ready label systems engineered to dominate crowded shelves."
   }
 ];
 
 export const experienceTimeline = [
   {
     period: "2018 — Present",
-    role: "Freelance Graphic Designer & Video Editor",
-    company: "Self-Employed / Freelance",
-    location: "Udaipur, India",
-    description: "Delivered comprehensive creative solutions across graphic design, video editing, and motion graphics for diverse client portfolios. Produced high-impact reels, branded content, and animated storytelling assets that drove measurable engagement growth and strengthened brand visibility. Consistently met client objectives through strategic creative execution and collaboration with industry-leading brands."
+    role: "Senior Video Editor & Motion Designer",
+    company: "Independent Studio / Remote Partner",
+    location: "Global Remote",
+    description: "Engineering high-retention video content, SaaS product launch explainers, and kinetic UI animations for venture-backed startups and modern brands worldwide. Combining narrative pacing with After Effects technical rigging to drive measurable watch-time and user acquisition."
   },
   {
     period: "2024 — 2025",
-    role: "Sr. Graphic Designer & Video Editor",
+    role: "Lead Motion Designer & Video Editor",
     company: "PHP Poets",
     location: "India",
-    description: "Spearheaded end-to-end creative development for multi-platform campaigns—owning concept, motion design, and video post-production—to deliver cohesive, on-brand content that boosted engagement rates and accelerated follower growth across priority channels."
+    description: "Spearheaded end-to-end creative development for multi-platform campaigns—owning concept, kinetic motion design, and video post-production—to deliver cohesive, high-tempo visual assets that boosted engagement rates and brand authority."
   },
   {
     period: "2021 — 2023",
-    role: "Sr. Graphic Designer & Video Editor",
+    role: "Senior Video Editor & Visual Designer",
     company: "Aspire Techno Solutions",
     location: "India",
-    description: "Led the end-to-end design and execution of visual content for diverse social media campaigns, driving higher audience engagement and contributing to measurable growth in the company's follower base."
+    description: "Led the end-to-end design and execution of high-performing video campaigns and kinetic motion systems, driving higher audience engagement and accelerating client conversion metrics across digital channels."
   },
   {
     period: "2018 — 2021",
-    role: "Graphic Designer & Video Editor",
+    role: "Motion Graphics Designer & Video Editor",
     company: "BrandsKey Creative Studio",
     location: "India",
-    description: "Developed and executed brand identity systems in collaboration with cross-functional teams, ensuring consistency across all touchpoints. Designed impactful product packaging that improved shelf visibility and consumer appeal, while producing motion graphics and animated videos that strengthened brand storytelling and engagement."
+    description: "Developed motion graphics, video explainers, and brand identity systems in collaboration with cross-functional teams, producing high-impact animated videos and visual assets that elevated client storytelling."
   }
 ];
 

@@ -21,6 +21,7 @@ export default function Navbar({ onOpenContact }) {
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Works", href: "#portfolio" },
+    { label: "Assets", href: "#vault" },
     { label: "Services", href: "#services" },
     { label: "Experience", href: "#experience" },
     { label: "FAQ", href: "#faq" }
@@ -29,7 +30,7 @@ export default function Navbar({ onOpenContact }) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
       scrolled 
-        ? 'opacity-100 translate-y-0 bg-[#080808]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl' 
+        ? 'opacity-100 translate-y-0 bg-[#050507]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl' 
         : 'opacity-0 -translate-y-full pointer-events-none'
     }`}>
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 flex items-center justify-between">
@@ -85,10 +86,10 @@ export default function Navbar({ onOpenContact }) {
         <div className="flex items-center gap-3">
           <button
             onClick={onOpenContact}
-            className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider font-semibold text-white border border-white hover:bg-white hover:text-black transition-all duration-300 active:scale-95"
+            className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider font-semibold text-white border border-blue-500/40 bg-blue-500/10 hover:bg-white hover:text-black hover:border-white transition-all duration-300 active:scale-95 shadow-sm"
           >
-            <span>CONTACT NOW</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span>BOOK DISCOVERY CALL</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:text-black transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </button>
 
           {/* Mobile Menu Toggle */}

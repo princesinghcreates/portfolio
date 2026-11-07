@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-sm font-bold text-white uppercase tracking-wider">Prince Singh</p>
-              <p className="text-[11px] text-neutral-500">Video Editor + Graphic Designer</p>
+              <p className="text-[11px] text-blue-400 font-medium">Senior Video Editor &amp; Motion Designer</p>
             </div>
           </div>
 
