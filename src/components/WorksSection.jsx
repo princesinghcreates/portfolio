@@ -309,7 +309,7 @@ export default function WorksSection({ onSelectProject }) {
                 {packagingPortfolio.map((pkg) => (
                   <div
                     key={pkg.id}
-                    onClick={() => setSelectedPoster({ image: pkg.heroImage, title: pkg.title })}
+                    onClick={() => onSelectProject ? onSelectProject({ id: pkg.id }) : null}
                     className="harron-card overflow-hidden group cursor-pointer"
                   >
                     <div className="aspect-[16/10] w-full overflow-hidden bg-neutral-900 relative">
@@ -319,18 +319,24 @@ export default function WorksSection({ onSelectProject }) {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                          <ZoomIn className="w-5 h-5" />
-                        </div>
+                        <span className="px-4 py-2 rounded-full bg-white text-black font-mono text-xs uppercase tracking-wider font-bold shadow-lg">
+                          Explore Packaging Case Study ↗
+                        </span>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h4 className="font-display font-bold text-xl sm:text-2xl text-white uppercase tracking-wide">
-                        {pkg.title}
-                      </h4>
-                      <p className="text-xs text-neutral-400 font-light mt-1">
-                        Packaging Suite &amp; Structural Retail Strategy
-                      </p>
+                    <div className="p-6 sm:p-7 flex items-center justify-between">
+                      <div>
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-[#5c59e8] font-bold">
+                          RETAIL PACKAGING SUITE
+                        </span>
+                        <h4 className="font-display font-bold text-xl sm:text-2xl text-white uppercase tracking-wide mt-1 group-hover:text-[#a4a2ff] transition-colors">
+                          {pkg.title}
+                        </h4>
+                        <p className="text-xs text-neutral-400 font-light mt-1">
+                          Dielines, Material Exploration &amp; 3D Mockups
+                        </p>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-neutral-400 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0 ml-4" />
                     </div>
                   </div>
                 ))}

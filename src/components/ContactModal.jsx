@@ -79,7 +79,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
               </div>
             </div>
             <a
-              href="https://cal.com/princesinghcreates"
+              href="https://wa.me/918000828880?text=Hello%20Prince,%20I'd%20like%20to%20schedule%20a%2015-minute%20discovery%20call%20for%20my%20project."
               target="_blank"
               rel="noopener noreferrer"
               className="whitespace-nowrap px-5 py-2.5 rounded-full bg-white text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-neutral-200 transition-all flex items-center gap-1.5 shadow-md active:scale-95"

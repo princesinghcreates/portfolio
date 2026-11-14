@@ -84,11 +84,9 @@ export default function ConnectSection({ onOpenContact }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           
           {/* Card 1: 15-Min Discovery Call */}
-          <a
-            href="https://cal.com/princesinghcreates"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="harron-card p-6 flex flex-col justify-between group"
+          <button
+            onClick={onOpenContact}
+            className="harron-card p-6 flex flex-col justify-between group text-left cursor-pointer"
           >
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-full bg-[#5c59e8]/20 border border-[#5c59e8]/40 flex items-center justify-center text-[#a4a2ff]">
@@ -102,10 +100,10 @@ export default function ConnectSection({ onOpenContact }) {
               </p>
             </div>
             <div className="pt-4 mt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-neutral-300">
-              <span>Cal.com Scheduling</span>
+              <span>Direct Discovery Schedule</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </div>
-          </a>
+          </button>
 
           {/* Card 2: WhatsApp Quick Chat */}
           <a

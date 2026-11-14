@@ -22,7 +22,7 @@ export default function ProcessSection() {
       num: "03",
       title: "Timeline Assembly & Sound Design Mastering",
       tagline: "WHERE RETENTION HAPPENS",
-      description: "Full post-production in Premiere Pro and After Effects: micro-jump cuts, kinetic typography tracking, AI speech isolation, and multi-layered Foley soundscapes that trigger organic watch-time loops.",
+      description: "Full post-production in Premiere Pro and After Effects: micro-jump cuts, kinetic typography tracking, precise dialogue cleanup, and multi-layered Foley soundscapes that trigger organic watch-time loops.",
       deliverables: ["Frame-Accurate Cut", "Custom Sound Design", "Kinetic Typography"]
     },
     {
@@ -67,16 +67,16 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        {/* 4 Process Cards */}
+        {/* 4 Process Cards with Expanded Negative Space */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((step) => (
             <div
               key={step.num}
-              className="harron-card p-7 sm:p-8 flex flex-col justify-between group"
+              className="harron-card p-8 sm:p-10 lg:p-9 xl:p-10 flex flex-col justify-between group transition-all duration-500 hover:border-[#5c59e8]/50 min-h-[460px]"
             >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="font-display font-black text-3xl text-[#5c59e8]">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+                  <span className="font-display font-black text-3xl sm:text-4xl text-[#5c59e8]">
                     {step.num}
                   </span>
                   <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
@@ -84,8 +84,8 @@ export default function ProcessSection() {
                   </span>
                 </div>
 
-                <div className="space-y-1">
-                  <h4 className="font-display font-bold text-xl text-white uppercase tracking-tight group-hover:text-[#a4a2ff] transition-colors">
+                <div className="space-y-2">
+                  <h4 className="font-display font-bold text-xl sm:text-2xl text-white uppercase tracking-tight group-hover:text-[#a4a2ff] transition-colors leading-snug">
                     {step.title}
                   </h4>
                   <p className="text-[10px] font-mono uppercase tracking-wider text-[#5c59e8] font-semibold">
@@ -93,19 +93,19 @@ export default function ProcessSection() {
                   </p>
                 </div>
 
-                <p className="text-xs text-neutral-400 font-light leading-relaxed">
+                <p className="text-sm text-neutral-300 font-sans font-normal leading-relaxed">
                   {step.description}
                 </p>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-white/[0.06] space-y-2">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
-                  KEY DELIVERABLES:
+              <div className="pt-6 mt-8 border-t border-white/[0.08] space-y-3">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block">
+                  KEY DELIVERABLES //
                 </span>
-                <div className="space-y-1">
+                <div className="space-y-2">
                   {step.deliverables.map((del, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-neutral-300 font-mono">
-                      <span className="w-1 h-1 rounded-full bg-[#5c59e8]" />
+                    <div key={i} className="flex items-center gap-2.5 text-xs text-neutral-200 font-mono">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#5c59e8] shrink-0" />
                       <span>{del}</span>
                     </div>
                   ))}

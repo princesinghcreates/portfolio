@@ -1,11 +1,42 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Plus, Minus, X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
-import { projects, faqs, personalInfo } from '../data/siteData';
+import { ArrowRight, Plus, Minus, X, ChevronLeft, ChevronRight, Maximize2, Compass, Layers, Film, Box, User, MessageSquare } from 'lucide-react';
+import { projects, packagingPortfolio, faqs, personalInfo } from '../data/siteData';
 
 export default function ProjectPage({ projectId, onNavigateHome, onNavigateProject, onOpenContact }) {
-  // Find project or fallback to Vastukey Ventures
-  const currentProject = projects.find(p => p.id === projectId) || projects[0];
+  const navigate = useNavigate();
+  const [navMenuOpen, setNavMenuOpen] = useState(false);
+
+  // Check in projects or packagingPortfolio
+  const foundInProjects = projects.find(p => p.id === projectId);
+  const foundInPackaging = packagingPortfolio ? packagingPortfolio.find(p => p.id === projectId) : null;
+
+  const currentProject = foundInProjects || (foundInPackaging ? {
+    id: foundInPackaging.id,
+    title: foundInPackaging.title,
+    category: "Packaging Design & Dieline Architecture",
+    tagline: "Retail Packaging System, Material Exploration & Dieline Engineering",
+    year: "2024",
+    client: "Consumer Goods & Lifestyle",
+    services: ["Packaging Architecture", "Dieline Engineering", "Material Specifications", "Label Systems", "3D Visualization"],
+    heroImage: foundInPackaging.heroImage,
+    gallery: foundInPackaging.images || [foundInPackaging.heroImage],
+    overview: {
+      headline: `STRUCTURAL PACKAGING & BRAND TOUCHPOINTS FOR ${foundInPackaging.title.toUpperCase()}`,
+      paragraphs: [
+        `Comprehensive retail packaging design system engineered for shelf standout, tactile luxury, and cost-efficient manufacturing. From initial structural dielines to bespoke typographic hierarchies, each panel is calibrated for maximum consumer impact.`,
+        `The project incorporates material specifications, print finishes (foil stamping, blind deboss, matte soft-touch varnish), and sustainable carton structures designed to reinforce the brand's premium market positioning.`
+      ],
+      deliverables: [
+        "Production-Ready Packaging Dielines",
+        "Material & Finish Specifications",
+        "Label & Nutrition Information Hierarchy",
+        "Photorealistic 3D Retail Mockups",
+        "Shelf Display & Shipping Carton Systems"
+      ]
+    }
+  } : projects[0]);
 
   // Local live clock matching Porto navbar
   const [time, setTime] = useState('');
@@ -118,49 +149,131 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
   return (
     <div className="min-h-screen bg-[#080808] text-white selection:bg-white selection:text-black relative font-sans">
       
-      {/* Top Header Bar */}
-      <header className="sticky top-0 z-40 bg-[#080808]/90 backdrop-blur-md border-b border-white/[0.08] py-4 transition-all duration-300">
+      {/* Top Sticky Header Bar with Explicit Back Navigation */}
+      <header className="sticky top-0 z-40 bg-[#080808]/95 backdrop-blur-xl border-b border-white/[0.08] py-3.5 transition-all duration-300">
         <div className="max-w-[1320px] mx-auto px-6 sm:px-10 flex items-center justify-between">
           
-          {/* Left: Live Local Clock */}
-          <div className="text-xs sm:text-sm font-mono tracking-wider text-neutral-300 flex items-center gap-1.5">
-            <span className="text-neutral-500 font-semibold">LOCAL/</span>
-            <span className="text-white font-medium">{time || '5:50:43 PM'}</span>
-          </div>
-
-          {/* Center: Six-dots grid icon (Home navigation) */}
+          {/* Left: Prominent Back to Works Button */}
           <button
-            onClick={onNavigateHome}
-            aria-label="Back to Homepage"
-            title="Back to Homepage"
-            className="group flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                const el = document.querySelector('#works');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 120);
+            }}
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.06] hover:bg-white/15 border border-white/15 text-xs font-mono uppercase tracking-wider text-neutral-200 hover:text-white transition-all cursor-pointer group shadow-sm"
           >
-            <div className="flex gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-white transition-colors" />
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-white transition-colors" />
-            </div>
-            <div className="flex gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-white transition-colors" />
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-white transition-colors" />
-            </div>
-            <div className="flex gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-white transition-colors" />
-              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-white transition-colors" />
-            </div>
+            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span>BACK TO SELECTED WORKS</span>
           </button>
 
-          {/* Right: Contact Now Pill Button */}
+          {/* Center: Six-dots Menu Modal Trigger */}
+          <button
+            onClick={() => setNavMenuOpen(true)}
+            aria-label="Portfolio Directory & Navigation"
+            title="Open Directory Menu"
+            className="group flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/10 border border-white/10 transition-colors cursor-pointer"
+          >
+            <div className="grid grid-cols-3 gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-[#5c59e8] transition-colors" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-[#5c59e8] transition-colors" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-[#5c59e8] transition-colors" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-[#5c59e8] transition-colors" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-[#5c59e8] transition-colors" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 group-hover:bg-[#5c59e8] transition-colors" />
+            </div>
+            <span className="text-xs font-mono uppercase tracking-wider text-neutral-300 group-hover:text-white hidden sm:inline">
+              DIRECTORY //
+            </span>
+          </button>
+
+          {/* Right: Contact Now Button */}
           <div>
             <button
               onClick={() => onOpenContact(currentProject.category)}
-              className="px-6 py-2 rounded-full border border-white text-xs font-mono uppercase tracking-widest font-semibold text-white hover:bg-white hover:text-black transition-all duration-300 active:scale-95 cursor-pointer shadow-md"
+              className="px-5 py-2 rounded-full bg-[#5c59e8] hover:bg-[#4d4ac7] text-xs font-mono uppercase tracking-widest font-semibold text-white transition-all duration-300 active:scale-95 cursor-pointer shadow-md"
             >
-              CONTACT NOW
+              INITIATE BRIEF
             </button>
           </div>
 
         </div>
       </header>
+
+      {/* Interactive Navigation Menu Modal */}
+      <AnimatePresence>
+        {navMenuOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setNavMenuOpen(false)}
+              className="fixed inset-0 bg-black/85 backdrop-blur-xl cursor-pointer"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 15 }}
+              className="relative w-full max-w-lg p-6 sm:p-8 rounded-3xl bg-[#141418] border border-white/15 shadow-2xl z-10 space-y-6"
+            >
+              <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#a4a2ff]">PORTFOLIO DIRECTORY</span>
+                  <h3 className="font-display font-bold text-xl text-white uppercase tracking-wide">WHERE TO NEXT?</h3>
+                </div>
+                <button
+                  onClick={() => setNavMenuOpen(false)}
+                  className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 flex items-center justify-center text-white transition-colors cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="space-y-2">
+                {[
+                  { label: "01 // HOME (Top of Page)", href: "#hero" },
+                  { label: "02 // SELECTED WORKS & REELS", href: "#works" },
+                  { label: "03 // PRACTICE & DISCIPLINES", href: "#practice" },
+                  { label: "04 // STUDIO CORKBOARD POSTERS", href: "#corkboard" },
+                  { label: "05 // HOW WE WORK (PIPELINE)", href: "#process" },
+                  { label: "06 // ABOUT PRINCE SINGH", href: "#about" },
+                  { label: "07 // FREQUENTLY ASKED QUESTIONS", href: "#faq" }
+                ].map((item) => (
+                  <button
+                    key={item.href}
+                    onClick={() => {
+                      setNavMenuOpen(false);
+                      navigate('/' + item.href);
+                      setTimeout(() => {
+                        const el = document.querySelector(item.href);
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 150);
+                    }}
+                    className="w-full text-left p-3.5 rounded-xl hover:bg-white/[0.06] border border-transparent hover:border-white/10 text-xs font-mono uppercase tracking-wider text-neutral-300 hover:text-white transition-all flex items-center justify-between group cursor-pointer"
+                  >
+                    <span>{item.label}</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-neutral-500 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                  </button>
+                ))}
+              </div>
+
+              <div className="pt-2">
+                <button
+                  onClick={() => {
+                    setNavMenuOpen(false);
+                    onOpenContact();
+                  }}
+                  className="w-full py-3 rounded-full bg-[#5c59e8] text-white font-mono text-xs uppercase tracking-wider font-bold hover:bg-[#4d4ac7] transition-all text-center cursor-pointer"
+                >
+                  Schedule 15-Min Discovery Call ↗
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Main Container with subtle side guide borders */}
       <main className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-12 border-x border-white/[0.06] pt-16 sm:pt-24 pb-20">
@@ -613,105 +726,32 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
           </div>
         </section>
 
-        {/* Section: LET'S WORK TOGETHER & Giant PRINCE Footer */}
-        <section className="pt-24 pb-8 border-t border-white/[0.08]">
-          <div className="text-center mb-8">
-            <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="text-[12vw] sm:text-[11vw] lg:text-[10vw] font-black uppercase tracking-tight text-white leading-[0.85] font-display"
-            >
-              LET'S WORK<br />TOGETHER
-            </motion.h2>
+        {/* Case Study Bottom Navigation Bar */}
+        <section className="my-16 p-8 sm:p-12 rounded-3xl bg-[#141418] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+          <button
+            onClick={() => {
+              navigate('/');
+              setTimeout(() => {
+                const el = document.querySelector('#works');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 120);
+            }}
+            className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/15 border border-white/15 text-xs font-mono uppercase tracking-wider text-white transition-all cursor-pointer group"
+          >
+            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span>RETURN TO SELECTED WORKS</span>
+          </button>
 
-            <div className="mt-8 flex justify-center">
-              <button
-                onClick={() => onOpenContact()}
-                className="px-8 py-3 rounded-full border border-white text-xs font-mono uppercase tracking-widest font-semibold text-white hover:bg-white hover:text-black transition-all duration-300 active:scale-95 cursor-pointer shadow-lg"
-              >
-                CONTACT NOW
-              </button>
-            </div>
-          </div>
-
-          {/* Central Portrait & Location */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center my-16">
-            {/* Left Metadata */}
-            <div className="md:col-span-3 text-center md:text-right font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-400 space-y-1">
-              <p className="text-neutral-300 font-bold">BASED IN UDAIPUR,</p>
-              <p className="font-medium text-neutral-400">INDIA</p>
-            </div>
-
-            <div className="md:col-span-6 flex justify-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="w-64 sm:w-80 aspect-[3/4] rounded-3xl overflow-hidden bg-[#c11c1c] border border-white/10 shadow-2xl relative"
-              >
-                <img
-                  src="/assets/2510.jpg"
-                  alt="Prince Singh"
-                  className="w-full h-full object-cover object-center filter contrast-110"
-                  loading="lazy"
-                />
-              </motion.div>
-            </div>
-
-            {/* Right Metadata */}
-            <div className="md:col-span-3 text-center md:text-left font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-400 space-y-1">
-              <p className="text-neutral-300 font-bold">SENIOR VIDEO EDITOR +</p>
-              <p className="font-medium text-blue-400">MOTION DESIGNER</p>
-            </div>
-          </div>
-
-          {/* Bio Philosophy Banner */}
-          <div className="max-w-3xl mx-auto text-center my-10 px-4">
-            <p className="text-xs sm:text-sm font-display font-semibold uppercase tracking-wider text-neutral-300 leading-relaxed">
-              {personalInfo.philosophy}
-            </p>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-8 sm:gap-16 py-8 text-xs font-mono uppercase tracking-widest text-neutral-400">
-            <a
-              href="https://instagram.com/princesinghcreates"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-white transition-colors cursor-pointer"
-            >
-              INSTAGRAM ↗
-            </a>
-            <a
-              href="https://pinterest.com/princesinghcreates"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-white transition-colors cursor-pointer"
-            >
-              PINTEREST ↗
-            </a>
-          </div>
-
-          {/* Giant Bottom Wordmark: PRINCE */}
-          <div className="py-12 select-none text-center overflow-hidden">
-            <h1 className="font-display font-bold text-[20vw] leading-[0.75] tracking-[-0.04em] uppercase text-white">
-              PRINCE
-            </h1>
-          </div>
-
-          {/* Bottom Footer Row */}
-          <div className="flex items-center justify-between border-t border-white/[0.08] pt-8 text-xs font-mono uppercase tracking-widest text-neutral-400">
-            <div>
-              ©2026 PRINCESINGH
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest hidden sm:inline">
+              READY TO COLLABORATE?
+            </span>
             <button
-              onClick={scrollToTop}
-              className="hover:text-white transition-colors cursor-pointer"
+              onClick={() => onOpenContact(currentProject.category)}
+              className="harron-btn-purple cursor-pointer text-xs flex items-center gap-2"
             >
-              BACK TO TOP ↑
+              <span>Initiate Direct Brief</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </section>

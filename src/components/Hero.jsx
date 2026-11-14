@@ -4,15 +4,6 @@ import { ArrowUpRight, Play, Clock } from 'lucide-react';
 
 export default function Hero({ onOpenContact }) {
   const [time, setTime] = useState('');
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-
-  // Pure craft roles: Video editing, motion design, storytelling
-  const roles = [
-    "Senior Video Editor",
-    "Motion Designer",
-    "Visual Storyteller",
-    "Documentary Editor"
-  ];
 
   useEffect(() => {
     const updateTime = () => {
@@ -31,13 +22,6 @@ export default function Hero({ onOpenContact }) {
     const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    const roleTimer = setInterval(() => {
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2800);
-    return () => clearInterval(roleTimer);
-  }, [roles.length]);
 
   const scrollToWorks = () => {
     const el = document.querySelector('#works');
@@ -71,16 +55,25 @@ export default function Hero({ onOpenContact }) {
           </div>
         </div>
 
-        {/* Harron-Style Clean 3-Line Headline with Inline Interactive Media Pills */}
+        {/* Aggressively Confident Static Headline with Single Focal Showreel Pill */}
         <div className="max-w-[1280px] mb-10">
-          <h1 className="font-display text-[7.5vw] sm:text-[5.5vw] lg:text-[4.2vw] leading-[1.25] tracking-[-0.03em] text-white font-medium">
-            
-            {/* Line 1: Identity & Rotating Specialty */}
-            <span className="block">
-              <span>I'm Prince Singh </span>
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono text-[#a4a2ff] uppercase tracking-widest mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#61c554] animate-pulse" />
+            <span>PRINCE SINGH // SENIOR VIDEO EDITOR &amp; MOTION DESIGNER</span>
+          </div>
 
-              {/* Inline Media Pill 1: Reel Video Loop */}
-              <span className="inline-flex align-middle mx-1.5 sm:mx-2.5 w-14 sm:w-20 md:w-24 h-8 sm:h-11 md:h-13 rounded-2xl md:rounded-3xl overflow-hidden border border-white/20 bg-neutral-900 shadow-xl relative -top-1 group cursor-pointer">
+          <h1 className="font-display text-[7vw] sm:text-[5.2vw] lg:text-[4vw] leading-[1.04] tracking-[-0.035em] text-white font-extrabold uppercase">
+            <span className="block">
+              Architecting High-Retention
+            </span>
+
+            <span className="block mt-1 sm:mt-2">
+              <span>Stories &amp; Kinetic Motion</span>
+              <span 
+                onClick={scrollToWorks}
+                className="inline-flex align-middle mx-2 sm:mx-3.5 w-16 sm:w-24 md:w-28 h-8 sm:h-12 md:h-14 rounded-2xl md:rounded-3xl overflow-hidden border border-[#5c59e8]/50 bg-neutral-900 shadow-xl relative -top-1 group cursor-pointer"
+                title="Watch Showreel Preview"
+              >
                 <video
                   src="/assets/portfolio/reels/creative-studio-reel.mp4"
                   autoPlay
@@ -90,65 +83,15 @@ export default function Hero({ onOpenContact }) {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </span>
-
-              <span> a </span>
-
-              {/* Role Rotator (Clean Craft Roles) */}
-              <span className="inline-block relative text-[#5c59e8] font-bold">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={currentRoleIndex}
-                    initial={{ y: 20, opacity: 0, filter: 'blur(4px)' }}
-                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
-                    exit={{ y: -20, opacity: 0, filter: 'blur(4px)' }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    className="inline-block"
-                  >
-                    {roles[currentRoleIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
             </span>
 
-            {/* Line 2: Craft Focus */}
-            <span className="block mt-1 sm:mt-2">
-              <span className="text-neutral-500 font-light">Crafting </span>
-
-              {/* Inline Media Pill 2: Motion Showcase */}
-              <span className="inline-flex align-middle mx-1.5 sm:mx-2.5 w-14 sm:w-20 md:w-24 h-8 sm:h-11 md:h-13 rounded-2xl md:rounded-3xl overflow-hidden border border-[#5c59e8]/40 bg-[#5c59e8]/10 shadow-xl relative -top-1 group cursor-pointer">
-                <video
-                  src="/assets/portfolio/motion/animentor-academy-saas.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </span>
-
-              <span className="text-white font-bold">High-Retention Video &amp; Motion</span>
+            <span className="block mt-1 sm:mt-2 text-neutral-400">
+              For Venture-Backed Founders.
             </span>
-
-            {/* Line 3: Location & Scope */}
-            <span className="block mt-1 sm:mt-2">
-              <span className="text-neutral-500 font-light">Based in </span>
-
-              {/* Inline Media Pill 3: Visual Poster Asset */}
-              <span className="inline-flex align-middle mx-1.5 sm:mx-2.5 w-10 sm:w-14 md:w-16 h-8 sm:h-11 md:h-13 rounded-2xl md:rounded-3xl overflow-hidden border border-white/20 bg-neutral-900 shadow-xl relative -top-1 group cursor-pointer">
-                <img
-                  src="/assets/projects/posters/poster-system-overthink.webp"
-                  alt="Editorial Visual"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </span>
-
-              <span>India, Operating Worldwide</span>
-            </span>
-
           </h1>
 
-          <p className="mt-8 text-base sm:text-xl text-neutral-400 font-light max-w-3xl leading-relaxed">
-            Bridging narrative documentary pacing, kinetic typography, and post-production workflows for venture-backed founders and ambitious creators.
+          <p className="mt-8 text-base sm:text-xl text-neutral-300 font-sans font-normal max-w-2xl leading-relaxed">
+            Operating as a solo post-production partner for ambitious brands: narrative documentary pacing, kinetic UI motion, and precision sound design engineered to command attention.
           </p>
         </div>
 

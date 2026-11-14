@@ -26,15 +26,6 @@ export default function PracticeSection({ onOpenContact }) {
     },
     {
       id: "03",
-      title: "AI Automation Workflows for Editing",
-      tag: "NEXT-GEN POST-PRODUCTION",
-      description: "Engineering modern automated post-production pipelines: script-to-cut rough assembly, AI speech isolation, automated word-level subtitle alignment, and generative b-roll synthesis—combining cutting-edge speed with bespoke human taste and editorial precision.",
-      metrics: "2.5x Turnaround Speed",
-      software: ["Custom JSX Scripts", "Topaz Video AI", "Whisper AI", "Automated Pipelines"],
-      icon: Cpu
-    },
-    {
-      id: "04",
       title: "Long & Short-Form Content Architecture",
       tag: "ALGORITHMIC RETENTION LOOPS",
       description: "Full-funnel video content strategy: high-authority 10–30 minute YouTube documentaries paired with 9:16 vertical short-form retention edits (Instagram Reels, TikTok, YouTube Shorts) structured with seamless first-to-last frame loops.",
@@ -43,7 +34,7 @@ export default function PracticeSection({ onOpenContact }) {
       icon: Layers
     },
     {
-      id: "05",
+      id: "04",
       title: "Brand Identity, Logo & Packaging Design",
       tag: "PHYSICAL & DIGITAL BRAND SYSTEMS",
       description: "End-to-end bespoke brand identities, distinctive logo marks, retail-ready luxury packaging dielines, structural 3D mockups, and high-impact editorial poster design for modern consumer brands and ambitious ventures.",
@@ -146,7 +137,7 @@ export default function PracticeSection({ onOpenContact }) {
             </div>
           </div>
 
-          {/* Cards 2-5 (2x2 Grid) */}
+          {/* Cards 2-4 (3-Column Symmetrical Grid) */}
           {practices.slice(1).map((practice) => {
             const Icon = practice.icon;
             return (
@@ -154,7 +145,7 @@ export default function PracticeSection({ onOpenContact }) {
                 key={practice.id}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
-                className="lg:col-span-6 harron-card p-8 sm:p-10 flex flex-col justify-between"
+                className="lg:col-span-4 harron-card p-8 sm:p-9 flex flex-col justify-between"
               >
                 <div className="space-y-5">
                   <div className="flex items-center justify-between">

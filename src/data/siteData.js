@@ -1,7 +1,7 @@
 export const personalInfo = {
   name: "Prince Singh",
   title: "Senior Video Editor & Motion Designer",
-  roleSubtitle: "Motion Graphics, SaaS UI Animation, Documentary Edits, Storytelling & AI Editing Workflows",
+  roleSubtitle: "Motion Graphics, SaaS UI Animation, Documentary Edits, Storytelling & Sound Design",
   location: "Udaipur, India — Operating Worldwide (UTC+5:30)",
   availability: "AVAILABLE FOR SELECTED EDITING & MOTION PROJECTS // OPERATING WORLDWIDE",
   status: "Available for new projects",
@@ -12,16 +12,17 @@ export const personalInfo = {
     "High-Retention Video Editing",
     "SaaS UI Animation",
     "Documentary Storytelling",
-    "AI Automation Workflows",
+    "Narrative Sound Design",
     "Brand & Motion Systems"
   ],
-  bio: "Senior Video Editor and Motion Designer with 8+ years architecting high-retention video content, SaaS UI motion graphics, documentary edits, and multidisciplinary brand systems. I bridge deep narrative storytelling and sound design with cutting-edge AI post-production workflows to help venture-backed founders and ambitious creators scale through visual impact.",
-  philosophy: "STRATEGY-LED VIDEO EDITING, HIGH-RETENTION SAAS MOTION, AND BRAND SYSTEMS BUILT TO COMMAND ATTENTION.",
+  bio: "Senior Video Editor and Motion Designer with 8+ years architecting high-retention video content, SaaS UI motion graphics, documentary edits, and multidisciplinary brand systems. I bridge deep narrative storytelling, technical After Effects precision, and dark-neon aesthetics to help venture-backed founders and ambitious creators scale through visual impact.",
+  philosophy: "EXECUTION OVER PERFECTION. STRATEGY OVER PIXELS.",
   socials: [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/princesinghcreates", handle: "princesinghcreates" },
     { name: "YouTube", url: "https://www.youtube.com/@PrinceSinghCreates", handle: "@PrinceSinghCreates" },
     { name: "Instagram", url: "https://www.instagram.com/princesinghcreates", handle: "@princesinghcreates" },
     { name: "Pinterest", url: "https://in.pinterest.com/princesinghcreates", handle: "princesinghcreates" },
+    { name: "X", url: "https://x.com/princesinghcreates", handle: "@princesinghcreates" },
     { name: "Email", url: "mailto:princesinghcreates@gmail.com", handle: "princesinghcreates@gmail.com" }
   ]
 };

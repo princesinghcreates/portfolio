@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, ArrowDown } from 'lucide-react';
 
 export default function Navbar({ onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +28,23 @@ export default function Navbar({ onOpenContact }) {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+
+    if (location.pathname !== '/') {
+      navigate('/' + href);
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          if (window.lenis) {
+            window.lenis.scrollTo(href, { offset: -80, duration: 1.2 });
+          } else {
+            const y = element.getBoundingClientRect().top + window.pageYOffset - 80;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }
+      }, 150);
+      return;
+    }
+
     const element = document.querySelector(href);
     if (element) {
       if (window.lenis) {

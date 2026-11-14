@@ -10,7 +10,7 @@ export default function AboutSection({ onOpenContact }) {
     { name: "DaVinci Resolve", level: "Advanced // Cinematic Grading" },
     { name: "Adobe Illustrator", level: "Proficient // Vector & Branding" },
     { name: "Adobe Audition", level: "Foley & Sound Design Mastering" },
-    { name: "AI Post-Production", level: "Automated Transcription & Sync" }
+    { name: "Sound Design & Pacing", level: "Dynamic Foley & Retention Architecture" }
   ];
 
   return (
@@ -66,16 +66,21 @@ export default function AboutSection({ onOpenContact }) {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <span className="px-3.5 py-1.5 rounded-full bg-[#5c59e8]/15 border border-[#5c59e8]/30 text-xs font-mono uppercase tracking-widest text-[#a4a2ff]">
-                THE PHILOSOPHY
+                // THE PHILOSOPHY
               </span>
               <h3 className="font-display font-bold text-3xl sm:text-5xl text-white uppercase tracking-tight leading-[1.05]">
-                ARCHITECTING RETENTION, MOTION &amp; VISUAL STORYTELLING.
+                Execution Over Perfection. Strategy Over Pixels.
               </h3>
             </div>
 
-            <p className="text-base sm:text-lg text-neutral-300 font-light leading-relaxed">
-              {personalInfo.bio}
-            </p>
+            <div className="space-y-4 text-base sm:text-lg text-neutral-300 font-sans font-normal leading-relaxed">
+              <p>
+                I am a multidisciplinary Senior Video Editor and Motion Designer, operating as a solo creative partner for venture-backed SaaS startups and high-growth creators. Over the past 8 years, I’ve built a high-velocity production pipeline that bridges narrative storytelling, technical After Effects precision, and dark-neon aesthetics.
+              </p>
+              <p>
+                I don't just push pixels or deliver raw files. I engineer high-retention visual systems—from kinetic SaaS UI explainers to modular brand identities—designed specifically to command attention, reduce churn, and drive measurable revenue. My approach is rooted in rapid execution, eliminating bottlenecks, and delivering elite, agency-level visual impact without the agency bloat.
+              </p>
+            </div>
 
             {/* Core Toolchain Stack */}
             <div className="pt-4 border-t border-white/[0.08] space-y-4">
