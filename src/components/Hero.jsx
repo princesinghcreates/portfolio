@@ -121,10 +121,10 @@ export default function Hero({ onOpenContact }) {
           
           {/* KPI 1: Delivered Projects */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6">
-            <span className="font-display font-medium text-3xl sm:text-4xl text-white tracking-tight">
+            <span className="font-display font-medium text-3xl sm:text-4xl text-[#5c59e8] tracking-tight">
               150+
             </span>
-            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+            <span className="text-xs font-mono uppercase tracking-wider text-white mt-1">
               Global Projects Delivered
             </span>
           </div>
@@ -134,27 +134,27 @@ export default function Hero({ onOpenContact }) {
             <span className="font-display font-medium text-3xl sm:text-4xl text-[#5c59e8] tracking-tight">
               3.4x
             </span>
-            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+            <span className="text-xs font-mono uppercase tracking-wider text-white mt-1">
               Watch-Time Retention Lift
             </span>
           </div>
 
           {/* KPI 3: Experience */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
-            <span className="font-display font-medium text-3xl sm:text-4xl text-white tracking-tight">
+            <span className="font-display font-medium text-3xl sm:text-4xl text-[#5c59e8] tracking-tight">
               8+ YRS
             </span>
-            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+            <span className="text-xs font-mono uppercase tracking-wider text-white mt-1">
               Post-Production Experience
             </span>
           </div>
 
           {/* KPI 4: Retention */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
-            <span className="font-display font-medium text-3xl sm:text-4xl text-white tracking-tight">
+            <span className="font-display font-medium text-3xl sm:text-4xl text-[#5c59e8] tracking-tight">
               94%
             </span>
-            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+            <span className="text-xs font-mono uppercase tracking-wider text-white mt-1">
               Client Retention Rate
             </span>
           </div>
