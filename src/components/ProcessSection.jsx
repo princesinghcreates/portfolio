@@ -56,7 +56,7 @@ export default function ProcessSection() {
         {/* Section Title */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-8">
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+            <h2 className="text-4xl sm:text-6xl font-medium tracking-tight text-white leading-[1.02] font-display">
               Streamlined<br />Creative Pipeline.
             </h2>
           </div>
@@ -76,7 +76,7 @@ export default function ProcessSection() {
             >
               <div className="space-y-6">
                 <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
-                  <span className="font-display font-black text-3xl sm:text-4xl text-[#5c59e8]">
+                  <span className="font-display font-bold text-3xl sm:text-4xl text-[#5c59e8]">
                     {step.num}
                   </span>
                   <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
@@ -85,7 +85,7 @@ export default function ProcessSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <h4 className="font-display font-bold text-xl sm:text-2xl text-white tracking-tight group-hover:text-[#a4a2ff] transition-colors leading-snug">
+                  <h4 className="font-display font-medium text-xl sm:text-2xl text-white tracking-tight group-hover:text-[#a4a2ff] transition-colors leading-snug">
                     {step.title}
                   </h4>
                   <p className="text-[10px] font-mono uppercase tracking-wider text-[#5c59e8] font-semibold">

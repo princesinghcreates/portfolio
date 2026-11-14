@@ -221,7 +221,7 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-widest text-[#a4a2ff]">PORTFOLIO DIRECTORY</span>
-                  <h3 className="font-display font-bold text-xl text-white uppercase tracking-wide">WHERE TO NEXT?</h3>
+                  <h3 className="font-display font-medium text-xl text-white tracking-wide">Where to Next?</h3>
                 </div>
                 <button
                   onClick={() => setNavMenuOpen(false)}
@@ -295,7 +295,7 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-black uppercase tracking-tight text-white leading-[0.95] font-display"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-medium tracking-tight text-white leading-[0.95] font-display"
           >
             {currentProject.title}
           </motion.h1>
@@ -320,19 +320,19 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
         <section className="border-y border-white/[0.08] py-8 my-16 sm:my-24 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
           <div>
             <p className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">YEAR</p>
-            <p className="text-base sm:text-lg font-bold font-display uppercase text-white mt-1.5">{currentProject.year}</p>
+            <p className="text-base sm:text-lg font-medium font-display uppercase text-white mt-1.5">{currentProject.year}</p>
           </div>
           <div>
             <p className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">CLIENT</p>
-            <p className="text-base sm:text-lg font-bold font-display uppercase text-white mt-1.5 truncate">{currentProject.client}</p>
+            <p className="text-base sm:text-lg font-medium font-display uppercase text-white mt-1.5 truncate">{currentProject.client}</p>
           </div>
           <div>
             <p className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">CATEGORY</p>
-            <p className="text-base sm:text-lg font-bold font-display uppercase text-white mt-1.5">{currentProject.category}</p>
+            <p className="text-base sm:text-lg font-medium font-display uppercase text-white mt-1.5">{currentProject.category}</p>
           </div>
           <div>
             <p className="text-[11px] font-mono uppercase tracking-widest text-neutral-500">PRODUCT DURATION</p>
-            <p className="text-base sm:text-lg font-bold font-display uppercase text-white mt-1.5">{currentProject.duration}</p>
+            <p className="text-base sm:text-lg font-medium font-display uppercase text-white mt-1.5">{currentProject.duration}</p>
           </div>
         </section>
 
@@ -340,8 +340,8 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
         {currentProject.aboutBrand && (
           <section className="my-16 sm:my-24 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-4">
-              <h2 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-wider text-white">
-                ABOUT THE BRAND
+              <h2 className="text-xl sm:text-2xl font-medium font-display uppercase tracking-wider text-white">
+                About the Brand
               </h2>
             </div>
             <div className="lg:col-span-8">
@@ -357,8 +357,8 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
           <section className="my-16 sm:my-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12 sm:mb-16">
               <div className="lg:col-span-4">
-                <h2 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-wider text-white">
-                  RESEARCH &amp; DISCOVERY
+                <h2 className="text-xl sm:text-2xl font-medium font-display uppercase tracking-wider text-white">
+                  Research &amp; Discovery
                 </h2>
               </div>
               <div className="lg:col-span-8 space-y-4">
@@ -420,8 +420,8 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
           <section className="my-16 sm:my-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12 sm:mb-16">
               <div className="lg:col-span-4">
-                <h2 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-wider text-white">
-                  CONCEPT &amp; DEVELOPMENT
+                <h2 className="text-xl sm:text-2xl font-medium font-display uppercase tracking-wider text-white">
+                  Concept &amp; Development
                 </h2>
               </div>
               <div className="lg:col-span-8 space-y-4">
@@ -484,8 +484,8 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
           <section className="my-16 sm:my-24">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12 sm:mb-16">
               <div className="lg:col-span-4">
-                <h2 className="text-xl sm:text-2xl font-bold font-display uppercase tracking-wider text-white">
-                  DESIGN &amp; EXECUTION
+                <h2 className="text-xl sm:text-2xl font-medium font-display uppercase tracking-wider text-white">
+                  Design &amp; Execution
                 </h2>
               </div>
               <div className="lg:col-span-8 space-y-6 text-sm sm:text-base text-neutral-400 font-light leading-relaxed">
@@ -615,7 +615,7 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
           <div className="py-8 overflow-hidden select-none border-b border-white/[0.08] mb-16">
             <div className="flex w-max animate-marquee space-x-12 items-center">
               {[...Array(6)].map((_, i) => (
-                <span key={i} className="font-display font-black text-4xl sm:text-6xl md:text-7xl uppercase tracking-wider text-white shrink-0">
+                <span key={i} className="font-display font-medium text-4xl sm:text-6xl md:text-7xl uppercase tracking-wider text-white shrink-0">
                   MORE WORKS <span className="text-neutral-600 mx-4">•</span>
                 </span>
               ))}
@@ -653,7 +653,7 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
 
                   {/* Title & Category */}
                   <div className="text-center">
-                    <h3 className="font-display font-bold text-base sm:text-lg text-white uppercase tracking-wider group-hover:text-neutral-300 transition-colors">
+                    <h3 className="font-display font-medium text-base sm:text-lg text-white tracking-wide group-hover:text-neutral-300 transition-colors">
                       {proj.title}
                     </h3>
                     <p className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-neutral-400 mt-0.5">
@@ -695,7 +695,7 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
                     className="w-full flex items-center justify-between text-left group gap-4 focus:outline-none cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <span className="font-display font-bold text-base md:text-xl text-white group-hover:text-neutral-200 transition-colors uppercase tracking-wide">
+                    <span className="font-display font-medium text-base md:text-xl text-white group-hover:text-neutral-200 transition-colors tracking-tight">
                       {faq.question}
                     </span>
                     <div className={`w-9 h-9 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all ${
@@ -775,7 +775,7 @@ export default function ProjectPage({ projectId, onNavigateHome, onNavigateProje
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center gap-3">
-                <span className="font-display font-bold uppercase tracking-wider text-sm sm:text-base text-white">
+                <span className="font-display font-medium text-sm sm:text-base text-white">
                   {currentProject.title}
                 </span>
                 <span className="text-neutral-500 font-mono">•</span>

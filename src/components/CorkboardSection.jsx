@@ -114,7 +114,7 @@ export default function CorkboardSection() {
 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+          <h2 className="text-4xl sm:text-6xl font-medium tracking-tight text-white leading-[1.02] font-display">
             Studio<br />Corkboard.
           </h2>
           <p className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed">
@@ -162,7 +162,7 @@ export default function CorkboardSection() {
                     <div className="text-[10px] font-mono uppercase tracking-wider text-[#5c59e8] font-bold">
                       {item.tag}
                     </div>
-                    <h5 className="font-display font-bold text-sm text-white uppercase tracking-wide mt-0.5">
+                    <h5 className="font-display font-medium text-sm text-white tracking-wide mt-0.5">
                       {item.title}
                     </h5>
                   </div>
@@ -174,7 +174,7 @@ export default function CorkboardSection() {
                     <span className="text-[#a4a2ff] font-bold">{item.tag}</span>
                     <span>STUDIO LOG</span>
                   </div>
-                  <h5 className="font-display font-bold text-base text-white uppercase tracking-wide">
+                  <h5 className="font-display font-medium text-base text-white tracking-wide">
                     {item.title}
                   </h5>
                   <p className="text-xs text-neutral-300 font-mono leading-relaxed whitespace-pre-line">

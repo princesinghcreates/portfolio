@@ -38,7 +38,7 @@ export default function ConnectSection({ onOpenContact }) {
             <span>ACCEPTING NEW DIRECTING &amp; EDITING BRIEFS</span>
           </div>
 
-          <h2 className="text-[11vw] sm:text-[9.5vw] font-bold tracking-tight text-white leading-[0.92] font-display">
+          <h2 className="text-[11vw] sm:text-[9.5vw] font-medium tracking-tight text-white leading-[0.92] font-display">
             Let's Work<br />Together.
           </h2>
 
@@ -52,7 +52,7 @@ export default function ConnectSection({ onOpenContact }) {
           {subscribed ? (
             <div className="p-6 rounded-2xl bg-[#141418] border border-emerald-500/30 text-center space-y-2">
               <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
-              <h4 className="font-display font-bold text-lg text-white uppercase">
+              <h4 className="font-display font-medium text-lg text-white">
                 Opening Mail Client!
               </h4>
               <p className="text-xs text-neutral-400">
@@ -92,7 +92,7 @@ export default function ConnectSection({ onOpenContact }) {
               <div className="w-10 h-10 rounded-full bg-[#5c59e8]/20 border border-[#5c59e8]/40 flex items-center justify-center text-[#a4a2ff]">
                 <Calendar className="w-5 h-5" />
               </div>
-              <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-[#a4a2ff] transition-colors">
+              <h4 className="font-display font-medium text-lg text-white tracking-wide group-hover:text-[#a4a2ff] transition-colors">
                 Book Discovery Call
               </h4>
               <p className="text-xs text-neutral-400 font-light leading-relaxed">
@@ -116,7 +116,7 @@ export default function ConnectSection({ onOpenContact }) {
               <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
                 <MessageSquare className="w-5 h-5" />
               </div>
-              <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-emerald-300 transition-colors">
+              <h4 className="font-display font-medium text-lg text-white tracking-wide group-hover:text-emerald-300 transition-colors">
                 WhatsApp Quick Chat
               </h4>
               <p className="text-xs text-neutral-400 font-light leading-relaxed">
@@ -138,7 +138,7 @@ export default function ConnectSection({ onOpenContact }) {
               <div className="w-10 h-10 rounded-full bg-[#5c59e8]/20 border border-[#5c59e8]/40 flex items-center justify-center text-[#a4a2ff]">
                 <Mail className="w-5 h-5" />
               </div>
-              <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-[#a4a2ff] transition-colors">
+              <h4 className="font-display font-medium text-lg text-white tracking-wide group-hover:text-[#a4a2ff] transition-colors">
                 Direct Email Inquiry
               </h4>
               <p className="text-xs text-neutral-400 font-light leading-relaxed">
@@ -170,7 +170,7 @@ export default function ConnectSection({ onOpenContact }) {
 
         {/* Giant Bottom Wordmark: PRINCE SINGH */}
         <div className="py-12 select-none text-center overflow-hidden">
-          <h1 className="font-display font-bold text-[17vw] leading-[0.75] tracking-[-0.04em] uppercase text-white/90">
+          <h1 className="font-display font-medium text-[17vw] leading-[0.75] tracking-[-0.04em] uppercase text-white/90">
             PRINCE SINGH
           </h1>
         </div>

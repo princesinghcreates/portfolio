@@ -62,7 +62,7 @@ export default function Hero({ onOpenContact }) {
             <span>PRINCE SINGH // SENIOR VIDEO EDITOR &amp; MOTION DESIGNER</span>
           </div>
 
-          <h1 className="font-display text-[7vw] sm:text-[5.2vw] lg:text-[4.2vw] leading-[1.08] tracking-[-0.03em] text-white font-bold">
+          <h1 className="font-display text-[7vw] sm:text-[5.2vw] lg:text-[4.2vw] leading-[1.08] tracking-[-0.025em] text-white font-medium">
             <span className="block">
               Architecting High-Retention
             </span>
@@ -121,7 +121,7 @@ export default function Hero({ onOpenContact }) {
           
           {/* KPI 1: Delivered Projects */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+            <span className="font-display font-medium text-3xl sm:text-4xl text-white tracking-tight">
               150+
             </span>
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
@@ -131,7 +131,7 @@ export default function Hero({ onOpenContact }) {
 
           {/* KPI 2: Watch-Time Lift */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-[#5c59e8] tracking-tight">
+            <span className="font-display font-medium text-3xl sm:text-4xl text-[#5c59e8] tracking-tight">
               3.4x
             </span>
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
@@ -141,7 +141,7 @@ export default function Hero({ onOpenContact }) {
 
           {/* KPI 3: Experience */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+            <span className="font-display font-medium text-3xl sm:text-4xl text-white tracking-tight">
               8+ YRS
             </span>
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
@@ -151,7 +151,7 @@ export default function Hero({ onOpenContact }) {
 
           {/* KPI 4: Retention */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+            <span className="font-display font-medium text-3xl sm:text-4xl text-white tracking-tight">
               94%
             </span>
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">

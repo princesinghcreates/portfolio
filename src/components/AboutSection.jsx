@@ -48,7 +48,7 @@ export default function AboutSection({ onOpenContact }) {
               
               <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
                 <div>
-                  <h4 className="font-display font-bold text-xl text-white uppercase tracking-wide">
+                  <h4 className="font-display font-medium text-xl text-white tracking-wide">
                     Prince Singh
                   </h4>
                   <p className="text-xs font-mono uppercase text-[#a4a2ff]">
@@ -68,7 +68,7 @@ export default function AboutSection({ onOpenContact }) {
               <span className="px-3.5 py-1.5 rounded-full bg-[#5c59e8]/15 border border-[#5c59e8]/30 text-xs font-mono uppercase tracking-widest text-[#a4a2ff]">
                 // THE PHILOSOPHY
               </span>
-              <h3 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight leading-[1.1]">
+              <h3 className="font-display font-medium text-3xl sm:text-5xl text-white tracking-tight leading-[1.1]">
                 Execution Over Perfection. Strategy Over Pixels.
               </h3>
             </div>
@@ -91,7 +91,7 @@ export default function AboutSection({ onOpenContact }) {
                 {tools.map((t, idx) => (
                   <div key={idx} className="p-3 rounded-xl bg-[#141418] border border-white/[0.06] flex items-center justify-between">
                     <div>
-                      <p className="font-display font-bold text-xs uppercase tracking-wide text-white">
+                      <p className="font-display font-medium text-xs tracking-wide text-white">
                         {t.name}
                       </p>
                       <p className="text-[10px] font-mono text-neutral-400">

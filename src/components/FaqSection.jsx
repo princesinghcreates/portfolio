@@ -32,7 +32,7 @@ export default function FaqSection({ onOpenContact }) {
         {/* Section Heading */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-8">
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+            <h2 className="text-4xl sm:text-6xl font-medium tracking-tight text-white leading-[1.02] font-display">
               Frequently Asked<br />Questions.
             </h2>
           </div>
@@ -54,7 +54,7 @@ export default function FaqSection({ onOpenContact }) {
                   className="w-full flex items-center justify-between text-left group gap-4 focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display font-bold text-xl md:text-2xl text-white group-hover:text-[#a4a2ff] transition-colors uppercase tracking-wide">
+                  <span className="font-display font-medium text-xl md:text-2xl text-white group-hover:text-[#a4a2ff] transition-colors tracking-tight">
                     {faq.question}
                   </span>
                   <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all ${
@@ -87,7 +87,7 @@ export default function FaqSection({ onOpenContact }) {
         {/* Bottom Support Banner */}
         <div className="mt-16 p-8 rounded-3xl bg-[#141418] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h4 className="font-display font-bold text-xl text-white uppercase tracking-wide">
+            <h4 className="font-display font-medium text-xl text-white tracking-wide">
               Have an Unlisted Requirement or Urgent Rush Project?
             </h4>
             <p className="text-xs sm:text-sm text-neutral-400 font-light mt-1">

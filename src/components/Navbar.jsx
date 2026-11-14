@@ -75,7 +75,7 @@ export default function Navbar({ onOpenContact }) {
                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
               />
             </div>
-            <span className="font-display font-bold text-sm tracking-wide uppercase text-white group-hover:text-neutral-300 transition-colors">
+            <span className="font-display font-medium text-sm tracking-wide uppercase text-white group-hover:text-neutral-300 transition-colors">
               Prince Singh
             </span>
           </a>

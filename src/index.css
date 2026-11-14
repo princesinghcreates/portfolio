@@ -25,11 +25,12 @@
     overflow-x: hidden;
   }
 
-  /* HEADINGS & DISPLAY TITLES: Strictly Clash Display / Clash Grotesk */
+  /* HEADINGS & DISPLAY TITLES: Strictly Clash Display / Clash Grotesk with refined, premium weight */
   h1, h2, h3, h4, h5, h6, .font-display, [class*="font-display"] {
     font-family: 'Clash Display', 'Clash Grotesk', sans-serif !important;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.025em;
     word-spacing: normal;
+    font-weight: 500; /* Sophisticated medium weight instead of heavy bold */
   }
 
   /* ALL CHILDREN INSIDE HEADINGS: Strictly inherit heading font */

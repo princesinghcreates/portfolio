@@ -44,7 +44,7 @@ export default function WorksSection({ onSelectProject }) {
         {/* Section Heading & Category Filter Tabs */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
-            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+            <h2 className="text-4xl sm:text-6xl font-medium tracking-tight text-white leading-[1.02] font-display">
               Selected<br />Projects.
             </h2>
             <p className="mt-4 text-sm sm:text-base text-neutral-400 font-light max-w-xl">
@@ -104,7 +104,7 @@ export default function WorksSection({ onSelectProject }) {
                           <span className="text-[#5c59e8] uppercase">{reel.category}</span>
                           <span className="text-emerald-400 font-bold">{reel.metrics}</span>
                         </div>
-                        <h4 className="font-display font-bold text-2xl text-white uppercase tracking-wide group-hover:text-[#a4a2ff] transition-colors">
+                        <h4 className="font-display font-medium text-2xl text-white tracking-wide group-hover:text-[#a4a2ff] transition-colors">
                           {reel.title}
                         </h4>
                         <p className="text-xs text-neutral-400 font-light leading-relaxed">
@@ -137,7 +137,7 @@ export default function WorksSection({ onSelectProject }) {
                           <span>{reel.category}</span>
                           <span className="text-emerald-400 font-bold">{reel.metrics}</span>
                         </div>
-                        <h5 className="font-display font-bold text-lg text-white uppercase tracking-wide">
+                        <h5 className="font-display font-medium text-lg text-white tracking-wide">
                           {reel.title}
                         </h5>
                       </div>
@@ -186,7 +186,7 @@ export default function WorksSection({ onSelectProject }) {
                           3.2x Engagement Lift
                         </span>
                       </div>
-                      <h3 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-tight">
+                      <h3 className="font-display font-medium text-2xl sm:text-3xl text-white tracking-tight">
                         {vid.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
@@ -222,7 +222,7 @@ export default function WorksSection({ onSelectProject }) {
                           <span className="text-[#5c59e8]">{vid.category || "SaaS UI"}</span>
                           <span className="text-emerald-400 font-bold">{vid.metrics || "Fluid Motion"}</span>
                         </div>
-                        <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-[#a4a2ff] transition-colors">
+                        <h4 className="font-display font-medium text-lg text-white tracking-wide group-hover:text-[#a4a2ff] transition-colors">
                           {vid.title}
                         </h4>
                         <p className="text-xs text-neutral-400 font-light leading-relaxed">
@@ -274,7 +274,7 @@ export default function WorksSection({ onSelectProject }) {
                           <span className="text-[10px] font-mono uppercase tracking-widest text-[#5c59e8] font-bold">
                             {brand.category}
                           </span>
-                          <h4 className="text-2xl sm:text-3xl font-bold font-display uppercase tracking-wider text-white mt-1 group-hover:text-[#a4a2ff] transition-colors">
+                          <h4 className="text-2xl sm:text-3xl font-medium font-display tracking-wider text-white mt-1 group-hover:text-[#a4a2ff] transition-colors">
                             {brand.title}
                           </h4>
                           <p className="text-xs sm:text-sm text-neutral-400 font-light mt-2">
@@ -329,7 +329,7 @@ export default function WorksSection({ onSelectProject }) {
                         <span className="text-[10px] font-mono uppercase tracking-widest text-[#5c59e8] font-bold">
                           RETAIL PACKAGING SUITE
                         </span>
-                        <h4 className="font-display font-bold text-xl sm:text-2xl text-white uppercase tracking-wide mt-1 group-hover:text-[#a4a2ff] transition-colors">
+                        <h4 className="font-display font-medium text-xl sm:text-2xl text-white tracking-wide mt-1 group-hover:text-[#a4a2ff] transition-colors">
                           {pkg.title}
                         </h4>
                         <p className="text-xs text-neutral-400 font-light mt-1">

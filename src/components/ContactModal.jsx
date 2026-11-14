@@ -55,7 +55,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
             <span className="text-xs font-mono uppercase tracking-widest text-blue-400">
               // LET'S COLLABORATE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-1 font-display">
+            <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-white mt-1 font-display">
               Initiate Project Brief
             </h2>
             <p className="text-sm text-neutral-400 mt-2 font-light">
@@ -70,7 +70,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
                 <Calendar className="w-5 h-5" />
               </div>
               <div>
-                <p className="font-display font-bold text-sm uppercase tracking-wide text-white">
+                <p className="font-display font-medium text-sm tracking-wide text-white">
                   Prefer a 15-Min Discovery Call?
                 </p>
                 <p className="text-xs text-neutral-400 font-light">
@@ -94,7 +94,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
               <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="font-display font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
+              <h3 className="font-display font-medium text-2xl sm:text-3xl text-white tracking-tight">
                 Project Brief Prepared!
               </h3>
               <p className="text-sm text-neutral-300 max-w-md font-light leading-relaxed">
