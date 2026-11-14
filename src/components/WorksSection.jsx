@@ -160,7 +160,7 @@ export default function WorksSection({ onSelectProject }) {
                 </span>
               </div>
 
-              {/* Featured Explainer: LeadsFinder */}
+              {/* Featured Explainer: Animentor Academy */}
               {motionGraphicsPortfolio.videos.filter(v => v.featured).map((vid) => (
                 <div 
                   key={vid.id}
@@ -172,28 +172,28 @@ export default function WorksSection({ onSelectProject }) {
                         src={vid.src}
                         poster={vid.poster}
                         title={vid.title}
-                        category="Featured Explainer"
+                        category={vid.topTags || "Featured Explainer"}
                         aspectRatio="16/9"
                         className="w-full shadow-2xl"
                       />
                     </div>
                     <div className="lg:col-span-5 space-y-4">
-                      <div className="flex items-center gap-3">
+                      <div className="flex flex-wrap items-center gap-3">
                         <span className="px-3 py-1 rounded-full bg-[#5c59e8]/20 border border-[#5c59e8]/40 text-[10px] font-mono uppercase tracking-widest text-[#a4a2ff]">
-                          FLAGSHIP MOTION RIG
+                          {vid.topTags || "FLAGSHIP MOTION RIG"}
                         </span>
                         <span className="text-xs font-mono text-emerald-400 font-bold">
-                          3.2x Engagement Lift
+                          FLAGSHIP SHOWCASE
                         </span>
                       </div>
-                      <h3 className="font-display font-medium text-2xl sm:text-3xl text-white tracking-tight">
+                      <h3 className="font-display font-medium text-2xl sm:text-3xl text-white tracking-tight leading-snug">
                         {vid.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed">
-                        {vid.hook}
+                      <p className="text-xs sm:text-sm text-neutral-300 font-sans font-light leading-relaxed">
+                        {vid.description || vid.hook}
                       </p>
                       <div className="flex flex-wrap gap-2 pt-2">
-                        {vid.tags.map((t, idx) => (
+                        {(vid.bottomPills || vid.tags || []).map((t, idx) => (
                           <span key={idx} className="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-xs font-mono text-neutral-300">
                             {t}
                           </span>
@@ -204,31 +204,40 @@ export default function WorksSection({ onSelectProject }) {
                 </div>
               ))}
 
-              {/* Grid of Other 6 SaaS Motion Rigs */}
+              {/* Grid of Other 9 SaaS Motion Rigs */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {motionGraphicsPortfolio.videos.filter(v => !v.featured).map((vid) => (
-                  <div key={vid.id} className="harron-card p-5 flex flex-col justify-between group">
+                  <div key={vid.id} className="harron-card p-6 flex flex-col justify-between group">
                     <div className="space-y-4">
                       <AudioVideoPlayer
                         src={vid.src}
                         poster={vid.poster}
                         title={vid.title}
-                        category={vid.category}
+                        category={vid.topTags}
                         aspectRatio="16/9"
                         className="w-full shadow-lg"
                       />
-                      <div className="space-y-2">
+                      <div className="space-y-2.5">
                         <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
-                          <span className="text-[#5c59e8]">{vid.category || "SaaS UI"}</span>
-                          <span className="text-emerald-400 font-bold">{vid.metrics || "Fluid Motion"}</span>
+                          <span className="px-2.5 py-1 rounded-full bg-[#5c59e8]/15 border border-[#5c59e8]/30 text-[10px] font-mono uppercase tracking-wider text-[#a4a2ff] font-medium">
+                            {vid.topTags}
+                          </span>
                         </div>
-                        <h4 className="font-display font-medium text-lg text-white tracking-wide group-hover:text-[#a4a2ff] transition-colors">
+                        <h4 className="font-display font-medium text-lg text-white tracking-wide group-hover:text-[#a4a2ff] transition-colors leading-snug">
                           {vid.title}
                         </h4>
-                        <p className="text-xs text-neutral-400 font-light leading-relaxed">
-                          {vid.hook}
+                        <p className="text-xs text-neutral-400 font-sans font-light leading-relaxed">
+                          {vid.description || vid.hook}
                         </p>
                       </div>
+                    </div>
+                    {/* Bottom Pills */}
+                    <div className="pt-4 mt-5 border-t border-white/[0.06] flex flex-wrap gap-1.5">
+                      {(vid.bottomPills || vid.tags || []).map((pill, idx) => (
+                        <span key={idx} className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-[10px] font-mono text-neutral-300">
+                          {pill}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 ))}
