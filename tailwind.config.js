@@ -26,10 +26,10 @@ export default {
         neonCrimson: "#FF2A54",
       },
       fontFamily: {
-        sans: ["'Satoshi'", "'Inter'", '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ["'Satoshi'", "'Inter'", 'sans-serif'],
         body: ["'Satoshi'", "'Inter'", 'sans-serif'],
-        display: ["'Clash Grotesk Variable'", "'Clash Grotesk'", "'Clash Display'", 'sans-serif'],
-        grotesk: ["'Clash Grotesk Variable'", "'Clash Grotesk'", 'sans-serif'],
+        display: ["'Clash Display'", "'Clash Grotesk'", 'sans-serif'],
+        grotesk: ["'Clash Grotesk'", "'Clash Display'", 'sans-serif'],
         mono: ['"Fragment Mono"', 'ui-monospace', 'monospace'],
       },
       animation: {

@@ -25,18 +25,28 @@
     overflow-x: hidden;
   }
 
-  p, span, li, a, button, input, textarea, select {
-    font-family: 'Satoshi', 'Inter', sans-serif;
-  }
-
-  h1, h2, h3, h4, .font-display {
-    font-family: 'Clash Grotesk Variable', 'Clash Grotesk', 'Clash Display', sans-serif;
+  /* HEADINGS & DISPLAY TITLES: Strictly Clash Display / Clash Grotesk */
+  h1, h2, h3, h4, h5, h6, .font-display, [class*="font-display"] {
+    font-family: 'Clash Display', 'Clash Grotesk', sans-serif !important;
     letter-spacing: -0.03em;
     word-spacing: normal;
   }
 
+  /* ALL CHILDREN INSIDE HEADINGS: Strictly inherit heading font */
+  h1 *, h2 *, h3 *, h4 *, h5 *, h6 *, .font-display * {
+    font-family: inherit !important;
+  }
+
+  /* SUBHEADINGS, PARAGRAPHS & BODY COPY: Clean, legible Satoshi */
+  p, .font-sans, .font-body {
+    font-family: 'Satoshi', 'Inter', sans-serif !important;
+    letter-spacing: -0.01em;
+    word-spacing: 0.03em;
+  }
+
+  /* TECHNICAL MONOSPACE OVERLINES & METADATA */
   .font-mono, [class*="font-mono"] {
-    font-family: 'Fragment Mono', 'JetBrains Mono', ui-monospace, monospace;
+    font-family: 'Fragment Mono', 'JetBrains Mono', ui-monospace, monospace !important;
     letter-spacing: 0.08em;
   }
 
