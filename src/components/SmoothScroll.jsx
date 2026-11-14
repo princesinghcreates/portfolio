@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 
-export default function SmoothScroll({ isPaused = false }) {
+export default function SmoothScroll({ children, isPaused = false }) {
   const lenisRef = useRef(null);
   const location = useLocation();
 
@@ -56,5 +56,5 @@ export default function SmoothScroll({ isPaused = false }) {
     }
   }, [isPaused]);
 
-  return null;
+  return children || null;
 }

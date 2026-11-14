@@ -102,7 +102,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <SmoothScroll>
+      <div className="min-h-screen bg-[#0a0a0c] text-white selection:bg-[#5c59e8] selection:text-white relative">
+        <SmoothScroll isPaused={contactOpen} />
+        
         <Routes>
           <Route 
             path="/" 
@@ -128,7 +130,7 @@ export default function App() {
           onClose={closeContact} 
           defaultService={defaultService}
         />
-      </SmoothScroll>
+      </div>
     </BrowserRouter>
   );
 }
