@@ -55,7 +55,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
             <span className="text-xs font-mono uppercase tracking-widest text-blue-400">
               // LET'S COLLABORATE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mt-1 font-display">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-1 font-display">
               Initiate Project Brief
             </h2>
             <p className="text-sm text-neutral-400 mt-2 font-light">

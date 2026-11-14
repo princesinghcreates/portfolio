@@ -66,8 +66,8 @@ export default function PracticeSection({ onOpenContact }) {
         {/* Section Title */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-8">
-            <h2 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-[0.95] font-display">
-              PRECISION CRAFT &amp;<br />CREATIVE DIRECTION.
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+              Precision Craft &amp;<br />Creative Direction.
             </h2>
           </div>
           <div className="lg:col-span-4">
@@ -98,7 +98,7 @@ export default function PracticeSection({ onOpenContact }) {
                   </span>
                 </div>
 
-                <h3 className="font-display font-bold text-3xl sm:text-4xl text-white uppercase tracking-tight group-hover:text-[#a4a2ff] transition-colors">
+                <h3 className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight group-hover:text-[#a4a2ff] transition-colors">
                   {practices[0].title}
                 </h3>
 
@@ -157,7 +157,7 @@ export default function PracticeSection({ onOpenContact }) {
                     </div>
                   </div>
 
-                  <h4 className="font-display font-bold text-2xl sm:text-3xl text-white uppercase tracking-tight group-hover:text-[#a4a2ff] transition-colors">
+                  <h4 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight group-hover:text-[#a4a2ff] transition-colors">
                     {practice.title}
                   </h4>
 

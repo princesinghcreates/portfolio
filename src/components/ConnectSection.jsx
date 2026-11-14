@@ -38,8 +38,8 @@ export default function ConnectSection({ onOpenContact }) {
             <span>ACCEPTING NEW DIRECTING &amp; EDITING BRIEFS</span>
           </div>
 
-          <h2 className="text-[12vw] sm:text-[10vw] font-black uppercase tracking-tight text-white leading-[0.88] font-display">
-            LET'S WORK<br />TOGETHER.
+          <h2 className="text-[11vw] sm:text-[9.5vw] font-bold tracking-tight text-white leading-[0.92] font-display">
+            Let's Work<br />Together.
           </h2>
 
           <p className="text-base sm:text-xl text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed pt-2">

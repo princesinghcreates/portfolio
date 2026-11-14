@@ -44,8 +44,8 @@ export default function WorksSection({ onSelectProject }) {
         {/* Section Heading & Category Filter Tabs */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div>
-            <h2 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-[0.95] font-display">
-              SELECTED<br />PROJECTS.
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+              Selected<br />Projects.
             </h2>
             <p className="mt-4 text-sm sm:text-base text-neutral-400 font-light max-w-xl">
               High-retention video cuts, kinetic SaaS UI walk-throughs, and cohesive visual identities built for venture-backed founders and modern brands.

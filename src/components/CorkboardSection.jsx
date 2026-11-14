@@ -114,8 +114,8 @@ export default function CorkboardSection() {
 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-[0.95] font-display">
-            STUDIO<br />CORKBOARD.
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+            Studio<br />Corkboard.
           </h2>
           <p className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed">
             A real-time pinboard of creative experiments, editorial poster studies, timeline equations, and visual references pinned directly to the studio wall.

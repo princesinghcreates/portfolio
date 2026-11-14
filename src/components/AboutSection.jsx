@@ -68,7 +68,7 @@ export default function AboutSection({ onOpenContact }) {
               <span className="px-3.5 py-1.5 rounded-full bg-[#5c59e8]/15 border border-[#5c59e8]/30 text-xs font-mono uppercase tracking-widest text-[#a4a2ff]">
                 // THE PHILOSOPHY
               </span>
-              <h3 className="font-display font-bold text-3xl sm:text-5xl text-white uppercase tracking-tight leading-[1.05]">
+              <h3 className="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight leading-[1.1]">
                 Execution Over Perfection. Strategy Over Pixels.
               </h3>
             </div>

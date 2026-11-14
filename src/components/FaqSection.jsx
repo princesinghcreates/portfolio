@@ -32,8 +32,8 @@ export default function FaqSection({ onOpenContact }) {
         {/* Section Heading */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-8">
-            <h2 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-[0.95] font-display">
-              FREQUENTLY ASKED<br />QUESTIONS.
+            <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-[1.02] font-display">
+              Frequently Asked<br />Questions.
             </h2>
           </div>
           <div className="lg:col-span-4">

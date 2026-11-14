@@ -62,7 +62,7 @@ export default function Hero({ onOpenContact }) {
             <span>PRINCE SINGH // SENIOR VIDEO EDITOR &amp; MOTION DESIGNER</span>
           </div>
 
-          <h1 className="font-display text-[7vw] sm:text-[5.2vw] lg:text-[4vw] leading-[1.04] tracking-[-0.035em] text-white font-extrabold uppercase">
+          <h1 className="font-display text-[7vw] sm:text-[5.2vw] lg:text-[4.2vw] leading-[1.08] tracking-[-0.03em] text-white font-bold">
             <span className="block">
               Architecting High-Retention
             </span>
@@ -86,7 +86,7 @@ export default function Hero({ onOpenContact }) {
             </span>
 
             <span className="block mt-1 sm:mt-2 text-neutral-400">
-              For Venture-Backed Founders.
+              for venture-backed founders.
             </span>
           </h1>
 
