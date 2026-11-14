@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
-import { personalInfo } from '../data/siteData';
+import { Menu, X, ArrowUpRight, ArrowDown } from 'lucide-react';
 
 export default function Navbar({ onOpenContact }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -8,125 +7,138 @@ export default function Navbar({ onOpenContact }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
+    { label: "Works", href: "#works" },
+    { label: "Practice", href: "#practice" },
+    { label: "Process", href: "#process" },
     { label: "About", href: "#about" },
-    { label: "Works", href: "#portfolio" },
-    { label: "Assets", href: "#vault" },
-    { label: "Services", href: "#services" },
-    { label: "Experience", href: "#experience" },
+    { label: "Corkboard", href: "#corkboard" },
     { label: "FAQ", href: "#faq" }
   ];
 
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const element = document.querySelector(href);
+    if (element) {
+      if (window.lenis) {
+        window.lenis.scrollTo(href, { offset: -80, duration: 1.2 });
+      } else {
+        const y = element.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-      scrolled 
-        ? 'opacity-100 translate-y-0 bg-[#050507]/90 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl' 
-        : 'opacity-0 -translate-y-full pointer-events-none'
-    }`}>
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 flex items-center justify-between">
-        
-        {/* Brand / Logo */}
-        <a 
-          href="#" 
-          onClick={(e) => {
-            e.preventDefault();
-            if (window.lenis) {
-              window.lenis.scrollTo(0, { duration: 1.2 });
-            } else {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-          }}
-          className="flex items-center gap-3 group"
-        >
-          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center p-1.5 transition-transform group-hover:scale-105">
-            <img 
-              src="/assets/Logo@4x.png" 
-              alt="Prince Singh" 
-              className="w-full h-full object-contain"
-              onError={(e) => { e.currentTarget.style.display = 'none'; }}
-            />
-          </div>
-          <span className="font-display font-bold text-sm tracking-wider uppercase text-white group-hover:text-neutral-300 transition-colors">
-            Prince Singh
-          </span>
-        </a>
+    <header className="sticky top-0 z-40 px-4 sm:px-6 py-2.5 transition-all duration-300">
+      <div className="max-w-[1280px] mx-auto">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-full bg-[#141418]/90 backdrop-blur-xl border border-white/[0.1] shadow-2xl">
+          
+          {/* Brand Logo & Art Director Tag */}
+          <a
+            href="#hero"
+            onClick={(e) => handleNavClick(e, '#hero')}
+            className="flex items-center gap-3 group select-none"
+          >
+            <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center p-1.5 transition-transform group-hover:scale-105">
+              <img
+                src="/assets/Logo@4x.png"
+                alt="Prince Singh"
+                className="w-full h-full object-contain"
+                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              />
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-display font-bold text-sm tracking-wide uppercase text-white group-hover:text-neutral-300 transition-colors">
+                Prince Singh
+              </span>
+              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-[#5c59e8]/20 border border-[#5c59e8]/40 text-[10px] font-mono uppercase tracking-wider text-[#a4a2ff]">
+                Art Director
+              </span>
+            </div>
+          </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
+          {/* Desktop Nav Links */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors duration-200 font-mono font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Action CTAs */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Resume Button */}
             <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault();
-                if (window.lenis) {
-                  window.lenis.scrollTo(link.href, { duration: 1.3 });
-                } else {
-                  document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-colors duration-200 font-mono font-medium cursor-pointer"
+              href="mailto:princesinghcreates@gmail.com?subject=Inquiry%20-%20Prince%20Singh%20Resume%20Request"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/[0.05] hover:bg-white/10 border border-white/10 text-xs font-mono uppercase tracking-wider text-neutral-300 hover:text-white transition-all cursor-pointer"
             >
-              {link.label}
+              <span>Resume</span>
+              <ArrowDown className="w-3 h-3" />
             </a>
-          ))}
-        </nav>
 
-        {/* CTA Button */}
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onOpenContact}
-            className="group relative inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider font-semibold text-white border border-blue-500/40 bg-blue-500/10 hover:bg-white hover:text-black hover:border-white transition-all duration-300 active:scale-95 shadow-sm"
-          >
-            <span>BOOK DISCOVERY CALL</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:text-black transition-colors group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
+            {/* Harron-Style Primary CTA Button */}
+            <button
+              onClick={onOpenContact}
+              className="harron-btn-primary group"
+            >
+              <span className="text-xs">LET'S TALK</span>
+              <div className="w-7 h-7 rounded-full bg-white text-black flex items-center justify-center transition-transform group-hover:scale-110 group-hover:rotate-45">
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              </div>
+            </button>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-neutral-300 hover:text-white focus:outline-none"
-            aria-label="Toggle Menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 text-neutral-300 hover:text-white focus:outline-none"
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
         </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 transition-all duration-300">
+        <div className="lg:hidden max-w-[1280px] mx-auto mt-2 rounded-2xl bg-[#141418]/95 backdrop-blur-2xl border border-white/10 p-6 shadow-2xl">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  setTimeout(() => {
-                    if (window.lenis) {
-                      window.lenis.scrollTo(link.href, { offset: -70, duration: 1.2 });
-                    } else {
-                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }, 50);
-                }}
-                className="text-sm font-mono uppercase tracking-wider text-neutral-300 hover:text-white py-1"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-sm uppercase tracking-widest text-neutral-300 hover:text-white font-mono py-1 border-b border-white/[0.05]"
               >
                 {link.label}
               </a>
             ))}
+            <div className="pt-2 flex flex-col gap-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenContact();
+                }}
+                className="w-full py-3 rounded-full bg-[#5c59e8] text-white font-mono text-xs uppercase tracking-wider font-semibold text-center"
+              >
+                Book Discovery Call
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -1,65 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate, useParams } from 'react-router-dom';
+import TopHeaderTab from './components/TopHeaderTab';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import PortfolioSection from './components/PortfolioSection';
-import CreatorVaultSection from './components/CreatorVaultSection';
-import WhoAmISection from './components/WhoAmISection';
-import ServicesSection from './components/ServicesSection';
-import VoiceOfPrinceSection from './components/VoiceOfPrinceSection';
-import StatsSection from './components/StatsSection';
-import ExperienceSection from './components/ExperienceSection';
+import DoubleMarquee from './components/DoubleMarquee';
+import PracticeSection from './components/PracticeSection';
+import WorksSection from './components/WorksSection';
+import CorkboardSection from './components/CorkboardSection';
+import ProcessSection from './components/ProcessSection';
+import AboutSection from './components/AboutSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import FaqSection from './components/FaqSection';
-import ContactSection from './components/ContactSection';
+import ConnectSection from './components/ConnectSection';
 import ContactModal from './components/ContactModal';
-import PostersModal from './components/PostersModal';
-import CustomCursor from './components/CustomCursor';
+import ReactiveCursor from './components/ReactiveCursor';
+import Preloader from './components/Preloader';
 import ProjectPage from './components/ProjectPage';
 import SmoothScroll from './components/SmoothScroll';
 
-// Main Landing Page Component
-function HomePage({ onOpenContact, onOpenPosters }) {
+// Main Landing Page Component (Harron-Inspired Redesign)
+function HomePage({ onOpenContact }) {
   const navigate = useNavigate();
 
   return (
     <>
+      <Preloader />
+      <ReactiveCursor />
+      
+      {/* Harron-Style Top Tab with Curved Wings */}
+      <TopHeaderTab onOpenContact={() => onOpenContact()} />
+
+      {/* Floating Pill Navbar */}
       <Navbar onOpenContact={() => onOpenContact()} />
+
       <main>
-        {/* Hero Section */}
+        {/* Hero Section with Live Clock, Inline Media Pills & Role Rotator */}
         <Hero onOpenContact={() => onOpenContact()} />
 
-        {/* 01 //About Me */}
-        <WhoAmISection />
+        {/* Double Angled Typographic Marquee */}
+        <DoubleMarquee />
 
-        {/* 02 //Portfolio */}
-        <PortfolioSection 
+        {/* 01 // Practice & Disciplines (Video Editing Prioritized, SaaS UI, AI Workflows) */}
+        <PracticeSection onOpenContact={(srv) => onOpenContact(srv)} />
+
+        {/* 02 // Selected Works (Reels, SaaS Motion, Brand Identity, Packaging) */}
+        <WorksSection 
           onSelectProject={(proj) => {
             navigate(`/projects/${proj.id}`);
             window.scrollTo(0, 0);
           }} 
-          onOpenPosters={onOpenPosters}
         />
 
-        {/* 03 //Creator Vault */}
-        <CreatorVaultSection onOpenContact={() => onOpenContact()} />
+        {/* 03 // Studio Corkboard (Interactive Pinboard with Real Posters & Notes) */}
+        <CorkboardSection />
 
-        {/* 04 //Services */}
-        <ServicesSection onOpenContact={(srv) => onOpenContact(srv)} />
+        {/* 04 // How We Work (4-Step Creative Pipeline) */}
+        <ProcessSection />
 
-        {/* 04 //Voice Of Prince */}
-        <VoiceOfPrinceSection />
+        {/* 05 // About Prince Singh (Bio, Toolchain, Philosophy) */}
+        <AboutSection onOpenContact={() => onOpenContact()} />
 
-        {/* 05 //Stats */}
-        <StatsSection />
+        {/* 06 // Testimonials (Client Trust & Direct Feedback) */}
+        <TestimonialsSection />
 
-        {/* 06 //Experience */}
-        <ExperienceSection />
-
-        {/* 07 //FAQ */}
+        {/* 07 // FAQs (Turnaround, Retainers, Deliverables) */}
         <FaqSection onOpenContact={() => onOpenContact()} />
 
-        {/* Let's Work Together & Giant Prince Footer */}
-        <ContactSection onOpenContact={() => onOpenContact()} />
+        {/* 08 // Let's Connect & Giant Footer */}
+        <ConnectSection onOpenContact={() => onOpenContact()} />
       </main>
     </>
   );
@@ -73,104 +81,54 @@ function ProjectRouteWrapper({ onOpenContact }) {
   return (
     <ProjectPage
       projectId={id}
-      onNavigateHome={() => {
-        navigate('/');
-        window.scrollTo(0, 0);
-      }}
-      onNavigateProject={(projId) => {
-        navigate(`/projects/${projId}`);
-        window.scrollTo(0, 0);
-      }}
+      onBack={() => navigate('/')}
       onOpenContact={onOpenContact}
     />
   );
 }
 
 export default function App() {
-  const [postersOpen, setPostersOpen] = useState(false);
-  const [contactModalOpen, setContactModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState('Brand Identity');
+  const [contactOpen, setContactOpen] = useState(false);
+  const [defaultService, setDefaultService] = useState('');
 
-  // Protect Media Assets from Direct Dragging and Image Context Menu
-  useEffect(() => {
-    const handleContextMenu = (e) => {
-      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
-        e.preventDefault();
-      }
-    };
+  const openContact = (service = 'SaaS UI & Explainer Motion') => {
+    setDefaultService(service);
+    setContactOpen(true);
+  };
 
-    const handleDragStart = (e) => {
-      if (e.target.tagName === 'IMG' || e.target.tagName === 'VIDEO') {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('dragstart', handleDragStart);
-
-    return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('dragstart', handleDragStart);
-    };
-  }, []);
-
-  const openContact = (serviceName) => {
-    if (serviceName && typeof serviceName === 'string') {
-      setSelectedService(serviceName);
-    }
-    setContactModalOpen(true);
+  const closeContact = () => {
+    setContactOpen(false);
   };
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#080808] text-white selection:bg-white selection:text-black relative">
-        {/* Momentum Smooth Scrolling with Deceleration */}
-        <SmoothScroll isPaused={contactModalOpen || postersOpen} />
-
-        {/* Smooth Custom Cursor (Desktop) */}
-        <CustomCursor />
-
-        {/* Route Definitions */}
+      <SmoothScroll>
         <Routes>
           <Route 
             path="/" 
             element={
               <HomePage 
-                onOpenContact={openContact} 
-                onOpenPosters={() => setPostersOpen(true)} 
+                onOpenContact={openContact}
               />
             } 
           />
           <Route 
             path="/projects/:id" 
             element={
-              <ProjectRouteWrapper onOpenContact={openContact} />
-            } 
-          />
-          {/* Fallback to homepage */}
-          <Route 
-            path="*" 
-            element={
-              <HomePage 
-                onOpenContact={openContact} 
-                onOpenPosters={() => setPostersOpen(true)} 
+              <ProjectRouteWrapper 
+                onOpenContact={openContact}
               />
             } 
           />
         </Routes>
 
-        {/* Interactive Modals */}
+        {/* Universal Contact Modal */}
         <ContactModal 
-          isOpen={contactModalOpen} 
-          onClose={() => setContactModalOpen(false)} 
-          defaultService={selectedService}
+          isOpen={contactOpen} 
+          onClose={closeContact} 
+          defaultService={defaultService}
         />
-
-        <PostersModal 
-          isOpen={postersOpen} 
-          onClose={() => setPostersOpen(false)} 
-        />
-      </div>
+      </SmoothScroll>
     </BrowserRouter>
   );
 }

@@ -1,22 +1,57 @@
 export const personalInfo = {
   name: "Prince Singh",
-  title: "Senior Video Editor & Motion Designer",
+  title: "Art Director & Lead Video Editor",
+  roleSubtitle: "Motion Graphics, SaaS UI Animation, Documentary Edits, Storytelling & AI Editing Workflows",
   location: "Udaipur, India — Operating Worldwide (UTC+5:30)",
-  availability: "AVAILABLE WORLDWIDE // REMOTE PARTNER",
+  availability: "AVAILABLE FOR DIRECTING & EDITING PROJECTS // OPERATING WORLDWIDE",
   status: "Available for new projects",
   experienceYears: "8+",
   since: "2018",
   clientsCount: "150+",
-  bio: "With over 8 years of multidisciplinary design and post-production experience, I engineer high-performing video content, kinetic SaaS UI animations, and narrative-driven edits that captivate audiences and drive conversions. Operating as a solo creative partner, I combine rigorous technical precision in After Effects and Premiere Pro with high-end aesthetic taste to help ambitious brands and startups scale through visual storytelling. No fluff, no generic templates—just high-end motion and editing built to perform.",
-  philosophy: "INDEPENDENT CREATIVE PARTNER DELIVERING STRATEGY-LED MOTION GRAPHICS, NARRATIVE EDITING, AND VISUAL SYSTEMS THAT TURN AMBITIOUS PRODUCTS INTO INDUSTRY BENCHMARKS.",
+  rolesRotator: [
+    "60fps SaaS UI Animation",
+    "Documentary Storytelling",
+    "AI Automation Workflows",
+    "High-Retention Reels",
+    "Brand & Packaging Systems"
+  ],
+  bio: "Art Director and Lead Video Editor with 8+ years architecting high-retention video content, 60fps SaaS UI motion graphics, documentary edits, and multidisciplinary brand systems. I bridge deep narrative storytelling and sound design with cutting-edge AI post-production workflows to help venture-backed founders and ambitious creators scale through visual impact.",
+  philosophy: "INDEPENDENT CREATIVE DIRECTION DELIVERING STRATEGY-LED VIDEO EDITING, HIGH-FRAMERATE SAAS MOTION, AND BRAND SYSTEMS BUILT TO COMMAND ATTENTION.",
   socials: [
-    { name: "Instagram", url: "https://www.instagram.com/princesinghcreates", handle: "@princesinghcreates" },
-    { name: "YouTube", url: "https://www.youtube.com/@PrinceSinghCreates", handle: "@PrinceSinghCreates" },
-    { name: "Pinterest", url: "https://in.pinterest.com/princesinghcreates", handle: "princesinghcreates" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/princesinghcreates", handle: "princesinghcreates" },
+    { name: "YouTube", url: "https://www.youtube.com/@PrinceSinghCreates", handle: "@PrinceSinghCreates" },
+    { name: "Instagram", url: "https://www.instagram.com/princesinghcreates", handle: "@princesinghcreates" },
+    { name: "Pinterest", url: "https://in.pinterest.com/princesinghcreates", handle: "princesinghcreates" },
     { name: "Email", url: "mailto:princesinghcreates@gmail.com", handle: "princesinghcreates@gmail.com" }
   ]
 };
+
+export const testimonials = [
+  {
+    id: "test-1",
+    name: "Marcus Vance",
+    role: "Founder & CEO",
+    company: "LeadsFinder AI",
+    metric: "3.2x Sign-up Lift",
+    quote: "Prince completely transformed our SaaS launch. His ability to turn dry product wireframes into a fluid, 60fps kinetic motion walkthrough drove over 120,000 views on X and directly doubled our beta conversions in week one."
+  },
+  {
+    id: "test-2",
+    name: "Elena Rostova",
+    role: "Head of Content",
+    company: "Apex Media Group",
+    metric: "96% Watch-Time",
+    quote: "Working with Prince feels like having a world-class post-production house in-house. His micro-jump cuts, sound design mastering, and AI workflow integration cut our editorial turnaround in half while setting new channel retention records."
+  },
+  {
+    id: "test-3",
+    name: "David K.",
+    role: "Creative Director",
+    company: "Studio Veloce",
+    metric: "4.8M Organic Views",
+    quote: "Prince has an exceptional eye for typographic discipline, narrative pacing, and kinetic rhythm. His documentary cuts bring a level of emotional depth and polish that very few editors in the digital space can touch."
+  }
+];
 
 export const approachPhases = [
   {

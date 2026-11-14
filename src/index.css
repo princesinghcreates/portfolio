@@ -1,92 +1,179 @@
-@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&f[]=clash-display@200,300,400,500,600,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --harron-purple: #5c59e8;
+    --harron-purple-hover: #4d4ac7;
+    --harron-orange: #ff5500;
+    --harron-bg: #0a0a0c;
+    --harron-card: #141418;
+    --harron-border: rgba(255, 255, 255, 0.08);
+    --harron-tab: #242428;
+  }
+
   body {
-    background-color: #050507;
-    color: #f5f5f5;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    letter-spacing: normal;
+    background-color: #0a0a0c;
+    color: #f5f5f7;
+    font-family: 'Clash Grotesk Variable', 'Clash Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.01em;
     word-spacing: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   p, span, li, a, button, input, textarea, select {
-    letter-spacing: 0.01em;
-    word-spacing: normal;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, .font-display {
-    font-family: 'Clash Display', sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Clash Grotesk Variable', 'Clash Grotesk', 'Clash Display', sans-serif;
+    letter-spacing: -0.03em;
     word-spacing: normal;
   }
 
-  /* Custom scrollbar with neon edge */
+  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #050507;
+    background: #0a0a0c;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1c1f2e;
+    background: #202028;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3B82F6;
+    background: #5c59e8;
   }
 
   /* Anti-Download Media Protection */
   img, video {
     -webkit-user-drag: none !important;
-    -khtml-user-drag: none !important;
-    -moz-user-drag: none !important;
-    -o-user-drag: none !important;
     user-drag: none !important;
     user-select: none !important;
     -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    -webkit-touch-callout: none !important;
   }
 }
 
-/* Watermark & Protected Media Shield */
-.protected-media {
-  user-select: none;
-  -webkit-user-drag: none;
+/* Harron Pulse Dot Animation */
+@keyframes liveBlinkPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(97, 197, 84, 0.6), 0 0 10px rgba(97, 197, 84, 0.5);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+    box-shadow: 0 0 0 6px rgba(97, 197, 84, 0), 0 0 4px rgba(97, 197, 84, 0.2);
+  }
+}
+
+.live-blink-pulse {
+  animation: liveBlinkPulse 2s ease-in-out infinite;
+}
+
+/* Harron Header Tab Wings */
+.tab-wing {
+  flex-shrink: 0;
+  width: 32px;
+  height: 34px;
+  display: block;
+}
+
+/* Double Marquee Strips */
+.marquee-strips-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   pointer-events: none;
+  user-select: none;
 }
 
-.font-mono-tag {
-  font-family: 'Fragment Mono', monospace;
+.marquee-strip-dark {
+  transform: rotate(-3deg) scale(1.08);
+  background: #141418;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Subtle neon glows and specular borders */
-.specular-border {
+.marquee-strip-purple {
+  transform: rotate(2deg) scale(1.08);
+  background: #5c59e8;
+  box-shadow: 0 12px 40px rgba(92, 89, 232, 0.35);
+}
+
+/* Specular Card Hover */
+.harron-card {
+  background: #121217;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.specular-border:hover {
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+.harron-card:hover {
+  border-color: rgba(92, 89, 232, 0.45);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 30px -5px rgba(92, 89, 232, 0.2);
+  transform: translateY(-4px);
 }
 
-.neon-glow-blue {
-  box-shadow: 0 0 35px -8px rgba(59, 130, 246, 0.35);
+/* Harron Site Button */
+.harron-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 42px;
+  padding: 4px 6px 4px 20px;
+  background: linear-gradient(180deg, #383842 0%, #17171c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 100px;
+  color: #fff;
+  font-family: 'Clash Grotesk Variable', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
 }
 
-.neon-glow-purple {
-  box-shadow: 0 0 35px -8px rgba(139, 92, 246, 0.35);
+.harron-btn-primary:hover {
+  background: linear-gradient(180deg, #4d4d5a 0%, #22222a 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Vertical grid lines overlay */
-.site-grid-lines {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 25% 100%;
+.harron-btn-purple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #5c59e8;
+  border-radius: 100px;
+  color: #fff;
+  font-family: 'Clash Grotesk Variable', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 25px rgba(92, 89, 232, 0.35);
+  cursor: pointer;
+}
+
+.harron-btn-purple:hover {
+  background: #4d4ac7;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(92, 89, 232, 0.5);
 }

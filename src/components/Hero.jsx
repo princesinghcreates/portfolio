@@ -1,206 +1,207 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Globe, Film, ArrowUpRight, Play } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, Play, Sparkles, Clock, Globe, Film, Layers } from 'lucide-react';
+import { personalInfo } from '../data/siteData';
 
 export default function Hero({ onOpenContact }) {
   const [time, setTime] = useState('');
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  const roles = personalInfo.rolesRotator || [
+    "60fps SaaS UI Animation",
+    "Documentary Storytelling",
+    "AI Automation Workflows",
+    "High-Retention Reels",
+    "Brand & Packaging Systems"
+  ];
 
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const options = {
-        timeZone: 'Asia/Kolkata',
-        hour: 'numeric',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true
-      };
-      setTime(new Intl.DateTimeFormat('en-US', options).format(now));
+      setTime(
+        now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        })
+      );
     };
-
     updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
   }, []);
 
-  const scrollToPortfolio = () => {
-    if (window.lenis) {
-      window.lenis.scrollTo('#portfolio', { duration: 1.4, offset: -70 });
-    } else {
-      document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' });
+  useEffect(() => {
+    const roleTimer = setInterval(() => {
+      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2800);
+    return () => clearInterval(roleTimer);
+  }, [roles.length]);
+
+  const scrollToWorks = () => {
+    const el = document.querySelector('#works');
+    if (el) {
+      if (window.lenis) {
+        window.lenis.scrollTo('#works', { offset: -70, duration: 1.3 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   return (
-    <section className="relative pt-6 pb-20 md:pb-28 bg-[#050507] text-white overflow-hidden border-b border-white/[0.08]">
-      {/* Subtle radial neon background aura */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-blue-600/10 via-purple-600/5 to-transparent blur-3xl pointer-events-none -z-10" />
+    <section id="hero" className="relative pt-12 pb-20 md:pb-28 overflow-hidden select-none">
+      
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-b from-[#5c59e8]/15 via-[#8B5CF6]/5 to-transparent blur-3xl pointer-events-none -z-10" />
 
-      {/* Top Header Bar */}
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 flex items-center justify-between py-6">
-        {/* Left: Live Local Clock */}
-        <div className="text-xs sm:text-sm font-mono tracking-wider text-neutral-300 flex items-center gap-1.5">
-          <span className="text-neutral-500 font-semibold">LOCAL/</span>
-          <span className="text-white font-medium">{time || '4:05:01 PM'}</span>
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-10">
+        
+        {/* Live Local Clock & Operating Zone */}
+        <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.08] text-xs font-mono uppercase tracking-widest text-neutral-400">
+          <div className="flex items-center gap-2">
+            <Clock className="w-3.5 h-3.5 text-[#5c59e8]" />
+            <span className="text-white font-medium">{time || '7:55:00 PM'}</span>
+            <span className="text-neutral-500">// UDAIPUR, IN (UTC+5:30)</span>
+          </div>
+          <div className="hidden sm:flex items-center gap-2 text-neutral-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#61c554] animate-pulse" />
+            <span>REMOTE DIRECTING &amp; EDITING PARTNER</span>
+          </div>
         </div>
 
-        {/* Center: Remote Partner Availability */}
-        <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/25 text-[11px] font-mono tracking-wider text-blue-300">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" />
-          <span>AVAILABLE WORLDWIDE // REMOTE PARTNER</span>
+        {/* Harron-Style Headline with Inline Interactive Media Pills */}
+        <div className="max-w-[1200px] mb-10">
+          <h1 className="font-display text-[8.5vw] sm:text-[6vw] lg:text-[4.7vw] leading-[1.12] tracking-[-0.03em] text-white font-medium">
+            <span>Hi, I'm Prince Singh, an </span>
+            <span className="text-white font-bold">Art Director</span>
+
+            {/* Inline Media Pill 1: Motion preview */}
+            <span className="inline-flex align-middle mx-2 sm:mx-3 w-14 sm:w-20 md:w-24 h-9 sm:h-12 md:h-14 rounded-2xl md:rounded-3xl overflow-hidden border border-white/20 bg-neutral-900 shadow-xl relative -top-1 group cursor-pointer">
+              <video
+                src="/assets/portfolio/motion/animentor-academy-saas.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </span>
+
+            <span>specializing in </span>
+            <span className="text-white font-bold">high-retention video editing</span>
+
+            {/* Inline Media Pill 2: Reel preview */}
+            <span className="inline-flex align-middle mx-2 sm:mx-3 w-14 sm:w-20 md:w-24 h-9 sm:h-12 md:h-14 rounded-2xl md:rounded-3xl overflow-hidden border border-[#5c59e8]/40 bg-[#5c59e8]/10 shadow-xl relative -top-1 group cursor-pointer">
+              <video
+                src="/assets/portfolio/reels/creative-studio-reel.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </span>
+
+            <span>&amp; </span>
+
+            {/* Animated Role Rotator */}
+            <span className="inline-block relative text-[#5c59e8] font-bold">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentRoleIndex}
+                  initial={{ y: 20, opacity: 0, filter: 'blur(4px)' }}
+                  animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                  exit={{ y: -20, opacity: 0, filter: 'blur(4px)' }}
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block"
+                >
+                  {roles[currentRoleIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+
+            {/* Inline Media Pill 3: Visual Poster */}
+            <span className="inline-flex align-middle mx-2 sm:mx-3 w-10 sm:w-14 md:w-16 h-9 sm:h-12 md:h-14 rounded-2xl md:rounded-3xl overflow-hidden border border-white/20 bg-neutral-900 shadow-xl relative -top-1 group cursor-pointer">
+              <img
+                src="/assets/projects/posters/poster-system-overthink.webp"
+                alt="Editorial Poster"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </span>
+
+            <span>for venture-backed founders &amp; modern brands.</span>
+          </h1>
+
+          <p className="mt-8 text-base sm:text-xl text-neutral-400 font-light max-w-3xl leading-relaxed">
+            Bridging high-tempo narrative pacing, 60fps kinetic motion graphics, and algorithmic retention architecture to turn complex products into category leaders.
+          </p>
         </div>
 
-        {/* Right: Pill Button 'BOOK DISCOVERY CALL' */}
-        <div>
+        {/* Action CTAs */}
+        <div className="flex flex-wrap items-center gap-4 mb-16">
+          <button
+            onClick={scrollToWorks}
+            className="harron-btn-purple"
+          >
+            <span>Explore Selected Works</span>
+            <Play className="w-3.5 h-3.5 fill-current" />
+          </button>
+          
           <button
             onClick={onOpenContact}
-            className="group px-6 py-2 rounded-full border border-blue-500/40 bg-blue-500/10 text-xs font-mono uppercase tracking-wider font-semibold text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 active:scale-95 cursor-pointer shadow-lg shadow-blue-500/10 flex items-center gap-1.5"
+            className="harron-btn-primary"
           >
-            <span>BOOK DISCOVERY CALL</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-blue-400 group-hover:text-black transition-colors" />
+            <span>Book 15-Min Discovery Call</span>
+            <div className="w-7 h-7 rounded-full bg-white text-black flex items-center justify-center">
+              <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
+            </div>
           </button>
         </div>
-      </div>
 
-      {/* Main Hero Container with Vertical Column Lines */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 relative">
-        
-        {/* Giant PRINCE Title & Positioning Lockup */}
-        <div className="relative pt-10 pb-8 text-center select-none overflow-hidden">
+        {/* 4-Column Harron KPI Row with Vertical Dividers */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 border-y border-white/[0.08] py-8 sm:py-10 divide-y sm:divide-y-0 lg:divide-x divide-white/[0.08]">
           
-          {/* Subtle vertical guidelines */}
-          <div className="absolute inset-0 grid grid-cols-3 pointer-events-none -z-10">
-            <div className="border-r border-white/[0.04]" />
-            <div className="border-r border-white/[0.04]" />
-            <div />
+          {/* KPI 1: Delivered Projects */}
+          <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6">
+            <span className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+              150+
+            </span>
+            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+              Global Projects Delivered
+            </span>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs font-mono uppercase tracking-[0.2em] text-neutral-300 mb-6"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3B82F6]" />
-            <span>Senior Video Editor &amp; Motion Designer</span>
-          </motion.div>
-
-          {/* Giant Clash Display Wordmark */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-bold text-[18vw] sm:text-[19vw] lg:text-[20vw] leading-[0.8] tracking-[-0.04em] uppercase text-white"
-          >
-            PRINCE
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 text-base sm:text-xl md:text-2xl font-light text-neutral-300 max-w-3xl mx-auto tracking-normal leading-relaxed"
-          >
-            High-Impact Narrative Storytelling &amp; SaaS UI Motion.
-          </motion.p>
-
-          {/* Quick CTA Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-4"
-          >
-            <button
-              onClick={scrollToPortfolio}
-              className="px-8 py-3.5 rounded-full bg-white text-black font-mono text-xs uppercase tracking-wider font-bold hover:bg-neutral-200 transition-all active:scale-95 cursor-pointer shadow-xl shadow-white/10"
-            >
-              EXPLORE SELECTED WORK
-            </button>
-            <button
-              onClick={onOpenContact}
-              className="px-8 py-3.5 rounded-full bg-white/[0.05] border border-white/20 hover:border-blue-400/60 hover:bg-blue-500/10 text-white font-mono text-xs uppercase tracking-wider font-semibold transition-all active:scale-95 cursor-pointer flex items-center gap-2"
-            >
-              <span>BOOK DISCOVERY CALL</span>
-              <ArrowUpRight className="w-4 h-4 text-blue-400" />
-            </button>
-          </motion.div>
-        </div>
-
-        {/* 2026 Motion & SaaS UI Showreel Preview Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 mb-12 rounded-2xl md:rounded-3xl overflow-hidden bg-[#0A0B10] border border-white/10 hover:border-blue-500/40 transition-all duration-500 shadow-2xl relative group"
-        >
-          <div className="aspect-[16/9] md:aspect-[21/9] w-full relative overflow-hidden bg-black">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/assets/portfolio/thumbnails/thumb-animentor-academy-saas.jpg"
-              className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-              src="/assets/portfolio/motion/animentor-academy-saas.mp4"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
-            
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between pointer-events-none">
-              <div className="space-y-1">
-                <span className="px-2.5 py-1 rounded-full bg-blue-500/30 backdrop-blur-md border border-blue-400/40 text-[10px] font-mono uppercase tracking-widest text-blue-300">
-                  FEATURED MOTION SHOWREEL
-                </span>
-                <p className="font-display font-bold text-lg sm:text-xl text-white uppercase tracking-wide">
-                  SaaS UI Component Motion &amp; Launch Explainers
-                </p>
-              </div>
-              <button
-                onClick={scrollToPortfolio}
-                className="pointer-events-auto px-4 py-2 rounded-full bg-white/10 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/20 transition-all text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 cursor-pointer"
-              >
-                <Play className="w-3.5 h-3.5 fill-current" />
-                <span>Watch Reel Suite</span>
-              </button>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* 3 Column Metadata Row (Refined without redundant wording) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 border-t border-b border-white/[0.08] divide-y md:divide-y-0 md:divide-x divide-white/[0.08] py-8 sm:py-10">
-          
-          {/* Column 1: Location */}
-          <div className="flex flex-col items-center justify-center text-center p-4 space-y-3">
-            <div className="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
-              <MapPin className="w-4 h-4 stroke-[2.5]" />
-            </div>
-            <div className="font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-200 leading-snug">
-              <p className="font-bold">BASED IN UDAIPUR,</p>
-              <p className="font-medium text-neutral-400">INDIA</p>
-            </div>
+          {/* KPI 2: Watch-Time Lift */}
+          <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
+            <span className="font-display font-bold text-3xl sm:text-4xl text-[#5c59e8] tracking-tight">
+              3.4x
+            </span>
+            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+              Watch-Time Retention Lift
+            </span>
           </div>
 
-          {/* Column 2: Availability */}
-          <div className="flex flex-col items-center justify-center text-center p-4 space-y-3">
-            <div className="w-8 h-8 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
-              <Globe className="w-4 h-4 stroke-[2]" />
-            </div>
-            <div className="font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-200 leading-snug">
-              <p className="font-bold">AVAILABLE WORLDWIDE</p>
-              <p className="font-medium text-neutral-400">REMOTE PARTNER</p>
-            </div>
+          {/* KPI 3: Experience */}
+          <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
+            <span className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+              8+ YRS
+            </span>
+            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+              Creative Direction &amp; Post-Production
+            </span>
           </div>
 
-          {/* Column 3: Role */}
-          <div className="flex flex-col items-center justify-center text-center p-4 space-y-3">
-            <div className="w-8 h-8 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-[#00F0FF]">
-              <Film className="w-4 h-4 stroke-[2.5]" />
-            </div>
-            <div className="font-display text-xs sm:text-sm uppercase tracking-wider text-neutral-200 leading-snug">
-              <p className="font-bold">SENIOR VIDEO EDITOR +</p>
-              <p className="font-medium text-neutral-400">MOTION DESIGNER</p>
-            </div>
+          {/* KPI 4: Framerate Precision */}
+          <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
+            <span className="font-display font-bold text-3xl sm:text-4xl text-[#00F0FF] tracking-tight">
+              60 FPS
+            </span>
+            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
+              Fluid Kinetic UI Precision
+            </span>
           </div>
 
         </div>
