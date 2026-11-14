@@ -48,7 +48,7 @@ export default function WorksSection({ onSelectProject }) {
               SELECTED<br />PROJECTS.
             </h2>
             <p className="mt-4 text-sm sm:text-base text-neutral-400 font-light max-w-xl">
-              High-retention video cuts, 60fps kinetic SaaS UI walk-throughs, and cohesive visual identities built for venture-backed founders and modern brands.
+              High-retention video cuts, kinetic SaaS UI walk-throughs, and cohesive visual identities built for venture-backed founders and modern brands.
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function WorksSection({ onSelectProject }) {
                   // SAAS UI COMPONENT MOTION &amp; PRODUCT EXPLAINERS
                 </span>
                 <span className="text-xs font-mono text-[#00F0FF]">
-                  60FPS KINETIC PRECISION
+                  KINETIC COMPONENT PRECISION
                 </span>
               </div>
 
@@ -220,7 +220,7 @@ export default function WorksSection({ onSelectProject }) {
                       <div className="space-y-2">
                         <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
                           <span className="text-[#5c59e8]">{vid.category || "SaaS UI"}</span>
-                          <span className="text-emerald-400 font-bold">{vid.metrics || "60fps"}</span>
+                          <span className="text-emerald-400 font-bold">{vid.metrics || "Fluid Motion"}</span>
                         </div>
                         <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-[#a4a2ff] transition-colors">
                           {vid.title}

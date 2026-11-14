@@ -41,7 +41,7 @@ export default function Navbar({ onOpenContact }) {
       <div className="max-w-[1280px] mx-auto">
         <div className="flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-full bg-[#141418]/90 backdrop-blur-xl border border-white/[0.1] shadow-2xl">
           
-          {/* Brand Logo & Art Director Tag */}
+          {/* Brand Logo */}
           <a
             href="#hero"
             onClick={(e) => handleNavClick(e, '#hero')}
@@ -55,14 +55,9 @@ export default function Navbar({ onOpenContact }) {
                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
               />
             </div>
-            <div className="flex items-center gap-2">
-              <span className="font-display font-bold text-sm tracking-wide uppercase text-white group-hover:text-neutral-300 transition-colors">
-                Prince Singh
-              </span>
-              <span className="hidden sm:inline-block px-2 py-0.5 rounded-full bg-[#5c59e8]/20 border border-[#5c59e8]/40 text-[10px] font-mono uppercase tracking-wider text-[#a4a2ff]">
-                Art Director
-              </span>
-            </div>
+            <span className="font-display font-bold text-sm tracking-wide uppercase text-white group-hover:text-neutral-300 transition-colors">
+              Prince Singh
+            </span>
           </a>
 
           {/* Desktop Nav Links */}

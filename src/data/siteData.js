@@ -1,22 +1,22 @@
 export const personalInfo = {
   name: "Prince Singh",
-  title: "Art Director & Lead Video Editor",
+  title: "Senior Video Editor & Motion Designer",
   roleSubtitle: "Motion Graphics, SaaS UI Animation, Documentary Edits, Storytelling & AI Editing Workflows",
   location: "Udaipur, India — Operating Worldwide (UTC+5:30)",
-  availability: "AVAILABLE FOR DIRECTING & EDITING PROJECTS // OPERATING WORLDWIDE",
+  availability: "AVAILABLE FOR SELECTED EDITING & MOTION PROJECTS // OPERATING WORLDWIDE",
   status: "Available for new projects",
   experienceYears: "8+",
   since: "2018",
   clientsCount: "150+",
   rolesRotator: [
-    "60fps SaaS UI Animation",
+    "High-Retention Video Editing",
+    "SaaS UI Animation",
     "Documentary Storytelling",
     "AI Automation Workflows",
-    "High-Retention Reels",
-    "Brand & Packaging Systems"
+    "Brand & Motion Systems"
   ],
-  bio: "Art Director and Lead Video Editor with 8+ years architecting high-retention video content, 60fps SaaS UI motion graphics, documentary edits, and multidisciplinary brand systems. I bridge deep narrative storytelling and sound design with cutting-edge AI post-production workflows to help venture-backed founders and ambitious creators scale through visual impact.",
-  philosophy: "INDEPENDENT CREATIVE DIRECTION DELIVERING STRATEGY-LED VIDEO EDITING, HIGH-FRAMERATE SAAS MOTION, AND BRAND SYSTEMS BUILT TO COMMAND ATTENTION.",
+  bio: "Senior Video Editor and Motion Designer with 8+ years architecting high-retention video content, SaaS UI motion graphics, documentary edits, and multidisciplinary brand systems. I bridge deep narrative storytelling and sound design with cutting-edge AI post-production workflows to help venture-backed founders and ambitious creators scale through visual impact.",
+  philosophy: "STRATEGY-LED VIDEO EDITING, HIGH-RETENTION SAAS MOTION, AND BRAND SYSTEMS BUILT TO COMMAND ATTENTION.",
   socials: [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/princesinghcreates", handle: "princesinghcreates" },
     { name: "YouTube", url: "https://www.youtube.com/@PrinceSinghCreates", handle: "@PrinceSinghCreates" },

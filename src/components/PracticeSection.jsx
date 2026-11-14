@@ -17,10 +17,10 @@ export default function PracticeSection({ onOpenContact }) {
     },
     {
       id: "02",
-      title: "60fps Motion Graphics & SaaS UI Animation",
+      title: "Motion Graphics & SaaS UI Animation",
       tag: "KINETIC COMPONENT MOTION",
       description: "Fluid product launch explainers, interactive UI component animations, cursor rigs, and kinetic SaaS onboarding visuals. Bringing static wireframes and designs to life with mathematically tuned easing curves.",
-      metrics: "60fps Fluid Motion",
+      metrics: "Fluid UI Motion",
       software: ["After Effects", "Illustrator", "Figma", "Custom Expressions"],
       icon: Sparkles
     },
@@ -28,7 +28,7 @@ export default function PracticeSection({ onOpenContact }) {
       id: "03",
       title: "AI Automation Workflows for Editing",
       tag: "NEXT-GEN POST-PRODUCTION",
-      description: "Engineering modern automated post-production pipelines: script-to-cut rough assembly, AI speech isolation, automated word-level subtitle alignment, and generative b-roll synthesis—combining cutting-edge speed with bespoke human art direction.",
+      description: "Engineering modern automated post-production pipelines: script-to-cut rough assembly, AI speech isolation, automated word-level subtitle alignment, and generative b-roll synthesis—combining cutting-edge speed with bespoke human taste and editorial precision.",
       metrics: "2.5x Turnaround Speed",
       software: ["Custom JSX Scripts", "Topaz Video AI", "Whisper AI", "Automated Pipelines"],
       icon: Cpu

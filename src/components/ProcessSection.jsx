@@ -14,7 +14,7 @@ export default function ProcessSection() {
     {
       num: "02",
       title: "Kinetic Storyboard & Style Frames",
-      tagline: "60FPS MOTION PREVIEWS",
+      tagline: "KINETIC MOTION PREVIEWS",
       description: "Before diving into timeline assembly, we produce key styleframes and kinetic motion tests. Complex UI interactions, typography systems, and camera moves are locked down for client alignment.",
       deliverables: ["Interactive Styleframes", "UI Asset Breakdown", "Easing Curve Proofs"]
     },

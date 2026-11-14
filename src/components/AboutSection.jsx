@@ -6,7 +6,7 @@ import { personalInfo } from '../data/siteData';
 export default function AboutSection({ onOpenContact }) {
   const tools = [
     { name: "Adobe Premiere Pro", level: "Expert // Narrative & Pacing" },
-    { name: "Adobe After Effects", level: "Master // 60fps UI & Motion Rigs" },
+    { name: "Adobe After Effects", level: "Master // SaaS UI & Motion Rigs" },
     { name: "DaVinci Resolve", level: "Advanced // Cinematic Grading" },
     { name: "Adobe Illustrator", level: "Proficient // Vector & Branding" },
     { name: "Adobe Audition", level: "Foley & Sound Design Mastering" },
@@ -22,7 +22,7 @@ export default function AboutSection({ onOpenContact }) {
           <div className="flex items-center gap-2">
             <span className="text-[#5c59e8] font-bold">05</span>
             <span className="text-white font-bold">//</span>
-            <span className="text-neutral-300 font-semibold tracking-widest">ABOUT THE ART DIRECTOR</span>
+            <span className="text-neutral-300 font-semibold tracking-widest">ABOUT PRINCE SINGH</span>
           </div>
           <div className="text-[#5c59e8] font-mono text-[11px] hidden sm:block">
             INDEPENDENT STUDIO
@@ -52,7 +52,7 @@ export default function AboutSection({ onOpenContact }) {
                     Prince Singh
                   </h4>
                   <p className="text-xs font-mono uppercase text-[#a4a2ff]">
-                    Art Director &amp; Lead Video Editor
+                    Senior Video Editor &amp; Motion Designer
                   </p>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-mono uppercase text-white">

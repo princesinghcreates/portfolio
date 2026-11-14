@@ -49,7 +49,7 @@ export default function Preloader() {
         >
           <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-neutral-400">
             <span>PRINCE SINGH</span>
-            <span>ART DIRECTOR &amp; LEAD VIDEO EDITOR</span>
+            <span>SENIOR VIDEO EDITOR &amp; MOTION DESIGNER</span>
           </div>
 
           <div className="flex flex-col items-center justify-center">
@@ -67,7 +67,7 @@ export default function Preloader() {
 
           <div className="flex items-center justify-between text-xs font-mono uppercase tracking-widest text-neutral-400">
             <span>PORTFOLIO ARCHIVE</span>
-            <span>2026 // 60FPS</span>
+            <span>2026 EDITION</span>
           </div>
         </motion.div>
       )}

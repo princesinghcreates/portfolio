@@ -43,7 +43,7 @@ export default function ConnectSection({ onOpenContact }) {
           </h2>
 
           <p className="text-base sm:text-xl text-neutral-400 font-light max-w-2xl mx-auto leading-relaxed pt-2">
-            Looking to elevate your product walkthrough, scale your YouTube retention, or ship a 60fps SaaS launch video? Let's connect.
+            Looking to elevate your product walkthrough, scale your YouTube retention, or ship a high-converting SaaS launch video? Let's connect.
           </p>
         </div>
 
@@ -180,7 +180,7 @@ export default function ConnectSection({ onOpenContact }) {
         {/* Bottom Footer Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/[0.08] pt-8 text-xs font-mono uppercase tracking-widest text-neutral-500">
           <div>
-            © 2026 PRINCE SINGH • ART DIRECTOR &amp; LEAD VIDEO EDITOR
+            © 2026 PRINCE SINGH • SENIOR VIDEO EDITOR & MOTION DESIGNER
           </div>
           <button
             onClick={scrollToTop}
