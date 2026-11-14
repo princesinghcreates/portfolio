@@ -39,9 +39,9 @@ export default function AboutSection({ onOpenContact }) {
           <div className="lg:col-span-5 flex justify-center">
             <div className="w-full max-w-md aspect-[3/4] rounded-3xl overflow-hidden bg-[#18181f] border border-white/10 shadow-2xl relative group">
               <img
-                src="/assets/Dynamic Phone Call Art.png"
-                alt="Prince Singh"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter contrast-105"
+                src="/assets/prince-singh-portrait.webp"
+                alt="Prince Singh — Senior Video Editor & Motion Designer"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out filter contrast-[1.05]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />

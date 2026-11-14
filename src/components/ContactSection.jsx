@@ -58,7 +58,7 @@ export default function ContactSection({ onOpenContact }) {
               className="w-64 sm:w-80 aspect-[3/4] rounded-3xl overflow-hidden bg-[#c11c1c] border border-white/10 shadow-2xl relative"
             >
               <img
-                src="/assets/Dynamic Phone Call Art.png"
+                src="/assets/prince-singh-portrait.webp"
                 alt="Prince Singh"
                 className="w-full h-full object-cover object-center filter contrast-110"
                 loading="lazy"
