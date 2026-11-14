@@ -311,7 +311,7 @@ export default function PortfolioSection({ onSelectProject, onOpenPosters }) {
             </div>
           </div>
           <p className="text-sm sm:text-base text-neutral-400 max-w-3xl mb-14 font-light leading-relaxed">
-            Fluid 60fps component interactions, dashboard transitions, and product explainer sequences designed to clarify complex B2B workflows and maximize user conversion.
+            Fluid UI component interactions, dashboard transitions, and product explainer sequences designed to clarify complex B2B workflows and maximize user conversion.
           </p>
 
           {/* Featured Hero Rig: LeadsFinder */}

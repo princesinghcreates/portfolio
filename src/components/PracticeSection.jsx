@@ -17,9 +17,9 @@ export default function PracticeSection({ onOpenContact }) {
     },
     {
       id: "02",
-      title: "Motion Graphics & SaaS UI Animation",
-      tag: "KINETIC COMPONENT MOTION",
-      description: "Fluid product launch explainers, interactive UI component animations, cursor rigs, and kinetic SaaS onboarding visuals. Bringing static wireframes and designs to life with mathematically tuned easing curves.",
+      title: "Motion Graphics, UI & Text Animation",
+      tag: "KINETIC COMPONENT & TYPOGRAPHY MOTION",
+      description: "Fluid product launch explainers, kinetic typography, animated title sequences, interactive UI component motion, and kinetic SaaS onboarding visuals. Bringing static wireframes and designs to life with mathematically tuned easing curves.",
       metrics: "Fluid UI Motion",
       software: ["After Effects", "Illustrator", "Figma", "Custom Expressions"],
       icon: Sparkles
@@ -44,9 +44,9 @@ export default function PracticeSection({ onOpenContact }) {
     },
     {
       id: "05",
-      title: "Brand Identity, Packaging & Editorial Posters",
-      tag: "PHYSICAL & DIGITAL VISUAL SYSTEMS",
-      description: "End-to-end minimalist brand identity systems, retail-ready luxury packaging dielines, structural mockups, and experimental high-contrast Swiss/Brutalist editorial posters for cultural and modern consumer brands.",
+      title: "Brand Identity, Logo & Packaging Design",
+      tag: "PHYSICAL & DIGITAL BRAND SYSTEMS",
+      description: "End-to-end bespoke brand identities, distinctive logo marks, retail-ready luxury packaging dielines, structural 3D mockups, and high-impact editorial poster design for modern consumer brands and ambitious ventures.",
       metrics: "Comprehensive Systems",
       software: ["Illustrator", "Photoshop", "InDesign", "Physical Dielines"],
       icon: Box

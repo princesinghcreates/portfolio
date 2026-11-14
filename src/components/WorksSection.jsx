@@ -155,7 +155,7 @@ export default function WorksSection({ onSelectProject }) {
                 <span className="text-xs font-mono uppercase tracking-widest text-neutral-400">
                   // SAAS UI COMPONENT MOTION &amp; PRODUCT EXPLAINERS
                 </span>
-                <span className="text-xs font-mono text-[#00F0FF]">
+                <span className="text-xs font-mono text-[#a4a2ff]">
                   KINETIC COMPONENT PRECISION
                 </span>
               </div>

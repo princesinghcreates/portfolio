@@ -6,7 +6,7 @@ export default function Hero({ onOpenContact }) {
   const [time, setTime] = useState('');
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
-  // Pure craft roles: no "Art Director" and no "60fps SaaS UI animation"
+  // Pure craft roles: Video editing, motion design, storytelling
   const roles = [
     "Senior Video Editor",
     "Motion Designer",
@@ -208,11 +208,11 @@ export default function Hero({ onOpenContact }) {
 
           {/* KPI 4: Retention */}
           <div className="flex flex-col items-center sm:items-start lg:items-center text-center sm:text-left lg:text-center px-4 sm:px-6 pt-4 sm:pt-0">
-            <span className="font-display font-bold text-3xl sm:text-4xl text-[#00F0FF] tracking-tight">
-              96%
+            <span className="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+              94%
             </span>
             <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">
-              Average Video Retention
+              Client Retention Rate
             </span>
           </div>
 

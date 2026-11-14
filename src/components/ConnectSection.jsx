@@ -137,10 +137,10 @@ export default function ConnectSection({ onOpenContact }) {
             className="harron-card p-6 flex flex-col justify-between group"
           >
             <div className="space-y-3">
-              <div className="w-10 h-10 rounded-full bg-[#00F0FF]/20 border border-[#00F0FF]/40 flex items-center justify-center text-[#00F0FF]">
+              <div className="w-10 h-10 rounded-full bg-[#5c59e8]/20 border border-[#5c59e8]/40 flex items-center justify-center text-[#a4a2ff]">
                 <Mail className="w-5 h-5" />
               </div>
-              <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-[#00F0FF] transition-colors">
+              <h4 className="font-display font-bold text-lg text-white uppercase tracking-wide group-hover:text-[#a4a2ff] transition-colors">
                 Direct Email Inquiry
               </h4>
               <p className="text-xs text-neutral-400 font-light leading-relaxed">

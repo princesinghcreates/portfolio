@@ -32,7 +32,7 @@ export default function CreatorVaultSection({ onOpenContact }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-[11px] font-mono uppercase tracking-widest text-blue-300 mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#00F0FF]" />
+              <Sparkles className="w-3.5 h-3.5 text-[#5c59e8]" />
               <span>COMMERCIAL SOURCE FILES &amp; PRESETS</span>
             </div>
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[0.9] font-display">
@@ -41,7 +41,7 @@ export default function CreatorVaultSection({ onOpenContact }) {
           </div>
           <div className="lg:col-span-5">
             <p className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed">
-              Production-ready motion rigs, After Effects source files, and expression toolkits built for video editors, motion designers, and SaaS product teams looking to ship high-retention visuals at 60fps.
+              Production-ready motion rigs, After Effects source files, and expression toolkits built for video editors, motion designers, and SaaS product teams looking to ship high-retention visuals and seamless motion.
             </p>
           </div>
         </div>

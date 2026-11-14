@@ -6,7 +6,7 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    service: defaultService || 'SaaS UI & Explainer Motion',
+    service: defaultService || 'Narrative & Documentary Video Editing',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -165,12 +165,12 @@ export default function ContactModal({ isOpen, onClose, defaultService }) {
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-[#12141F] border border-white/10 text-white focus:outline-none focus:border-blue-400 transition-colors text-sm"
                   >
-                    <option value="SaaS UI & Explainer Motion">SaaS UI & Explainer Motion</option>
                     <option value="Narrative & Documentary Video Editing">Narrative & Documentary Video Editing</option>
+                    <option value="SaaS UI & Text Animation">SaaS UI & Text Animation</option>
+                    <option value="Motion Graphics & Product Explainers">Motion Graphics & Product Explainers</option>
                     <option value="Short-Form Retention Edits (Reels & Shorts)">Short-Form Retention Edits (Reels & Shorts)</option>
-                    <option value="Brand Identity & Visual Systems">Brand Identity & Visual Systems</option>
-                    <option value="Packaging Design">Packaging Design</option>
-                    <option value="Creator Vault / Custom Motion Rig">Creator Vault / Custom Motion Rig</option>
+                    <option value="AI Automation Workflows for Editing">AI Automation Workflows for Editing</option>
+                    <option value="Brand Identity, Logo & Packaging Design">Brand Identity, Logo & Packaging Design</option>
                   </select>
                 </div>
 

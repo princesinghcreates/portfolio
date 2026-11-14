@@ -33,7 +33,7 @@ export const testimonials = [
     role: "Founder & CEO",
     company: "LeadsFinder AI",
     metric: "3.2x Sign-up Lift",
-    quote: "Prince completely transformed our SaaS launch. His ability to turn dry product wireframes into a fluid, 60fps kinetic motion walkthrough drove over 120,000 views on X and directly doubled our beta conversions in week one."
+    quote: "Prince completely transformed our SaaS launch. His ability to turn dry product wireframes into a fluid, kinetic motion walkthrough drove over 120,000 views on X and directly doubled our beta conversions in week one."
   },
   {
     id: "test-2",
@@ -387,7 +387,7 @@ export const creatorVaultAssets = [
   {
     id: "vault-1",
     title: "SaaS Glassmorphic UI Component Rig",
-    subtitle: "Modular 60fps Dashboard & Cursor Animation Kit",
+    subtitle: "Modular SaaS Dashboard & Cursor Animation Kit",
     category: "AE PROJECT FILE (.AEP)",
     compatibility: "After Effects 2024+ | No Plugins Required",
     preview: "/assets/portfolio/motion/animentor-academy-saas.mp4",
