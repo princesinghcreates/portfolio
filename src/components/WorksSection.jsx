@@ -115,36 +115,6 @@ export default function WorksSection({ onSelectProject }) {
                   </div>
                 ))}
               </div>
-
-              {/* 9:16 Vertical Mobile Reels */}
-              <div className="pt-6">
-                <div className="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-6">
-                  VERTICAL SHORT-FORM (9:16 REELS &amp; SHORTS)
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto gap-8">
-                  {reelsPortfolio.verticalVideos.filter(v => v.aspectRatio === "9:16").map((reel) => (
-                    <div key={reel.id} className="harron-card p-5 flex flex-col justify-between">
-                      <AudioVideoPlayer
-                        src={reel.src}
-                        poster={reel.poster}
-                        title={reel.title}
-                        category={reel.category}
-                        aspectRatio="9/16"
-                        className="w-full shadow-2xl"
-                      />
-                      <div className="pt-4 px-1 space-y-1">
-                        <div className="flex items-center justify-between text-xs font-mono text-neutral-400">
-                          <span>{reel.category}</span>
-                          <span className="text-emerald-400 font-bold">{reel.metrics}</span>
-                        </div>
-                        <h5 className="font-display font-medium text-lg text-white tracking-wide">
-                          {reel.title}
-                        </h5>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           )}
 
