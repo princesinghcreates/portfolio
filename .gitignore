@@ -29,3 +29,16 @@ cloudflared.exe
 *.opt.*
 *.backup.mp4
 *_original_backup.mp4
+public/assets/portfolio/reels/time-new.mp4
+public/assets/portfolio/reels/commercial-lifestyle-brand-reels.mp4
+public/assets/portfolio/reels/creator-retention-podcast-reel.mp4
+*.backup.html
+*.legacy.html
+*.pre-critique.html
+*.tmp.png
+scripts/*.py
+scripts/__pycache__/
+scripts/all_frame_options/
+scripts/video_frame_candidates/
+scripts/contact_sheets/
+scripts/extracted_hero.html

@@ -7,7 +7,10 @@ export default defineConfig({
     port: 3000,
     open: false,
     host: true,
-    allowedHosts: true
+    allowedHosts: true,
+    watch: {
+      ignored: ['**/public/assets/**', '**/*.mp4']
+    }
   },
   preview: {
     port: 3000,

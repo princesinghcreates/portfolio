@@ -23,6 +23,14 @@ export default function Layout({ children, onOpenContact }) {
 
       {/* Universal Footer: Renders across Home, Case Studies, and all routes */}
       <ConnectSection onOpenContact={() => onOpenContact()} />
+
+      {/* Floating Redesign Review Switcher Pill */}
+      <aside aria-label="Redesign preview switcher" className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#5C59E8] text-white shadow-2xl hover:bg-[#4d4ac7] transition-all hover:scale-105">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <a href="/preview-redesign.html" className="text-xs font-bold tracking-tight">
+          Review Redesigned Site (White Theme) &rarr;
+        </a>
+      </aside>
     </div>
   );
 }

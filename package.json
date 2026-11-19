@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "optimize": "node scripts/optimize-assets.js",
-    "prebuild": "node scripts/optimize-assets.js",
     "build": "vite build",
     "preview": "vite preview"
   },
