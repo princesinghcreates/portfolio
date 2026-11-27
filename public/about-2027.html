@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Prince Singh — Senior Video Editor, Motion Designer &amp; Brand Designer</title>
+
+  <!-- Strictly Cabinet Grotesk (Display/Headings) + Satoshi (Body/UI) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" />
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700&display=swap" />
+
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            alabaster: '#E5E3DD',
+            mist: '#DAD7D0',
+            obsidian: '#181715',
+            ink: '#1C1B19',
+            ash: '#635F59',
+            terracotta: { DEFAULT: '#C94B33', dark: '#A33925', soft: '#E8CFC8' },
+            slatecool: '#B5BAC0',
+          },
+          fontFamily: {
+            sans: ['Satoshi', 'system-ui', 'sans-serif'],
+            heading: ["'Cabinet Grotesk'", 'system-ui', 'sans-serif'],
+            mono: ['Satoshi', 'system-ui', 'sans-serif'],
+          },
+          borderRadius: { card: '16px' }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Satoshi', system-ui, sans-serif; background-color: #E5E3DD; color: #1C1B19; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    h1, h2, h3, .font-heading { font-family: 'Cabinet Grotesk', system-ui, sans-serif; letter-spacing: -0.03em; }
+    .font-mono { font-family: 'Satoshi', system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+    #ambient-mesh {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
+      background: radial-gradient(circle at 82% 18%, rgba(181,186,192,0.55) 0%, transparent 48%), radial-gradient(circle at 18% 85%, rgba(184,85,66,0.28) 0%, transparent 52%), linear-gradient(155deg, #E7E5DF 0%, #DDDAD3 55%, #D5D2CA 100%);
+    }
+    #cursor-aura { position: absolute; width: 680px; height: 680px; border-radius: 9999px; background: radial-gradient(circle, rgba(184,85,66,0.24) 0%, rgba(181,186,192,0.14) 42%, transparent 72%); filter: blur(55px); transform: translate3d(-50%, -50%, 0); }
+    .film-grain { position: fixed; inset: 0; z-index: 9998; pointer-events: none; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .obsidian-atmosphere { background: radial-gradient(circle at 15% 25%, rgba(184,85,66,0.20) 0%, transparent 48%), radial-gradient(circle at 85% 75%, rgba(181,186,192,0.12) 0%, transparent 50%), linear-gradient(160deg, #131210 0%, #181715 55%, #1E1C19 100%); }
+  </style>
+</head>
+<body class="text-ink selection:bg-terracotta selection:text-white">
+  <div id="ambient-mesh" aria-hidden="true"><div id="cursor-aura"></div></div>
+  <div class="film-grain" aria-hidden="true"></div>
+
+  <div class="bg-obsidian text-alabaster/85 text-xs py-2 px-4 sm:px-8 flex items-center justify-between border-b border-white/10">
+    <span class="font-mono text-[11px]">ABOUT // PRINCE SINGH CREATES</span>
+    <a href="/preview-2027.html" class="underline underline-offset-4 hover:text-terracotta-soft transition-colors font-medium">← Back to Portfolio Preview</a>
+  </div>
+
+  <header class="sticky top-0 z-40 bg-alabaster/70 backdrop-blur-md border-b border-ink/10">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 h-[68px] flex items-center justify-between gap-6">
+      <a href="/preview-2027.html" class="flex items-center gap-3 shrink-0">
+        <span class="font-heading font-bold tracking-tight text-xl text-ink">PRINCE SINGH</span>
+        <span class="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-mono bg-ink/8 text-ash border border-ink/10">MOTION &amp; DESIGN PARTNER</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono uppercase tracking-[0.16em] text-ash">
+        <a href="/preview-2027.html#index" class="hover:text-ink transition-colors">01 Index</a>
+        <a href="/preview-2027.html#design" class="hover:text-ink transition-colors">02 Brand</a>
+        <a href="/preview-2027.html#workflow" class="hover:text-ink transition-colors">03 Approach</a>
+        <a href="/about-2027.html" class="text-terracotta font-semibold">04 About</a>
+      </nav>
+      <a href="/preview-2027.html#contact" class="shrink-0 inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-obsidian hover:bg-terracotta text-alabaster text-sm font-semibold transition-colors">
+        Book a Discovery Call
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-[1440px] mx-auto px-6 lg:px-10 py-16 lg:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="lg:col-span-5">
+        <figure class="rounded-card overflow-hidden border border-ink/15 bg-[#DFDDD6] shadow-xl">
+          <div class="aspect-[4/4.3] overflow-hidden">
+            <img src="/prince-about-2027.jpg" alt="Prince Singh Portrait" class="w-full h-full object-cover object-top mix-blend-multiply brightness-[1.08] contrast-[1.14]" />
+          </div>
+          <figcaption class="px-5 py-3.5 border-t border-ink/12 bg-alabaster/75 flex items-center justify-between text-[11px] font-mono uppercase tracking-[0.16em] text-ash">
+            <span class="text-ink font-medium">Prince Singh</span>
+            <span>Since 1999</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6">
+        <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-terracotta">ABOUT ME // UDAIPUR, INDIA — OPERATING WORLDWIDE (UTC+5:30)</p>
+        <h1 class="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight text-ink">
+          Architecting Retention &amp; Product Motion.
+        </h1>
+        <p class="text-base sm:text-lg text-ash leading-relaxed">
+          With over 8 years of multidisciplinary design and post-production experience, I engineer high-performing video content, kinetic SaaS UI animations, and narrative-driven edits that captivate audiences and drive conversions.
+        </p>
+        <p class="text-base sm:text-lg text-ash leading-relaxed">
+          Operating as an independent creative partner, I combine rigorous technical precision in After Effects and Premiere Pro with high-end aesthetic taste in brand identity and packaging design to help ambitious brands and startups scale through visual storytelling. No fluff, no generic templates—just high-end motion and editing built to perform.
+        </p>
+
+        <div class="p-5 rounded-card bg-white/50 border border-ink/12">
+          <p class="font-mono text-[11px] uppercase tracking-wider text-terracotta mb-1">PHILOSOPHY</p>
+          <p class="font-heading text-xl font-bold text-ink">EXECUTION OVER PERFECTION. STRATEGY OVER PIXELS.</p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 pt-2">
+          <span class="px-4 py-2 rounded-full bg-white/60 border border-ink/12 text-xs font-mono text-ink">SaaS UI Component Motion</span>
+          <span class="px-4 py-2 rounded-full bg-white/60 border border-ink/12 text-xs font-mono text-ink">Narrative Storytelling &amp; Retention Pacing</span>
+          <span class="px-4 py-2 rounded-full bg-white/60 border border-ink/12 text-xs font-mono text-ink">After Effects &amp; Premiere Pro Rigging</span>
+          <span class="px-4 py-2 rounded-full bg-white/60 border border-ink/12 text-xs font-mono text-ink">Brand Identity &amp; Packaging</span>
+        </div>
+
+        <div class="pt-4 flex flex-wrap gap-4">
+          <a href="/preview-2027.html#contact" class="px-7 py-3.5 rounded-full bg-obsidian hover:bg-terracotta text-alabaster text-sm font-semibold transition-colors">
+            Start a Project
+          </a>
+          <a href="https://www.instagram.com/princesingh.creates/" target="_blank" rel="noreferrer" class="px-6 py-3.5 rounded-full border border-ink/20 hover:border-terracotta text-ink text-sm font-semibold bg-white/40 transition-colors">
+            Connect on Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="obsidian-atmosphere text-alabaster py-10 mt-12">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-alabaster/65">
+      <p>© 2027 PRINCE SINGH CREATES // INDEPENDENT MOTION DESIGNER &amp; VIDEO EDITOR</p>
+      <div class="flex items-center gap-6">
+        <a href="/preview-2027.html" class="hover:text-terracotta-soft">PORTFOLIO</a>
+        <a href="https://www.linkedin.com/in/princesinghcreates" target="_blank" rel="noreferrer" class="hover:text-terracotta-soft">LINKEDIN</a>
+        <a href="https://www.youtube.com/@PrinceSinghCreates" target="_blank" rel="noreferrer" class="hover:text-terracotta-soft">YOUTUBE</a>
+        <a href="https://www.instagram.com/princesingh.creates/" target="_blank" rel="noreferrer" class="hover:text-terracotta-soft">INSTAGRAM</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const aura = document.getElementById('cursor-aura');
+    if (aura) {
+      let ax = window.innerWidth * 0.35, ay = window.innerHeight * 0.7, tax = ax, tay = ay;
+      window.addEventListener('mousemove', (e) => { tax = e.clientX; tay = e.clientY; });
+      (function animateAura() {
+        ax += (tax - ax) * 0.045; ay += (tay - ay) * 0.045;
+        aura.style.transform = `translate3d(${ax}px, ${ay}px, 0) translate(-50%, -50%)`;
+        requestAnimationFrame(animateAura);
+      })();
+    }
+  </script>
+</body>
+</html>
