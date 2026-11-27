@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/preview-2027.html"
+    },
+    {
       "source": "/((?!assets/|favicon.ico|preview-2027\\.html|about-2027\\.html|prince-about-2027\\.jpg).*)",
       "destination": "/index.html"
     }
